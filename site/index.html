@@ -1,0 +1,740 @@
+<title>Radar Itanhaém</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Raio-X de Itanhaém-SP: o que cada vereador fez desde a posse, só com dados oficiais da Câmara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: página única de rolagem, coluna de até 1040px; seções numa ordem de leitura (salário → bairro → problemas → trabalho → crachás) */
+:root{
+  --bg:#ffffff; --fg:#0e1a20; --muted:#5b6b72; --line:#e3e9ec; --soft:#f3f6f8; --card:#ffffff;
+  --accent:#0a63b8; --accent-soft:#e6f0fa; --signal:#e0322b; --ok:#16855a;
+  --panel:#0e1a20; --panel-fg:#ffffff; --panel-muted:#b7c4ca; --panel-signal:#ff8f80;
+  --g-melhoria:#0a63b8; --g-cobranca:#6a4bd1; --g-homenagem:#c81e6b; --g-lei:#11875a; --g-outros:#7c8b91;
+  --tint-1:#fdecec; --tint-2:#fdf6dc; --tint-3:#e5f6ee; --tint-4:#e8f0fb; --tint-5:#f2ebfb;
+  --shadow:0 1px 2px rgba(14,26,32,.06),0 4px 14px rgba(14,26,32,.06);
+  --f-display:"Archivo","Arial Black",Arial,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b1418; --fg:#e8eff2; --muted:#9aacb3; --line:#1f2f36; --soft:#13222a; --card:#101d23;
+  --accent:#5aa9f0; --accent-soft:#132c42; --signal:#ff6b5e; --ok:#4cc58e;
+  --panel:#16262e; --panel-fg:#ffffff; --panel-muted:#a9bac1; --panel-signal:#ff8f80;
+  --g-melhoria:#5aa9f0; --g-cobranca:#a28cf2; --g-homenagem:#f06aa5; --g-lei:#4cc58e; --g-outros:#7f9097;
+  --tint-1:#2a1a1c; --tint-2:#2a2617; --tint-3:#14271f; --tint-4:#14223a; --tint-5:#211a33;
+  --shadow:none; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1418; --fg:#e8eff2; --muted:#9aacb3; --line:#1f2f36; --soft:#13222a; --card:#101d23;
+  --accent:#5aa9f0; --accent-soft:#132c42; --signal:#ff6b5e; --ok:#4cc58e;
+  --panel:#16262e; --panel-fg:#ffffff; --panel-muted:#a9bac1; --panel-signal:#ff8f80;
+  --g-melhoria:#5aa9f0; --g-cobranca:#a28cf2; --g-homenagem:#f06aa5; --g-lei:#4cc58e; --g-outros:#7f9097;
+  --tint-1:#2a1a1c; --tint-2:#2a2617; --tint-3:#14271f; --tint-4:#14223a; --tint-5:#211a33;
+  --shadow:none; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 var(--f-body);margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.08;margin:0}
+.num{font-variant-numeric:tabular-nums}
+button{font:inherit;color:inherit}
+button:disabled{opacity:.45;cursor:default}
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+
+/* ---------- Topo ---------- */
+header.hero{padding-block:22px 8px;display:grid;gap:16px}
+.aovivo{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;background:var(--soft);border-radius:999px;padding:5px 14px;justify-self:start}
+.aovivo i{width:9px;height:9px;border-radius:50%;background:var(--signal)}
+@media (prefers-reduced-motion:no-preference){.aovivo i{animation:pulso 1.6s ease-in-out infinite}}
+@keyframes pulso{50%{opacity:.2}}
+.marca{display:flex;align-items:center;gap:14px;color:var(--fg)}
+.marca svg{flex:none;width:clamp(56px,13vw,104px);height:auto}
+.marca .w{display:grid;line-height:.86}
+.marca .w b{font-family:var(--f-display);font-weight:900;font-size:clamp(2.6rem,11vw,5.4rem);letter-spacing:-.035em;text-transform:uppercase}
+.marca .w b + b{color:var(--accent)}
+.intro{font-size:1.2rem;max-width:30ch;margin:0}
+.placar{background:var(--panel);color:var(--panel-fg);border-radius:16px;padding:20px 22px;display:grid;gap:6px;min-width:0}
+.placar .lbl{font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--panel-signal)}
+.placar .valor{font-family:var(--f-display);font-weight:900;font-size:clamp(2.1rem,9.5vw,4rem);line-height:1.02;letter-spacing:-.025em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.placar .sub{font-size:.85rem;color:var(--panel-muted)}
+.placar .sub a{color:var(--panel-fg)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media (max-width:640px){.tiles{grid-template-columns:repeat(2,1fr)}}
+.tile{background:var(--soft);border-radius:12px;padding:14px 16px;display:grid;gap:4px;align-content:start}
+.tile .n{font-family:var(--f-display);font-weight:900;font-size:clamp(1.7rem,6vw,2.4rem);line-height:1;font-variant-numeric:tabular-nums}
+.tile .l{font-size:.85rem;color:var(--muted);line-height:1.3}
+.nav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-block:4px}
+.nav a{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.88rem;color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.nav a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- Seções ---------- */
+main section{padding-block:44px 8px;display:grid;gap:18px;scroll-margin-top:12px}
+.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cab-sec{display:grid;gap:8px}
+.cab-sec h2{font-size:clamp(1.8rem,6vw,2.6rem);font-weight:900;letter-spacing:-.02em}
+.cab-sec p{margin:0;color:var(--muted);max-width:62ch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+
+/* busca */
+.busca{display:flex;gap:8px}
+.busca input{flex:1;min-width:0;font:inherit;font-size:1.05rem;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg)}
+.busca input:focus{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:.9rem;font-weight:600}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.total-local{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.total-local .n{font-family:var(--f-display);font-weight:900;font-size:clamp(2.4rem,9vw,3.6rem);line-height:1;color:var(--accent)}
+.tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:820px){.tres{grid-template-columns:1fr}}
+.rank h3{font-family:var(--f-body);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.rank ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.rank li{display:grid;gap:4px}
+.rank .linha{display:flex;align-items:center;gap:10px;min-width:0}
+.rank .linha .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.rank .linha .nm small{color:var(--muted);font-weight:500}
+.rank .linha .v{font-weight:800;font-variant-numeric:tabular-nums}
+.rank .bar{height:5px;border-radius:3px;background:var(--soft);overflow:hidden}
+.rank .bar i{display:block;height:100%;border-radius:3px}
+.rank button.linha{background:none;border:0;padding:0;cursor:pointer;text-align:left;width:100%}
+.rank button.linha:hover .nm{color:var(--accent)}
+.av{flex:none;width:30px;height:30px;border-radius:50%;object-fit:cover;object-position:50% 25%;background:var(--soft)}
+.ico{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-weight:800;font-size:.72rem}
+
+/* propostas */
+.props{display:grid;gap:12px}
+.prop{padding:16px 18px;display:grid;gap:10px}
+.prop .em{font-weight:600;overflow-wrap:anywhere}
+.prop .meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:.82rem;color:var(--muted)}
+.prop .pe{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap}
+.prop .autor{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600}
+.prop .autor .av{width:24px;height:24px}
+a.abrir{font-size:.85rem;font-weight:700;text-decoration:none}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;border-radius:6px;padding:2px 8px;background:var(--accent-soft);color:var(--accent)}
+.tag.neutra{background:var(--soft);color:var(--muted)}
+.btn-escuro{display:block;width:100%;border:0;background:var(--panel);color:var(--panel-fg);border-radius:12px;padding:14px;font-weight:700;cursor:pointer}
+
+/* problemas */
+.grade-rep{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.rep{padding:16px;display:grid;gap:10px;align-content:start}
+.rep .topo{display:flex;gap:12px;align-items:flex-start}
+.rep .vezes{display:grid;justify-items:center;line-height:1;color:var(--signal);min-width:3ch}
+.rep .vezes b{font-family:var(--f-display);font-weight:900;font-size:2.3rem}
+.rep .vezes small{font-size:.65rem;font-weight:800;letter-spacing:.1em}
+.rep h3{font-family:var(--f-body);font-size:1.02rem;font-weight:800;line-height:1.25}
+.rep .bairro{font-size:.85rem;color:var(--muted)}
+.rep .info{font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.rep button.cobrar{justify-self:start;background:none;border:0;padding:0;color:var(--signal);font-weight:800;cursor:pointer;font-size:.9rem}
+.aviso{border-left:4px solid var(--signal);background:var(--soft);padding:12px 14px;border-radius:0 10px 10px 0;font-size:.92rem;margin:0}
+
+/* trabalho */
+.grupos{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.grupo{padding:16px;display:grid;gap:8px;align-content:start;border-top:5px solid var(--gc)}
+.grupo .n{font-family:var(--f-display);font-weight:900;font-size:2.2rem;line-height:1;color:var(--gc);font-variant-numeric:tabular-nums}
+.grupo .t{font-weight:800;line-height:1.25}
+.grupo p{margin:0;font-size:.86rem;color:var(--muted)}
+.grupo button{justify-self:start;background:none;border:0;padding:0;color:var(--gc);font-weight:800;cursor:pointer}
+
+/* crachás */
+.filtros{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
+@media (max-width:700px){.filtros{grid-template-columns:1fr}}
+.filtros label{display:grid;gap:4px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.filtros input,.filtros select{font:inherit;font-size:.95rem;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--fg);min-width:0}
+.crachas{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.cracha{overflow:hidden;display:grid;align-content:start;scroll-margin-top:16px}
+.cracha .cab{padding:16px;display:flex;gap:14px;align-items:center;background:var(--tint)}
+.cracha .cab img{width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:50% 25%;border:3px solid var(--card);flex:none;background:var(--soft)}
+.cracha .cab h3{font-size:1.4rem;font-weight:900;letter-spacing:-.01em}
+.cracha .cab .nome{font-size:.8rem;color:var(--muted)}
+.pill{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--fg);color:var(--bg);border-radius:5px;padding:2px 7px}
+.cargo{font-size:.78rem;font-weight:700;margin-left:6px}
+.cracha .corpo{padding:16px;display:grid;gap:14px}
+.pres{display:flex;gap:14px;align-items:center}
+.pres svg{flex:none}
+.pres .txt{display:grid;gap:2px;font-size:.9rem}
+.pres .txt b{font-size:1rem}
+.aus{color:var(--signal);font-weight:700}
+.link-btn{background:none;border:0;padding:0;color:var(--accent);font-weight:700;cursor:pointer;text-align:left;justify-self:start}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.duo div{background:var(--soft);border-radius:10px;padding:10px 12px;display:grid}
+.duo b{font-family:var(--f-display);font-weight:900;font-size:1.3rem;font-variant-numeric:tabular-nums}
+.duo span{font-size:.78rem;color:var(--muted)}
+.subt{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.linhas{display:grid}
+.linhas button{display:flex;align-items:center;gap:10px;background:none;border:0;border-top:1px solid var(--line);padding:9px 0;cursor:pointer;text-align:left}
+.linhas button:not(:disabled):hover .t{color:var(--accent)}
+.dot{width:10px;height:10px;border-radius:3px;flex:none;display:inline-block}
+.linhas .t{flex:1;font-size:.92rem}
+.linhas .v{font-weight:800;font-variant-numeric:tabular-nums}
+.linhas .seta{color:var(--muted)}
+.cracha .rodape{padding:0 16px 16px;display:grid;gap:8px;font-size:.85rem}
+.cracha .rodape a{font-weight:700;text-decoration:none}
+.nota-voto{font-size:.82rem;color:var(--muted);background:var(--soft);border-radius:10px;padding:10px 12px}
+
+/* painel (dialog) */
+dialog.painel{width:min(720px,calc(100% - 24px));max-height:88vh;border:0;border-radius:18px;padding:0;background:var(--bg);color:var(--fg);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog.painel::backdrop{background:rgba(8,16,20,.55)}
+.painel .cab-p{position:sticky;top:0;background:var(--bg);padding:18px 20px 12px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;z-index:1}
+.painel .cab-p h3{font-size:1.35rem}
+.painel .cab-p p{margin:4px 0 0;font-size:.88rem;color:var(--muted)}
+.painel .fechar{border:1px solid var(--line);background:var(--soft);border-radius:999px;width:36px;height:36px;cursor:pointer;font-size:1.1rem;flex:none}
+.painel .conteudo{padding:16px 20px 22px;display:grid;gap:12px}
+.cobranca{background:var(--soft);border-radius:12px;padding:14px;display:grid;gap:10px}
+.cobranca textarea{font:inherit;font-size:.9rem;width:100%;min-height:96px;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--card);color:var(--fg);resize:vertical}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 14px;font-weight:700;cursor:pointer;justify-self:start}
+
+/* como funciona */
+.prose{max-width:68ch;display:grid;gap:12px}
+.prose h3{font-size:1.15rem;margin-top:10px}
+.prose p{margin:0}
+.tscroll{overflow-x:auto}
+table.t{border-collapse:collapse;width:100%;font-size:.9rem}
+table.t td,table.t th{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+/* folha e licitações */
+.dest{padding:16px;display:grid;gap:8px;align-content:start}
+.dest .x{font-family:var(--f-display);font-weight:900;font-size:2.1rem;line-height:1;color:var(--signal)}
+.dest h3{font-family:var(--f-body);font-size:1rem;font-weight:800;line-height:1.25}
+.pilha{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--soft)}
+.pilha i{display:block;height:100%}
+.leg{display:flex;gap:6px 16px;flex-wrap:wrap;font-size:.82rem;color:var(--muted);align-items:center}
+.valores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;font-size:.78rem;color:var(--muted)}
+.valores b{display:block;color:var(--fg);font-size:.95rem;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+table.t .r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+table.t thead th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.anual{display:grid;gap:4px}
+.anual button{display:grid;gap:6px;background:none;border:0;border-top:1px solid var(--line);padding:12px 0;cursor:pointer;text-align:left;width:100%}
+.anual button:hover .nm{color:var(--accent)}
+.anual .l1{display:flex;gap:10px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.anual .nm{font-weight:800}
+.anual .v{font-weight:900;font-family:var(--f-display);font-variant-numeric:tabular-nums}
+.sub3{font-family:var(--f-display);font-size:1.4rem;font-weight:900;letter-spacing:-.01em}
+.lic{padding:16px 18px;display:grid;gap:10px}
+.lic .obj{font-weight:600;overflow-wrap:anywhere}
+.lic .meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:.82rem;color:var(--muted)}
+.lic .pe{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center}
+.tag.ok{background:color-mix(in srgb,var(--ok) 15%,transparent);color:var(--ok)}
+.tag.alerta{background:color-mix(in srgb,var(--signal) 14%,transparent);color:var(--signal)}
+footer{border-top:1px solid var(--line);margin-top:48px;padding-block:22px 32px;color:var(--muted);font-size:.85rem}
+.loading{padding-block:40px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <span class="aovivo" id="aovivo"><i></i>Ao vivo · carregando dados</span>
+    <div class="marca" aria-label="Radar Itanhaém">
+      <svg viewBox="0 0 120 100" aria-hidden="true">
+        <path d="M22 14a50 50 0 0 0 0 72M98 14a50 50 0 0 1 0 72" stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M38 30a28 28 0 0 0 0 40M82 30a28 28 0 0 1 0 40" stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <circle cx="60" cy="50" r="11" fill="var(--accent)"/>
+      </svg>
+      <div class="w"><b>Radar</b><b>Itanhaém</b></div>
+    </div>
+    <p class="intro"><b>Raio-X de Itanhaém-SP.</b> O que cada vereador fez desde a posse, contado com dados oficiais.</p>
+    <div id="topo"></div>
+    <nav class="nav" aria-label="Seções">
+      <a href="#bairro">Seu bairro</a><a href="#problemas">Problemas que voltam</a><a href="#trabalho">Homenagem ou trabalho?</a><a href="#vereadores">Os vereadores</a><a href="#folha">Salários da Câmara</a><a href="#licitacoes">Licitações</a><a href="#como-funciona">Como funciona</a>
+    </nav>
+  </header>
+
+  <main id="app"><p class="loading">Carregando os dados da Câmara…</p></main>
+
+  <footer>
+    Fonte: portal oficial da <a href="https://www.itanhaem.sp.leg.br/" target="_blank" rel="noopener">Câmara Municipal de Itanhaém</a>. Fotos oficiais publicadas pela Câmara. Projeto independente, sem ligação com a Câmara, a Prefeitura ou partidos.
+    <span id="rodape-data"></span>
+  </footer>
+</div>
+
+<dialog class="painel" id="painel" aria-labelledby="painel-titulo">
+  <div class="cab-p"><div style="flex:1;min-width:0"><h3 id="painel-titulo"></h3><p id="painel-sub"></p></div><button class="fechar" type="button" aria-label="Fechar" id="painel-fechar">✕</button></div>
+  <div class="conteudo" id="painel-conteudo"></div>
+</dialog>
+
+<script>
+const CAMARA = "https://www.itanhaem.sp.leg.br";
+const linkDoc = id => `${CAMARA}/Siscam/Documentos/Details?id=${id}`;
+const linkArq = id => `${CAMARA}/Siscam/Documentos?handler=Arquivo&id=${id}`;
+const linkFicha = id => `${CAMARA}/Vereadores/Details?id=${id}`;
+const GRUPOS = [
+  ["melhoria","Pedidos de melhoria nos bairros","Roçar mato, nivelar rua de terra, limpar vala, trocar lâmpada, pintar lombada. É um pedido: a Prefeitura decide se faz."],
+  ["cobranca","Perguntas e cobranças","Pedidos de explicação à Prefeitura e a outros órgãos, como Sabesp, Neoenergia Elektro e o governo do estado."],
+  ["homenagem","Homenagens","Moções de aplauso ou pesar, título de cidadão, nome de rua e datas comemorativas."],
+  ["lei","Propostas de lei","Projetos que criam regra, programa ou obrigação na cidade, ou mudam as regras da Câmara."],
+  ["outros","Outros","Moções de repúdio e o que não se encaixa acima."],
+];
+const NOME_G = Object.fromEntries(GRUPOS.map(g=>[g[0],g[1]]));
+const ABREV = {"Indicação":"IND","Requerimento":"REQ","Moção":"MOC","Projeto de Lei":"PL","Projeto de Lei Complementar":"PLC","Projeto de Resolução":"PR","Projeto de Decreto Legislativo":"PDL","Projeto de Emenda à Lei Orgânica":"PELO","Substitutivo ao Projeto de Lei":"SUB"};
+const SIGLA_TEMA = {"Ruas de terra":"RT","Asfalto e buracos":"AS","Valas e drenagem":"VA","Iluminação":"IL","Trânsito":"TR","Limpeza e mato":"LM","Água e esgoto":"AE","Saúde":"SA","Educação":"ED","Praças, esporte e lazer":"PE","Praia e turismo":"PT","Animais":"AN","Segurança":"SE","Calçadas e acessibilidade":"CA"};
+const MESES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+const MESES_L = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+const TINTS = ["--tint-1","--tint-2","--tint-3","--tint-4","--tint-5"];
+
+const fmtN = n => (n||0).toLocaleString("pt-BR");
+const fmtR = n => n.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtD = iso => { if(!iso) return ""; const [y,m,d]=iso.split("-"); return `${Number(d)} ${MESES[m-1]} ${y}`; };
+const fmtM = iso => { if(!iso) return ""; const [y,m]=iso.split("-"); return `${MESES[m-1]} ${y}`; };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => String(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+const limpaEm = s => String(s||"").replace(/^[\s"“”'`´]+|[\s"“”'`´]+$/g,"");
+const app = document.getElementById("app");
+let D = null, VER = {};
+
+/* ---------- contador ---------- */
+function salarioAgora(){
+  const S = D.salario, mes = 365.2425/12*86400000, agora = Date.now();
+  const F = S.faixas || [[S.desde, S.mensal]];
+  let t = 0;
+  F.forEach(([ini, valor], i) => {
+    const a = Date.parse(ini), b = i+1 < F.length ? Date.parse(F[i+1][0]) : agora;
+    if(agora > a) t += (Math.min(b, agora) - a) / mes * valor * S.cadeiras;
+  });
+  return Math.max(0, t);
+}
+(function tique(){
+  const el = document.getElementById("contador");
+  if(el && D) el.textContent = "R$ " + fmtR(salarioAgora());
+  setTimeout(tique, 100);
+})();
+
+/* ---------- pedaços reutilizados ---------- */
+const avatar = v => v?.foto ? `<img class="av" src="${esc(v.foto)}" alt="" loading="lazy">` : `<span class="av"></span>`;
+function cartaoProp(p){
+  const v = VER[p[1]];
+  return `<article class="card prop">
+    <div class="em">${esc(limpaEm(p[7]))}</div>
+    <div class="meta">${p[10]?`<span class="tag">${esc(p[10])}</span>`:`<span class="tag neutra">${esc(NOME_G[p[2]])}</span>`}
+      <span>${fmtD(p[6])}</span><span>·</span><span>${ABREV[p[3]]||esc(p[3])} ${esc(p[4])}/${p[5]}</span></div>
+    <div class="pe"><span class="autor">${avatar(v)}${esc(v?.apelido)}</span>
+      <a class="abrir" href="${linkDoc(p[0])}" target="_blank" rel="noopener">Abrir na Câmara ↗</a></div>
+  </article>`;
+}
+function listaComMais(box, itens, passo=12){
+  let n = 0; const lista = document.createElement("div"); lista.className = "props"; box.appendChild(lista);
+  const btn = document.createElement("button"); btn.type="button"; btn.className="btn-escuro"; box.appendChild(btn);
+  const mais = () => { lista.insertAdjacentHTML("beforeend", itens.slice(n,n+passo).map(cartaoProp).join("")); n += passo;
+    btn.hidden = n >= itens.length; btn.textContent = `Mostrar mais ${Math.min(passo, itens.length-n)} de ${fmtN(itens.length-n)}`; };
+  btn.addEventListener("click", mais); mais();
+}
+const porData = (a,b) => b[6].localeCompare(a[6]) || b[0]-a[0];
+
+/* ---------- painel ---------- */
+const painel = document.getElementById("painel");
+document.getElementById("painel-fechar").addEventListener("click", ()=>painel.close());
+painel.addEventListener("click", e=>{ if(e.target===painel) painel.close(); });
+function abrirPainel(titulo, sub, montar){
+  document.getElementById("painel-titulo").textContent = titulo;
+  document.getElementById("painel-sub").textContent = sub || "";
+  const c = document.getElementById("painel-conteudo"); c.innerHTML = ""; montar(c);
+  if(!painel.open) painel.showModal(); painel.scrollTop = 0;
+}
+
+/* ---------- topo ---------- */
+function topo(){
+  const S = D.salario, tot = k => D.props.filter(p=>p[2]===k).length;
+  const [data, hora] = D.atualizado.split(" ");
+  const [, m, d] = data.split("-");
+  document.getElementById("aovivo").innerHTML = `<i></i>Ao vivo · dados conferidos em ${Number(d)} de ${MESES_L[m-1]}`;
+  document.getElementById("topo").innerHTML = `
+    <div style="display:grid;gap:10px">
+    <div class="placar">
+      <span class="lbl">Salário pago aos ${S.cadeiras} vereadores desde a posse</span>
+      <span class="valor" id="contador">R$ ${fmtR(salarioAgora())}</span>
+      <span class="sub">e subindo agora · ${S.cadeiras} cadeiras desde 1º de janeiro de 2025, com o salário que aparece na folha oficial: ${(S.faixas||[[0,S.mensal]]).map(f=>"R$ "+fmtN(f[1])).join(" → ")} por mês · <a href="#folha">ver a folha</a></span>
+    </div>
+    <div class="tiles">
+      <div class="tile"><span class="n">${fmtN(D.props.length)}</span><span class="l">propostas até agora</span></div>
+      <div class="tile"><span class="n" style="color:var(--g-melhoria)">${fmtN(tot("melhoria"))}</span><span class="l">pedidos nos bairros até agora</span></div>
+      <div class="tile"><span class="n" style="color:var(--g-homenagem)">${fmtN(tot("homenagem"))}</span><span class="l">homenagens até agora</span></div>
+      <div class="tile"><span class="n" style="color:var(--g-lei)">${fmtN(tot("lei"))}</span><span class="l">propostas de lei até agora</span></div>
+    </div>
+    <p class="small muted" style="margin:0">Última conferência na Câmara: ${Number(d)} de ${MESES_L[m-1]} às ${hora}. O robô volta lá todo dia de madrugada.</p>
+    </div>`;
+}
+
+/* ---------- 1. seu bairro ---------- */
+let filtroBairro = null, termo = "";
+function secBairro(){
+  return `<section id="bairro">
+    <div class="cab-sec"><span class="eyebrow">Comece por aqui</span><h2>O que pediram pelo seu bairro?</h2>
+      <p>Digite o bairro, a rua ou o assunto. Sem nada digitado, você vê a cidade inteira.</p></div>
+    <div class="busca"><input id="q" type="search" placeholder="Ex.: Gaivota, Rua Amapá, iluminação" autocomplete="off" aria-label="Buscar bairro, rua ou assunto"></div>
+    <div class="chips" id="chips-bairro">${D.bairros.slice(0,10).map(b=>`<button type="button" class="chip" data-k="${esc(b.k)}" aria-pressed="false">${esc(b.nome)}</button>`).join("")}</div>
+    <div id="res-bairro" style="display:grid;gap:22px"></div>
+  </section>`;
+}
+function filtrarBairro(){
+  const ts = norm(termo).split(/\s+/).filter(x=>x.length>1);
+  return D.props.filter(p => (!filtroBairro || p[11]===filtroBairro) && ts.every(t=>p._n.includes(t)));
+}
+function rank(titulo, itens, render){
+  const max = Math.max(1, ...itens.map(i=>i.n));
+  return `<div class="rank"><h3>${titulo}</h3><ol>${itens.map(i=>`<li>${render(i)}<div class="bar"><i style="width:${100*i.n/max}%;background:var(--accent)"></i></div></li>`).join("")}</ol></div>`;
+}
+function desenharBairro(){
+  const achados = filtrarBairro().sort(porData);
+  const local = filtroBairro ? D.bairros.find(b=>b.k===filtroBairro)?.nome : (termo.trim() ? `“${termo.trim()}”` : "a cidade inteira");
+  const conta = (arr, f) => { const c = {}; arr.forEach(p=>{ const k=f(p); if(k) c[k]=(c[k]||0)+1; }); return Object.entries(c).sort((a,b)=>b[1]-a[1]); };
+  const quem = conta(achados, p=>p[1]).slice(0,5).map(([id,n])=>({id:Number(id),n}));
+  const temas = conta(achados.filter(p=>p[2]==="melhoria"||p[2]==="cobranca"), p=>p[10]).slice(0,5).map(([t,n])=>({t,n}));
+  const lugares = filtroBairro
+    ? conta(achados, p=>p[8]).slice(0,5).map(([t,n])=>({t,n}))
+    : conta(achados, p=>p[11]).slice(0,5).map(([k,n])=>({k,n,t:D.bairros.find(b=>b.k===k)?.nome}));
+  const box = document.getElementById("res-bairro");
+  box.innerHTML = `
+    <div class="total-local"><span class="n num">${fmtN(achados.length)}</span><span class="muted">propostas para <b style="color:var(--fg)">${esc(local)}</b> até agora</span></div>
+    ${achados.length ? `<div class="tres">
+      ${rank("Quem mais propôs", quem, i=>{ const v=VER[i.id]; return `<button type="button" class="linha" data-ir="${i.id}">${avatar(v)}<span class="nm">${esc(v?.apelido)} <small>· ${esc(v?.partido||"")}</small></span><span class="v">${fmtN(i.n)}</span></button>`; })}
+      ${temas.length ? rank("O que mais pedem", temas, i=>`<span class="linha"><span class="ico">${SIGLA_TEMA[i.t]||"•"}</span><span class="nm">${esc(i.t)}</span><span class="v">${fmtN(i.n)}</span></span>`) : "<div></div>"}
+      ${lugares.length ? rank(filtroBairro?"Ruas mais citadas":"Bairros mais citados", lugares, i=> i.k ? `<button type="button" class="linha" data-bairro="${esc(i.k)}"><span class="nm" style="color:var(--accent)">${esc(i.t)}</span><span class="v">${fmtN(i.n)}</span></button>` : `<span class="linha"><span class="nm">${esc(i.t)}</span><span class="v">${fmtN(i.n)}</span></span>`) : "<div></div>"}
+    </div>
+    <div class="eyebrow">${filtroBairro||termo.trim() ? "As propostas mais recentes para este local" : "As propostas mais recentes da cidade"}</div>
+    <div id="lista-bairro" style="display:grid;gap:12px"></div>` : `<p class="muted">Nada encontrado. Tente só o nome do bairro (por exemplo, “Suarão”) ou outra palavra.</p>`}`;
+  if(achados.length) listaComMais(document.getElementById("lista-bairro"), achados, 4);
+  box.querySelectorAll("[data-bairro]").forEach(b=>b.addEventListener("click",()=>escolherBairro(b.dataset.bairro)));
+  box.querySelectorAll("[data-ir]").forEach(b=>b.addEventListener("click",()=>irPara(b.dataset.ir)));
+}
+function escolherBairro(k){
+  filtroBairro = filtroBairro===k ? null : k; termo = ""; document.getElementById("q").value = "";
+  document.querySelectorAll("#chips-bairro .chip").forEach(c=>c.setAttribute("aria-pressed", String(c.dataset.k===filtroBairro)));
+  desenharBairro();
+}
+function ligarBairro(){
+  const q = document.getElementById("q"); let t;
+  q.addEventListener("input", ()=>{ clearTimeout(t); t=setTimeout(()=>{ termo=q.value; filtroBairro=null;
+    document.querySelectorAll("#chips-bairro .chip").forEach(c=>c.setAttribute("aria-pressed","false")); desenharBairro(); }, 200); });
+  document.querySelectorAll("#chips-bairro .chip").forEach(c=>c.addEventListener("click",()=>escolherBairro(c.dataset.k)));
+  desenharBairro();
+}
+
+/* ---------- 2. problemas que voltam ---------- */
+let mostrarRep = 9;
+function secProblemas(){
+  return `<section id="problemas">
+    <div class="cab-sec"><span class="eyebrow">Só aqui</span><h2>O problema que não some</h2>
+      <p>Quando o mesmo pedido volta várias vezes para a mesma rua, é sinal de que o problema continua lá. O site da Câmara não mostra isso: aqui os pedidos são cruzados um por um.</p></div>
+    <div class="grade-rep" id="grade-rep"></div>
+    <button type="button" class="btn-escuro" id="mais-rep"></button>
+    <p class="aviso">Pedido repetido não prova que a Prefeitura ignorou. Pode ser outro trecho da mesma rua, o serviço pode ter sido feito e o problema voltado, ou dois vereadores podem ter pedido a mesma coisa. Abra o cartão e leia os pedidos.</p>
+  </section>`;
+}
+function datasRep(r){ return r.itens.map(x=>D.props[x][6]).sort(); }
+function desenharRep(){
+  const g = document.getElementById("grade-rep");
+  g.innerHTML = D.repetidos.slice(0, mostrarRep).map((r,i)=>{
+    const ds = datasRep(r);
+    return `<article class="card rep"><div class="topo"><span class="vezes"><b class="num">${r.n}</b><small>VEZES</small></span>
+      <div style="min-width:0"><h3>${esc(r.rua)}</h3>${r.bairro?`<div class="bairro">${esc(r.bairro)}</div>`:""}</div></div>
+      <div class="info"><span class="tag">${esc(r.servico)}</span><span>${r.autores} ${r.autores>1?"vereadores pediram":"vereador pediu"}</span><span>·</span><span>de ${fmtM(ds[0])} a ${fmtM(ds[ds.length-1])}</span></div>
+      <button type="button" class="cobrar" data-rep="${i}">Ver pedidos e cobrar →</button></article>`;
+  }).join("");
+  const b = document.getElementById("mais-rep"); const resta = D.repetidos.length - mostrarRep;
+  b.hidden = resta <= 0; b.textContent = `Mostrar mais ruas (${fmtN(resta)} na fila)`;
+  g.querySelectorAll("[data-rep]").forEach(x=>x.addEventListener("click",()=>abrirRep(D.repetidos[x.dataset.rep])));
+}
+function abrirRep(r){
+  const its = r.itens.map(x=>D.props[x]).sort(porData); const ds = datasRep(r);
+  const autores = [...new Set(its.map(p=>VER[p[1]]?.apelido))];
+  const msg = `${r.rua}${r.bairro?` (${r.bairro})`:""}, em Itanhaém, já recebeu ${r.n} pedidos de "${r.servico.toLowerCase()}" na Câmara Municipal, de ${fmtM(ds[0])} a ${fmtM(ds[ds.length-1])}, feitos por ${autores.join(", ")}. O problema continua? Os pedidos oficiais estão no Radar Itanhaém.`;
+  abrirPainel(r.rua, `${r.n} pedidos de ${r.servico.toLowerCase()}${r.bairro?` · ${r.bairro}`:""}`, c=>{
+    c.innerHTML = `<div class="cobranca"><b>Cobrar</b><span class="small muted">Copie a mensagem e mande para o vereador, para a Prefeitura ou poste nas redes.</span>
+      <label for="msg-cobrar" class="small muted" hidden>Mensagem</label><textarea id="msg-cobrar" readonly>${esc(msg)}</textarea><button type="button" class="btn" id="copiar">Copiar mensagem</button></div>
+      <div class="eyebrow">Os ${r.n} pedidos, do mais recente ao mais antigo</div><div id="lista-rep" style="display:grid;gap:12px"></div>`;
+    listaComMais(c.querySelector("#lista-rep"), its, 20);
+    c.querySelector("#copiar").addEventListener("click", async e=>{
+      const ta = c.querySelector("#msg-cobrar");
+      try{ await navigator.clipboard.writeText(ta.value); e.target.textContent = "Mensagem copiada"; }
+      catch{ ta.focus(); ta.select(); e.target.textContent = "Texto selecionado: copie com Ctrl+C ou segure o dedo"; }
+    });
+  });
+}
+
+/* ---------- 3. homenagem ou trabalho ---------- */
+function secTrabalho(){
+  const tot = k => D.props.filter(p=>p[2]===k).length;
+  return `<section id="trabalho">
+    <div class="cab-sec"><span class="eyebrow">O trabalho da Câmara</span><h2>Homenagem ou trabalho?</h2>
+      <p>São ${fmtN(D.props.length)} propostas até agora, e a conta sobe toda semana. Toque em um grupo para ler cada uma.</p></div>
+    <div class="grupos">${GRUPOS.filter(([k])=>tot(k)).map(([k,n,d])=>`<article class="card grupo" style="--gc:var(--g-${k})">
+      <span class="n">${fmtN(tot(k))}</span><span class="t">${n} até agora</span><p>${d}</p>
+      <button type="button" data-grupo="${k}">Ver todas →</button></article>`).join("")}</div>
+  </section>`;
+}
+function abrirGrupo(k, vid){
+  const its = D.props.filter(p=>p[2]===k && (!vid || p[1]===vid)).sort(porData);
+  const v = vid && VER[vid];
+  abrirPainel(v ? `${v.apelido}: ${NOME_G[k].toLowerCase()}` : NOME_G[k], `${fmtN(its.length)} propostas. ${D.regras[k]}`, c=>listaComMais(c, its, 20));
+}
+
+/* ---------- 4. os vereadores ---------- */
+let busca = "", partidoSel = "", ordem = "nome";
+const presOf = v => { const p=v.pres||{}; const pres=p.PRESENTE||0; const tot=Object.values(p).reduce((a,b)=>a+b,0); return {pres, tot, aus:tot-pres}; };
+function secVereadores(){
+  const partidos = {}; D.vereadores.forEach(v=>{ if(v.partido) partidos[v.partido]=(partidos[v.partido]||0)+1; });
+  return `<section id="vereadores">
+    <div class="cab-sec"><span class="eyebrow">Um por um</span><h2>Os ${D.vereadores.length} vereadores</h2>
+      <p>Presença nas sessões e tudo o que cada um propôs desde a posse. Toque nos números do crachá para ler as propostas.</p></div>
+    <div class="filtros">
+      <label for="f-nome">Buscar por nome<input id="f-nome" type="search" placeholder="Ex.: Zequinha, Daniel" autocomplete="off"></label>
+      <label for="f-partido">Partido<select id="f-partido"><option value="">Todos</option>${Object.entries(partidos).sort().map(([p,n])=>`<option value="${esc(p)}">${esc(p)} (${n})</option>`).join("")}</select></label>
+      <label for="f-ordem">Ordenar por<select id="f-ordem">
+        <option value="nome">Nome (A–Z)</option><option value="faltas">Quem mais faltou</option><option value="lei">Mais propostas de lei</option>
+        <option value="homenagem">Mais homenagens</option><option value="melhoria">Mais pedidos para os bairros</option><option value="cobranca">Mais perguntas e cobranças</option></select></label>
+    </div>
+    <p class="small muted" id="mostrando" style="margin:0"></p>
+    <div class="crachas" id="crachas"></div>
+  </section>`;
+}
+function donut(pct){
+  const r=26, c=2*Math.PI*r;
+  return `<svg width="68" height="68" viewBox="0 0 68 68" role="img" aria-label="${pct}% de presença"><circle cx="34" cy="34" r="${r}" fill="none" stroke="var(--soft)" stroke-width="8"/>
+    <circle cx="34" cy="34" r="${r}" fill="none" stroke="${pct>=90?"var(--ok)":"var(--signal)"}" stroke-width="8" stroke-linecap="round" stroke-dasharray="${(c*pct/100).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 34 34)"/>
+    <text x="34" y="39" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="15" fill="var(--fg)">${pct}%</text></svg>`;
+}
+function cracha(v, i){
+  const p = presOf(v), pct = p.tot ? Math.round(100*p.pres/p.tot) : 0;
+  const dv = (D.divergencias||[]).filter(x=>x.vereador===v.id);
+  return `<article class="card cracha" id="v-${v.id}" style="--tint:var(${TINTS[i%TINTS.length]})">
+    <div class="cab">${v.foto?`<img src="${esc(v.foto)}" alt="Foto de ${esc(v.apelido)}" loading="lazy">`:""}
+      <div style="min-width:0"><h3>${esc(v.apelido)}</h3><div class="nome">${esc(v.nome)}</div>
+      <div style="margin-top:6px">${v.partido?`<span class="pill">${esc(v.partido)}</span>`:""}${v.cargo?`<span class="cargo">${esc(v.cargo)}</span>`:""}</div></div></div>
+    <div class="corpo">
+      <div class="pres">${donut(pct)}<div class="txt"><b class="num">${p.pres} de ${p.tot} sessões</b>
+        <span>${p.aus?`<span class="aus">${p.aus} ${p.aus>1?"ausências registradas":"ausência registrada"}</span>`:`<span style="color:var(--ok);font-weight:700">nenhuma ausência registrada</span>`}</span>
+        <span class="small muted">${v.desde?`no cargo desde ${esc(v.desde)} · `:""}relatórios desde fev 2026</span>
+        ${p.aus?`<button type="button" class="small link-btn" data-faltas="${v.id}">Ver quais sessões →</button>`:""}</div></div>
+      ${dv.length?`<p class="small muted" style="margin:0">Em ${dv.length} sessão, o relatório de presença e a ata discordam. Ela não entra na conta.</p>`:""}
+      <div class="duo"><div><b>R$ ${fmtN(D.salario.mensal)}</b><span>salário por mês</span></div><div><b class="num">${fmtN(v.total)}</b><span>propostas desde 2025</span></div></div>
+      <div><div class="subt">O que propôs até agora</div>
+      <div class="linhas">${GRUPOS.map(([k,n])=>`<button type="button" data-g="${k}" data-v="${v.id}" ${(v.grupos[k]||0)?"":"disabled"}><span class="dot" style="background:var(--g-${k})"></span><span class="t">${n}</span><span class="v">${fmtN(v.grupos[k]||0)}</span><span class="seta">›</span></button>`).join("")}</div></div>
+      <div class="nota-voto"><b>Como votou:</b> a Câmara de Itanhaém publica só o placar das votações (por exemplo, “aprovado com 8 votos”), não o voto de cada vereador.</div>
+    </div>
+    <div class="rodape"><a href="${linkFicha(v.id)}" target="_blank" rel="noopener">Ficha oficial na Câmara, com contato ↗</a></div>
+  </article>`;
+}
+function desenharCrachas(){
+  const vs = D.vereadores.filter(v => (!partidoSel || v.partido===partidoSel) && (!busca || norm(v.apelido+" "+v.nome).includes(norm(busca))));
+  const porNome = (a,b)=>a.apelido.localeCompare(b.apelido,"pt");
+  vs.sort(ordem==="nome" ? porNome : ordem==="faltas" ? ((a,b)=>presOf(b).aus-presOf(a).aus || porNome(a,b)) : ((a,b)=>(b.grupos[ordem]||0)-(a.grupos[ordem]||0) || porNome(a,b)));
+  document.getElementById("mostrando").textContent = vs.length===D.vereadores.length ? `Mostrando os ${vs.length} vereadores.` : `Mostrando ${vs.length} de ${D.vereadores.length} vereadores.`;
+  const box = document.getElementById("crachas");
+  box.innerHTML = vs.map(v=>cracha(v, D.vereadores.indexOf(v))).join("");
+  box.querySelectorAll("[data-g]").forEach(b=>b.addEventListener("click",()=>abrirGrupo(b.dataset.g, Number(b.dataset.v))));
+  box.querySelectorAll("[data-faltas]").forEach(b=>b.addEventListener("click",()=>abrirFaltas(Number(b.dataset.faltas))));
+}
+function abrirFaltas(id){
+  const v = VER[id];
+  const fs = D.sessoes.filter(s=>s.st[id] && !["PRESENTE","DIVERGENTE"].includes(s.st[id]));
+  abrirPainel(`${v.apelido}: ausências`, "Cada linha abre o relatório de presença assinado pela Mesa da Câmara. O relatório não mostra justificativas (licença, doença, missão oficial).", c=>{
+    c.innerHTML = fs.map(s=>`<article class="card prop"><div class="em">${esc(s.t)}</div><div class="meta"><span>Status no relatório: <b class="aus">${esc(s.st[id])}</b></span>
+      ${s.arq.map((a,i)=>`<a class="abrir" href="${linkArq(a)}" target="_blank" rel="noopener">Relatório${s.arq.length>1?" "+(i+1):""} ↗</a>`).join(" ")}</div></article>`).join("");
+  });
+}
+function ligarVereadores(){
+  const n=document.getElementById("f-nome"), p=document.getElementById("f-partido"), o=document.getElementById("f-ordem");
+  n.addEventListener("input",()=>{ busca=n.value; desenharCrachas(); });
+  p.addEventListener("change",()=>{ partidoSel=p.value; desenharCrachas(); });
+  o.addEventListener("change",()=>{ ordem=o.value; desenharCrachas(); });
+  desenharCrachas();
+}
+function irPara(id){
+  busca=""; partidoSel=""; document.getElementById("f-nome").value=""; document.getElementById("f-partido").value=""; desenharCrachas();
+  document.getElementById("v-"+id)?.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+}
+
+/* ---------- 5. salários da câmara (folha) ---------- */
+const fmtRS = n => "R$ " + Math.round(n||0).toLocaleString("pt-BR");
+const fmtMi = n => n >= 1e6 ? `R$ ${(n/1e6).toLocaleString("pt-BR",{maximumFractionDigits:1})} mi` : fmtRS(n);
+const PORTAL = "https://transparencia.itanhaem.sp.leg.br/filtros-recursoshumanos";
+let mostrarDest = 6, grupoFolha = "", mostrarAnual = 10;
+function secFolha(){
+  const F = D.folha; if(!F) return "";
+  const per = `${F.de.toLowerCase()} a ${F.ate.toLowerCase()} de ${F.exercicio}`;
+  const grupos = [...new Set(F.cargos.map(c=>c.grupo))];
+  return `<section id="folha">
+    <div class="cab-sec"><span class="eyebrow">Para onde vai o dinheiro</span><h2>Quanto a Câmara paga, cargo por cargo</h2>
+      <p>Folha de pagamento oficial de ${per}, copiada do <a href="${PORTAL}" target="_blank" rel="noopener">Portal da Transparência da Câmara</a>. Aqui não aparece nome de ninguém: só o cargo e os valores.</p></div>
+    <div class="tiles">
+      <div class="tile"><span class="n">${fmtMi(F.total_bruto)}</span><span class="l">pagos de ${per} (bruto)</span></div>
+      <div class="tile"><span class="n">${fmtMi(F.total_bruto/F.meses.length)}</span><span class="l">por mês, em média</span></div>
+      <div class="tile"><span class="n">${F.pessoas_ult}</span><span class="l">pessoas na folha de ${F.ate.toLowerCase()}, contando estagiários e aposentados</span></div>
+      <div class="tile"><span class="n" style="color:var(--signal)">${F.n_destaques}</span><span class="l">vezes em que alguém recebeu no mês mais que o dobro do salário base</span></div>
+    </div>
+    <div class="cab-sec" style="margin-top:10px"><h3 class="sub3">Quando o extra passa do salário</h3>
+      <p>Meses em que o total pago a uma pessoa passou do dobro do salário base do cargo, do maior para o menor.</p></div>
+    <div class="leg"><span><span class="dot" style="background:var(--accent)"></span> salário base</span><span><span class="dot" style="background:var(--signal)"></span> vantagens, gratificações e férias</span></div>
+    <div class="grade-rep" id="grade-dest"></div>
+    <button type="button" class="btn-escuro" id="mais-dest"></button>
+    <p class="aviso">O portal junta tudo o que não é salário base numa coluna só: “vencimentos e demais vantagens”. Ali podem entrar gratificação de função, adicional por tempo de serviço, horas extras, 1/3 de férias, adiantamento de 13º e acertos de saída. O portal não separa cada item. Valor alto não prova irregularidade, mas é um bom motivo para perguntar. Qualquer pessoa pode pedir o detalhe pela Lei de Acesso à Informação.</p>
+    <div class="cab-sec" style="margin-top:10px"><h3 class="sub3">Cargo por cargo</h3>
+      <p>Salário base típico do cargo e quanto, em média, cada pessoa recebeu por mês somando tudo.</p></div>
+    <div class="chips" id="chips-folha"><button type="button" class="chip" data-gf="" aria-pressed="true">Todos</button>${grupos.map(g=>`<button type="button" class="chip" data-gf="${esc(g)}" aria-pressed="false">${esc(g)}</button>`).join("")}</div>
+    <div class="tscroll"><table class="t" id="tab-cargos"></table></div>
+    <div class="cab-sec" style="margin-top:10px"><h3 class="sub3">Quem mais recebeu em ${F.exercicio}</h3>
+      <p>Cada linha é uma pessoa, identificada só pelo cargo. Soma de ${per}. Toque para ver mês a mês.</p></div>
+    <div class="anual" id="anual"></div>
+    <button type="button" class="btn-escuro" id="mais-anual"></button>
+    ${rank("Quanto cada grupo recebeu no ano", F.grupos.map(g=>({...g, n:g.bruto_ano})), g=>`<span class="linha"><span class="nm">${esc(g.nome)} <small>· ${g.pessoas} hoje</small></span><span class="v">${fmtMi(g.bruto_ano)}</span></span>`)}
+    ${F.nao_fecha?`<p class="small muted" style="margin:0">Em ${F.nao_fecha} linhas da folha, a conta do próprio portal (base + vantagens − descontos) não bate com o líquido publicado. O site mostra os números como o portal publica.</p>`:""}
+  </section>`;
+}
+function pilha(base, extra){
+  const t = Math.max(1, base+extra);
+  return `<div class="pilha"><i style="width:${100*base/t}%;background:var(--accent)"></i><i style="width:${100*extra/t}%;background:var(--signal)"></i></div>`;
+}
+function desenharDest(){
+  const F = D.folha, g = document.getElementById("grade-dest");
+  g.innerHTML = F.destaques.slice(0, mostrarDest).map(d=>`<article class="card dest">
+    <div><span class="x num">${d.vezes.toLocaleString("pt-BR")}×</span> <span class="small muted">o salário base</span></div>
+    <h3>${esc(d.cargo)}</h3><div class="small muted">${esc(d.mes)} de ${F.exercicio}</div>
+    ${pilha(d.base, d.vant+d.ferias)}
+    <div class="valores"><div>Salário base<b>${fmtRS(d.base)}</b></div><div>Vantagens${d.ferias?" e férias":""}<b>${fmtRS(d.vant+d.ferias)}</b></div><div>Total no mês<b>${fmtRS(d.bruto)}</b></div></div>
+    <div class="small muted">Depois dos descontos: ${fmtRS(d.liq)}</div></article>`).join("");
+  const b = document.getElementById("mais-dest"), resta = F.destaques.length - mostrarDest;
+  b.hidden = resta <= 0; b.textContent = `Mostrar mais ${Math.min(6,resta)} de ${resta}`;
+}
+function desenharCargos(){
+  const cs = D.folha.cargos.filter(c=>!grupoFolha || c.grupo===grupoFolha);
+  document.getElementById("tab-cargos").innerHTML = `<thead><tr><th>Cargo</th><th class="r">Pessoas</th><th class="r">Salário base</th><th class="r">Média recebida por mês</th><th class="r">Maior mês</th></tr></thead>
+    <tbody>${cs.map(c=>`<tr><th style="font-weight:700">${esc(c.cargo)}<div class="small muted" style="font-weight:400">${esc(c.grupo)}</div></th>
+      <td class="r">${c.pessoas || "—"}</td><td class="r">${c.base_tipica?fmtRS(c.base_tipica):"—"}</td>
+      <td class="r"><b>${fmtRS(c.media_bruto)}</b>${c.base_tipica && c.media_bruto>=1.5*c.base_tipica?`<div class="small aus">${(c.media_bruto/c.base_tipica).toLocaleString("pt-BR",{maximumFractionDigits:1})}× o base</div>`:""}</td>
+      <td class="r">${fmtRS(c.maior)}<div class="small muted">${esc(c.maior_mes)}</div></td></tr>`).join("")}</tbody>`;
+}
+function desenharAnual(){
+  const A = D.folha.anual, max = A[0]?.bruto || 1;
+  document.getElementById("anual").innerHTML = A.slice(0, mostrarAnual).map((a,i)=>`<button type="button" data-an="${i}">
+    <span class="l1"><span class="nm">${i+1}. ${esc(a.cargo)} <small class="muted" style="font-weight:500">· ${esc(a.grupo)}</small></span><span class="v">${fmtRS(a.bruto)}</span></span>
+    <span style="display:block;width:${Math.max(8,100*a.bruto/max)}%">${pilha(a.base, a.extras)}</span>
+    <span class="small muted">${a.meses} ${a.meses>1?"meses":"mês"} · salário base ${fmtRS(a.base)} + vantagens e férias ${fmtRS(a.extras)}</span></button>`).join("");
+  document.querySelectorAll("[data-an]").forEach(b=>b.addEventListener("click",()=>abrirAnual(A[b.dataset.an])));
+  const b = document.getElementById("mais-anual"), resta = A.length - mostrarAnual;
+  b.hidden = resta <= 0; b.textContent = `Mostrar mais (${resta} na lista)`;
+}
+function abrirAnual(a){
+  abrirPainel(a.cargo, `${a.grupo} · total de ${fmtRS(a.bruto)} em ${a.meses} ${a.meses>1?"meses":"mês"} (bruto), ${fmtRS(a.liq)} depois dos descontos`, c=>{
+    const max = Math.max(...a.serie);
+    c.innerHTML = `<div class="tscroll"><table class="t"><thead><tr><th>Mês</th><th class="r">Total bruto</th><th style="width:45%"></th></tr></thead><tbody>
+      ${a.serie.map((v,i)=>`<tr><td>${esc(a.serie_meses[i])}</td><td class="r">${fmtRS(v)}</td><td><div class="pilha"><i style="width:${100*v/max}%;background:var(--accent)"></i></div></td></tr>`).join("")}</tbody></table></div>
+      <p class="small muted">Para conferir, abra o <a href="${PORTAL}" target="_blank" rel="noopener">Portal da Transparência</a>, escolha o mês e filtre pela função “${esc(a.cargo)}”.</p>`;
+  });
+}
+function ligarFolha(){
+  if(!D.folha) return;
+  desenharDest(); desenharCargos(); desenharAnual();
+  document.getElementById("mais-dest").addEventListener("click", ()=>{ mostrarDest += 6; desenharDest(); });
+  document.getElementById("mais-anual").addEventListener("click", ()=>{ mostrarAnual += 15; desenharAnual(); });
+  document.querySelectorAll("[data-gf]").forEach(b=>b.addEventListener("click",()=>{ grupoFolha=b.dataset.gf;
+    document.querySelectorAll("[data-gf]").forEach(x=>x.setAttribute("aria-pressed", String(x.dataset.gf===grupoFolha))); desenharCargos(); }));
+}
+
+/* ---------- 6. licitações ---------- */
+let licQ = "", licMod = "", mostrarLic = 8;
+const fmtCNPJ = c => c && c.length===14 ? `${c.slice(0,2)}.${c.slice(2,5)}.${c.slice(5,8)}/${c.slice(8,12)}-${c.slice(12)}` : (c||"");
+const linkLicCamara = l => { const m = (l.titulo||"").match(/(\d+)\/(\d{4})\s*$/); return m ? `${CAMARA}/licitacao?Numero=${m[1]}&Ano=${m[2]}` : `${CAMARA}/licitacao`; };
+const curtoMod = m => (m||"Não informada").replace("Contratação Direta - ","").replace(" Eletrônica","");
+function secLic(){
+  const L = D.licitacoes; if(!L) return "";
+  const dif = L.total_estimado - L.total_homologado;
+  const diretas = L.lista.filter(l=>/dispensa|inexig|direta/i.test(l.modalidade)).length;
+  return `<section id="licitacoes">
+    <div class="cab-sec"><span class="eyebrow">Compras da Câmara</span><h2>Licitações e contratações</h2>
+      <p>Tudo o que a Câmara publicou para comprar ou contratar desde ${L.desde}. O valor estimado, o valor fechado e a empresa vencedora vêm do <a href="https://pncp.gov.br/app/editais?q=54353586000105" target="_blank" rel="noopener">PNCP</a>, o portal nacional onde todo órgão público é obrigado a publicar.</p></div>
+    <div class="tiles">
+      <div class="tile"><span class="n">${L.lista.length}</span><span class="l">processos de compra desde ${L.desde}</span></div>
+      <div class="tile"><span class="n">${fmtMi(L.total_homologado)}</span><span class="l">contratados nos ${L.n_valor} processos que já têm resultado</span></div>
+      <div class="tile"><span class="n" style="color:var(--ok)">${fmtMi(Math.max(0,dif))}</span><span class="l">abaixo do valor estimado nesses processos</span></div>
+      <div class="tile"><span class="n">${diretas}</span><span class="l">contratações diretas (dispensa ou inexigibilidade)</span></div>
+    </div>
+    ${L.fornecedores.length ? rank("Quem mais vendeu para a Câmara", L.fornecedores.slice(0,8).map(f=>({...f, n:f.valor})), f=>`<span class="linha"><span class="nm">${esc(f.nome)} <small>· ${f.n} ${f.n>1?"processos":"processo"}</small></span><span class="v">${fmtMi(f.valor)}</span></span>`) : ""}
+    <div class="busca"><input id="q-lic" type="search" placeholder="Buscar: combustível, limpeza, computador, nome da empresa" autocomplete="off" aria-label="Buscar licitação"></div>
+    <div class="chips" id="chips-lic"><button type="button" class="chip" data-mod="" aria-pressed="true">Todas</button>${L.modalidades.map(([m,n])=>`<button type="button" class="chip" data-mod="${esc(m)}" aria-pressed="false">${esc(curtoMod(m))} (${n})</button>`).join("")}</div>
+    <p class="small muted" id="lic-n" style="margin:0"></p>
+    <div class="props" id="lista-lic"></div>
+    <button type="button" class="btn-escuro" id="mais-lic"></button>
+    <p class="aviso">Contratação direta (dispensa ou inexigibilidade) é permitida pela Lei 14.133/2021 em casos previstos, como compras de valor baixo ou fornecedor único. Mesmo assim, ela precisa ser publicada e justificada. Os documentos de cada processo estão no botão “Documentos”.</p>
+  </section>`;
+}
+function filtrarLic(){
+  const ts = norm(licQ).split(/\s+/).filter(x=>x.length>1);
+  return D.licitacoes.lista.filter(l=>(!licMod || l.modalidade===licMod) &&
+    ts.every(t=>norm(`${l.titulo} ${l.objeto} ${l.vencedores.map(v=>v.nome).join(" ")} ${l.processo}`).includes(t)));
+}
+function cartaoLic(l, i){
+  const est = l.estimado, hom = l.homologado;
+  const etapa = l.situacao || l.etapa || "";
+  const cls = /homolog|conclu|divulgada/i.test(etapa) ? "ok" : /desert|fracass|revog|anula|suspens/i.test(etapa) ? "alerta" : "neutra";
+  return `<article class="card lic">
+    <div class="meta">${etapa?`<span class="tag ${cls}">${esc(etapa)}</span>`:""}<span>${esc(l.data)}</span><span>·</span><span>${esc(l.titulo)}</span></div>
+    <div class="obj">${esc(l.objeto)}</div>
+    ${est || hom ? `<div class="valores"><div>Valor estimado<b>${est?fmtRS(est):"—"}</b></div><div>Valor contratado<b>${hom?fmtRS(hom):"ainda sem resultado"}</b></div><div>Diferença<b>${est&&hom?(hom<=est?"−":"+")+fmtRS(Math.abs(est-hom)):"—"}</b></div></div>` : `<div class="small muted">Valores não publicados no PNCP${l.pncp?"":" (processo sem link para o PNCP)"}.</div>`}
+    ${l.vencedores.length?`<div class="small"><b>Quem ganhou:</b> ${l.vencedores.map(v=>`${esc(v.nome)}${v.cnpj?` <span class="muted">(CNPJ ${fmtCNPJ(v.cnpj)})</span>`:""}: ${fmtRS(v.valor)}`).join(" · ")}</div>`:""}
+    <div class="pe"><a class="abrir" href="${linkLicCamara(l)}" target="_blank" rel="noopener">Ver na Câmara ↗</a>
+      ${l.pncp?`<a class="abrir" href="${esc(l.pncp)}" target="_blank" rel="noopener">Ver no PNCP ↗</a>`:""}
+      ${l.anexos.length?`<button type="button" class="link-btn small" data-anx="${i}">Documentos (${l.anexos.length}) →</button>`:""}
+      ${l.processo?`<span class="small muted">Processo ${esc(l.processo)}</span>`:""}</div>
+  </article>`;
+}
+function desenharLic(){
+  const ls = filtrarLic();
+  document.getElementById("lic-n").textContent = `${ls.length} ${ls.length===1?"processo":"processos"}, do mais recente ao mais antigo.`;
+  document.getElementById("lista-lic").innerHTML = ls.slice(0, mostrarLic).map(cartaoLic).join("");
+  document.querySelectorAll("[data-anx]").forEach(b=>b.addEventListener("click",()=>{ const l = ls[b.dataset.anx];
+    abrirPainel(l.titulo, l.objeto.slice(0,160) + (l.objeto.length>160?"…":""), c=>{
+      c.innerHTML = l.anexos.map(a=>`<a class="card prop" style="text-decoration:none;color:inherit" href="${CAMARA}${esc(a.url)}" target="_blank" rel="noopener"><span class="em">${esc(a.nome)}</span><span class="abrir" style="color:var(--accent)">Abrir documento ↗</span></a>`).join("");
+    }); }));
+  const b = document.getElementById("mais-lic"), resta = ls.length - mostrarLic;
+  b.hidden = resta <= 0; b.textContent = `Mostrar mais ${Math.min(8,resta)} de ${resta}`;
+}
+function ligarLic(){
+  if(!D.licitacoes) return;
+  const q = document.getElementById("q-lic"); let t;
+  q.addEventListener("input", ()=>{ clearTimeout(t); t = setTimeout(()=>{ licQ = q.value; mostrarLic = 8; desenharLic(); }, 200); });
+  document.querySelectorAll("[data-mod]").forEach(b=>b.addEventListener("click",()=>{ licMod=b.dataset.mod; mostrarLic=8;
+    document.querySelectorAll("[data-mod]").forEach(x=>x.setAttribute("aria-pressed", String(x.dataset.mod===licMod))); desenharLic(); }));
+  document.getElementById("mais-lic").addEventListener("click", ()=>{ mostrarLic += 8; desenharLic(); });
+  desenharLic();
+}
+
+/* ---------- 7. como funciona ---------- */
+function secComo(){
+  const pctRua = (()=>{ const m=D.props.filter(p=>p[2]==="melhoria"); return m.length?Math.round(100*m.filter(p=>p[8]).length/m.length):0; })();
+  const f = s=>s?`${s.slice(6,8)}/${s.slice(4,6)}/${s.slice(0,4)}`:"?";
+  return `<section id="como-funciona"><div class="prose">
+    <span class="eyebrow">Transparência sobre a transparência</span><h2 style="font-size:2rem">Como funciona</h2>
+    <p>Todos os números vêm do <a href="${CAMARA}/siscam/Documentos?grupoId=7" target="_blank" rel="noopener">portal oficial da Câmara Municipal de Itanhaém</a>. Um robô baixa os dados de madrugada e o site é refeito. Se a coleta vier incompleta, o site fica com a última versão boa.</p>
+    <h3>Salário</h3>
+    <p>A <a href="${linkDoc(D.salario.doc)}" target="_blank" rel="noopener">Resolução nº 513/2024</a> manteve o subsídio da Resolução nº 490/2019 para o mandato 2025–2028 (<a href="${linkArq(D.salario.arq)}" target="_blank" rel="noopener">R$ 13.662 por mês no parecer</a>). Depois vieram reajustes. O contador usa o salário base que aparece na <a href="${PORTAL}" target="_blank" rel="noopener">folha de pagamento oficial</a> para a função “Vereador”: R$ 13.662 de janeiro a março de 2025, R$ 14.373 de abril de 2025 a março de 2026 e R$ 14.948 desde abril de 2026. A diferença de abril de 2026 foi paga na folha de maio. Ele multiplica esse valor pelas ${D.salario.cadeiras} cadeiras e pelo tempo que passou. Vereador não recebe 13º na folha da Câmara. Não entram os encargos pagos pela Câmara (INSS patronal).</p>
+    ${D.folha?`<h3>Salários da Câmara</h3>
+    <p>A folha vem do <a href="${PORTAL}" target="_blank" rel="noopener">Portal da Transparência da Câmara</a>, mês a mês (${D.folha.de.toLowerCase()} a ${D.folha.ate.toLowerCase()} de ${D.folha.exercicio}). O portal publica nome e matrícula de cada pessoa, mas <b>o Radar não mostra nem um nem outro</b>, só o cargo. Quando um cargo tem uma pessoa só, o cargo basta para conferir no portal.</p>
+    <p><b>Total bruto</b> = salário base + vencimentos e demais vantagens + férias + aposentadoria + pensão, como o portal publica. A bolsa de estágio já vem dentro de “vantagens” e não é somada duas vezes. <b>Depois dos descontos</b> é a coluna “líquido” do portal.</p>`:""}
+    ${D.licitacoes?`<h3>Licitações</h3>
+    <p>A lista vem da <a href="${CAMARA}/licitacao" target="_blank" rel="noopener">página de licitações da Câmara</a> (${D.licitacoes.total_portal} processos no total; aqui aparecem os de ${D.licitacoes.desde} em diante). Valor estimado, valor contratado e empresa vencedora vêm da API pública do <a href="https://pncp.gov.br" target="_blank" rel="noopener">PNCP</a>. Quando o vencedor é pessoa física, o nome não aparece.</p>`:""}
+    <h3>Presença</h3>
+    <p>Desde fevereiro de 2026 a Câmara publica um relatório de presença assinado pela Mesa para cada sessão. O site lê esses relatórios: ${D.sessoes.length} sessões, de ${f(D.pres_de)} a ${f(D.pres_ate)}. Antes disso só existe a ata em texto, e esse período fica de fora. <b>Dado ausente não é falta.</b> O relatório não mostra justificativas.</p>
+    <p>Cada relatório foi conferido com a ata da mesma sessão. ${(D.divergencias||[]).length?`Em ${D.divergencias.length} caso as duas fontes discordam; ele aparece no crachá e não entra na conta.`:"Todos bateram."}</p>
+    <h3>Propostas</h3>
+    <p>Contamos só as propostas em que o vereador é <b>autor</b> (quem só assinou junto não ganha a proposta). A mesma regra vale para todos:</p>
+    <div class="tscroll"><table class="t"><tbody>${GRUPOS.map(([k,n])=>`<tr><th style="white-space:nowrap"><span class="dot" style="background:var(--g-${k});margin-right:6px"></span>${n}</th><td>${esc(D.regras[k])}</td></tr>`).join("")}</tbody></table></div>
+    <h3>Temas, bairros e problemas que voltam</h3>
+    <p>O tema, a rua e o bairro de cada pedido são lidos automaticamente do texto oficial. A rua foi identificada em cerca de ${pctRua}% dos pedidos de melhoria. Pode errar: o link para o documento original está sempre ao lado.</p>
+    <h3>Achou um erro?</h3>
+    <p>Avise e a correção sai rápido. Contato: <b>[preencher com o contato público do projeto]</b>.</p>
+  </div></section>`;
+}
+
+/* ---------- início ---------- */
+fetch("dados-site.json").then(r=>{ if(!r.ok) throw new Error("erro " + r.status); return r.json(); }).then(d=>{
+  D = d; d.vereadores.forEach(v=>VER[v.id]=v);
+  d.props.forEach(p=>{ p._n = norm(`${p[7]} ${p[3]} ${p[8]||""} ${p[9]||""} ${p[10]||""}`); });
+  topo();
+  app.innerHTML = secBairro() + secProblemas() + secTrabalho() + secVereadores() + secFolha() + secLic() + secComo();
+  ligarBairro(); desenharRep(); ligarVereadores(); ligarFolha(); ligarLic();
+  document.getElementById("mais-rep").addEventListener("click", ()=>{ mostrarRep += 9; desenharRep(); });
+  document.querySelectorAll("[data-grupo]").forEach(b=>b.addEventListener("click",()=>abrirGrupo(b.dataset.grupo)));
+  document.getElementById("rodape-data").textContent = ` Dados coletados em ${d.atualizado}.`;
+  const h = location.hash.slice(1);
+  if(h.startsWith("v-")) irPara(h.slice(2)); else if(h) document.getElementById(h)?.scrollIntoView();
+}).catch(e=>{
+  app.innerHTML = `<p class="loading">Não foi possível carregar os dados (${esc(e.message)}). Recarregue a página em alguns instantes.</p>`;
+});
+</script>

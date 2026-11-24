@@ -1,0 +1,1573 @@
+{
+ "coletado_em": "2026-11-24 15:14",
+ "total_portal": 144,
+ "ano_min": 2025,
+ "licitacoes": [
+  {
+   "id": 211,
+   "data": "12/11/2026",
+   "titulo": "Pregão Eletrônico N.º 4/2026",
+   "objeto": "Contratação de empresa especializada para o fornecimento de licenças de assinatura de software em nuvem Microsoft 365 E5",
+   "modalidade": "Pregão Eletrônico",
+   "julgamento": "Menor preço",
+   "etapa": "Em andamento",
+   "abertura": "12/11/2026 09:00",
+   "processo": "1514/2026",
+   "pncp": "https://pncp.gov.br/app/editais/54353586000105/2026/000016",
+   "pncp_ano": 2026,
+   "pncp_seq": 16,
+   "anexos": [
+    {
+     "nome": "MATRIZ DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=829&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=832&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=835&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=838&handler=Imagem"
+    },
+    {
+     "nome": "EDITAL (.pdf)",
+     "url": "/Licitacao?id=841&handler=Imagem"
+    },
+    {
+     "nome": "AUTORIZAÇÃO (.pdf)",
+     "url": "/Licitacao?id=844&handler=Imagem"
+    },
+    {
+     "nome": "PEDIDO DE ESCLARECIMENTO - Goldnet TI S/A (.pdf)",
+     "url": "/Licitacao?id=847&handler=Imagem"
+    },
+    {
+     "nome": "PEDIDO DE ESCLARECIMENTO - joinsy (.pdf)",
+     "url": "/Licitacao?id=850&handler=Imagem"
+    },
+    {
+     "nome": "RESPOSTA AO PEDIDO DE ESCLARECIMENTO - Goldnet TI S/A (.pdf)",
+     "url": "/Licitacao?id=853&handler=Imagem"
+    },
+    {
+     "nome": "RESPOSTA AO PEDIDO DE ESCLARECIMENTO - joinsy (.pdf)",
+     "url": "/Licitacao?id=856&handler=Imagem"
+    }
+   ],
+   "pncp_dados": {
+    "estimado": 464550.0,
+    "homologado": 318300.0,
+    "situacao": "Divulgada no PNCP",
+    "modalidade_pncp": "Pregão - Eletrônico",
+    "amparo": "Lei 14.133/2021, Art. 28, I",
+    "vencedores": [
+     {
+      "nome": "WERNETECH INFORMATICA LTDA",
+      "cnpj": "33479392000172",
+      "valor": 318300.0,
+      "itens": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": 208,
+   "data": "26/10/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 11/2026",
+   "objeto": "Aquisição de 1 (um) appliance Firewall Sophos UTM XGS 138, novo, de primeiro uso, acompanhado de suporte para rack, 2ª (segunda) fonte de alimentação redundante e 2 (dois) transceivers SFP+ 10GB SR MM LC 850nm 300m, destinado à substituição do nó secundário do cluster de Alta Disponibilidade (HA) responsável pela segmentação interna de rede (isolamento e controle de tráfego entre VLANs) da Câmara Municipal da Estância Balneária de Itanhaém.",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "Menor preço",
+   "etapa": "Homologada",
+   "abertura": "26/10/2026 08:00",
+   "processo": "1348/2026",
+   "pncp": "https://pncp.gov.br/app/editais/54353586000105/2026/15",
+   "pncp_ano": 2026,
+   "pncp_seq": 15,
+   "anexos": [
+    {
+     "nome": "AVISO DE CONTRATACAO DIRETA (.pdf)",
+     "url": "/Licitacao?id=793&handler=Imagem"
+    },
+    {
+     "nome": "DESPACHO PRESIDENTE (.pdf)",
+     "url": "/Licitacao?id=796&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=799&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=802&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=805&handler=Imagem"
+    }
+   ],
+   "pncp_dados": {
+    "estimado": 47808.54,
+    "homologado": 32320.0,
+    "situacao": "Divulgada no PNCP",
+    "modalidade_pncp": "Dispensa",
+    "amparo": "Lei 14.133/2021, Art. 75, II",
+    "vencedores": [
+     {
+      "nome": "STREMATEC SOLUCOES E TECNOLOGIA LTDA",
+      "cnpj": "14163733000151",
+      "valor": 32320.0,
+      "itens": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": 205,
+   "data": "30/10/2026",
+   "titulo": "Pregão Eletrônico N.º 3/2026",
+   "objeto": "Contratação de empresa especializada para o fornecimento de licenças de uso (assinaturas) dos softwares Adobe Creative Cloud for Teams All Apps, CapCut Pro e Canva Pro+",
+   "modalidade": "Pregão Eletrônico",
+   "julgamento": "Menor preço",
+   "etapa": "Em andamento",
+   "abertura": "30/10/2026 09:00",
+   "processo": "1278/2026",
+   "pncp": "https://pncp.gov.br/app/editais/54353586000105/2026/14",
+   "pncp_ano": 2026,
+   "pncp_seq": 14,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=778&handler=Imagem"
+    },
+    {
+     "nome": "EDITAL (.pdf)",
+     "url": "/Licitacao?id=781&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=784&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=787&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=790&handler=Imagem"
+    },
+    {
+     "nome": "RESPOSTA AO PEDIDO DE ESCLARECIMENTO 2 (.pdf)",
+     "url": "/Licitacao?id=808&handler=Imagem"
+    },
+    {
+     "nome": "RESPOSTA AO PEDIDO DE ESCLARECIMENTO 1 (.pdf)",
+     "url": "/Licitacao?id=811&handler=Imagem"
+    },
+    {
+     "nome": "PEDIDO DE ESCLARECIMENTO - 02 (.pdf)",
+     "url": "/Licitacao?id=814&handler=Imagem"
+    },
+    {
+     "nome": "PEDIDO DE ESCLARECIMENTO - 01 (.pdf)",
+     "url": "/Licitacao?id=817&handler=Imagem"
+    },
+    {
+     "nome": "IMPUGNAÇÃO AO EDITAL 01 (.pdf)",
+     "url": "/Licitacao?id=820&handler=Imagem"
+    },
+    {
+     "nome": "MANIFESTAÇÃO DO PREGOEIRO SOBRE IMPUGNAÇÃO AO EDITAL (.pdf)",
+     "url": "/Licitacao?id=823&handler=Imagem"
+    },
+    {
+     "nome": "EDITAL RETIFICADO (.pdf)",
+     "url": "/Licitacao?id=826&handler=Imagem"
+    }
+   ],
+   "pncp_dados": {
+    "estimado": 75326.12,
+    "homologado": 73339.8,
+    "situacao": "Divulgada no PNCP",
+    "modalidade_pncp": "Pregão - Eletrônico",
+    "amparo": "Lei 14.133/2021, Art. 28, I",
+    "vencedores": [
+     {
+      "nome": "MCR SISTEMAS E CONSULTORIA LTDA",
+      "cnpj": "04198254000117",
+      "valor": 69676.0,
+      "itens": 1
+     },
+     {
+      "nome": "CDS SOLUTIONS LTDA",
+      "cnpj": "61458397000154",
+      "valor": 2263.8,
+      "itens": 1
+     },
+     {
+      "nome": "NOBUG SOLUCOES EM TECNOLOGIA LTDA",
+      "cnpj": "37909070000177",
+      "valor": 1400.0,
+      "itens": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": 202,
+   "data": "14/10/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 10/2026",
+   "objeto": "Contratação de empresa ou profissional especializado em avaliação de bens imóveis, devidamente habilitado perante o CREA ou CAU, para a prestação de serviço técnico de avaliação imobiliária, com emissão de Laudo Técnico Mercadológico, visando à determinação do valor de mercado para locação do imóvel situado na Rua João Mariano Ferreira, nº 245, Vila São Paulo, Itanhaém/SP, elaborado em conformidade com as normas técnicas da ABNT NBR 14653 (partes 1 e 2), destinado a atender às necessidades da Câmara Municipal da Estância Balneária de Itanhaém",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "Menor preço",
+   "etapa": "Homologada",
+   "abertura": "14/10/2026 08:01",
+   "processo": "1373/2026",
+   "pncp": "https://pncp.gov.br/app/editais/54353586000105/2026/13",
+   "pncp_ano": 2026,
+   "pncp_seq": 13,
+   "anexos": [
+    {
+     "nome": "AVISO DE CONTRATACAO DIRETA (.pdf)",
+     "url": "/Licitacao?id=757&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=760&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=763&handler=Imagem"
+    },
+    {
+     "nome": "AUTORIZAÇÃO (.pdf)",
+     "url": "/Licitacao?id=766&handler=Imagem"
+    },
+    {
+     "nome": "MAPA DE PREÇOS (.pdf)",
+     "url": "/Licitacao?id=769&handler=Imagem"
+    },
+    {
+     "nome": "NOTA DE RESERVA (.pdf)",
+     "url": "/Licitacao?id=772&handler=Imagem"
+    },
+    {
+     "nome": "PARECER JURIDICO (.pdf)",
+     "url": "/Licitacao?id=775&handler=Imagem"
+    }
+   ],
+   "pncp_dados": {
+    "estimado": 2266.67,
+    "homologado": 400.0,
+    "situacao": "Divulgada no PNCP",
+    "modalidade_pncp": "Dispensa",
+    "amparo": "Lei 14.133/2021, Art. 75, II",
+    "vencedores": [
+     {
+      "nome": "SOLARA SOLUTIONS LTDA",
+      "cnpj": "57331101000162",
+      "valor": 400.0,
+      "itens": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": 199,
+   "data": "15/09/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação N.º 09/2026",
+   "objeto": "Contratação de empresa(s) especializada(s) para o fornecimento parcelado, conforme a necessidade, de materiais de expediente destinados ao atendimento das demandas dos diversos setores da Câmara Municipal de Itanhaém",
+   "modalidade": "Contratação Direta - Dispensa de Licitação",
+   "julgamento": "Menor preço",
+   "etapa": "Homologada",
+   "abertura": "15/09/2026 00:00",
+   "processo": "1347/2026",
+   "pncp": "https://pncp.gov.br/app/editais/54353586000105/2026/12",
+   "pncp_ano": 2026,
+   "pncp_seq": 12,
+   "anexos": [
+    {
+     "nome": "AVISO DE CONTRATAÇÃO (.pdf)",
+     "url": "/Licitacao?id=736&handler=Imagem"
+    },
+    {
+     "nome": "PARECER JURIDICO (.pdf)",
+     "url": "/Licitacao?id=739&handler=Imagem"
+    },
+    {
+     "nome": "MAPA DE PREÇOS (.pdf)",
+     "url": "/Licitacao?id=742&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=745&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=748&handler=Imagem"
+    },
+    {
+     "nome": "NOTA DE RESERVA (.pdf)",
+     "url": "/Licitacao?id=751&handler=Imagem"
+    },
+    {
+     "nome": "AUTORIZAÇÃO (.pdf)",
+     "url": "/Licitacao?id=754&handler=Imagem"
+    }
+   ],
+   "pncp_dados": {
+    "estimado": 49491.08,
+    "homologado": 31760.97,
+    "situacao": "Divulgada no PNCP",
+    "modalidade_pncp": "Dispensa",
+    "amparo": "Lei 14.133/2021, Art. 75, II",
+    "vencedores": [
+     {
+      "nome": "MMC SERVICOS DIVERSOS LTDA",
+      "cnpj": "54349003000164",
+      "valor": 8000.0,
+      "itens": 1
+     },
+     {
+      "nome": "DIGITALI SOCIAL",
+      "cnpj": "28688247000161",
+      "valor": 6000.0,
+      "itens": 1
+     },
+     {
+      "nome": "MAK COMERCIO E DISTRIBUIDORA LTDA",
+      "cnpj": "49506420000133",
+      "valor": 4614.27,
+      "itens": 25
+     },
+     {
+      "nome": "Y S DIAS COMERCIO DE PAPELARIA",
+      "cnpj": "36310930000199",
+      "valor": 4402.4,
+      "itens": 4
+     },
+     {
+      "nome": "LUPIAN ATACADO E VAREJO LTDA",
+      "cnpj": "55808167000175",
+      "valor": 4000.0,
+      "itens": 6
+     },
+     {
+      "nome": "DYFAL COMERCIO DE VARIEDADES B2G LTDA",
+      "cnpj": "48760218000170",
+      "valor": 2064.1000000000004,
+      "itens": 3
+     },
+     {
+      "nome": "DARLU INDUSTRIA TEXTIL LTDA",
+      "cnpj": "40223106000179",
+      "valor": 1350.0,
+      "itens": 1
+     },
+     {
+      "nome": "RICPEL COMERCIO E DISTRIBUIDORA LTDA",
+      "cnpj": "42124513000154",
+      "valor": 549.0,
+      "itens": 1
+     },
+     {
+      "nome": "LUIZ CLAUDIO CASTREQUINI",
+      "cnpj": "38240496000143",
+      "valor": 307.0,
+      "itens": 1
+     },
+     {
+      "nome": "54.309.900 CARLA GOULART ALVES",
+      "cnpj": "54309900000144",
+      "valor": 300.0,
+      "itens": 1
+     },
+     {
+      "nome": "44.466.275 LILIANE ALESSANDRA GOMES DE SOUZA ALVES",
+      "cnpj": "44466275000190",
+      "valor": 174.2,
+      "itens": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": 197,
+   "data": "08/09/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação N.º 7/2026",
+   "objeto": "Contratação de empresa especializada na instalação e desinstalação de aparelhos de ar-condicionado para atender as necessidades da Câmara Municipal de Itanhaém.",
+   "modalidade": "Contratação Direta - Dispensa de Licitação",
+   "julgamento": "Menor preço",
+   "etapa": "Homologada",
+   "abertura": "08/09/2026 00:00",
+   "processo": "792/2026",
+   "pncp": "https://pncp.gov.br/app/editais/54353586000105/2026/11",
+   "pncp_ano": 2026,
+   "pncp_seq": 11,
+   "anexos": [
+    {
+     "nome": "NOTA DE RESERVA DE DOTAÇÃO (.PDF)",
+     "url": "/Licitacao?id=710&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=713&handler=Imagem"
+    },
+    {
+     "nome": "AUTORIZAÇÃO DE DISPENSA DE LICITAÇÃO ELETRÔNICA (.pdf)",
+     "url": "/Licitacao?id=716&handler=Imagem"
+    },
+    {
+     "nome": "PARECER (.pdf)",
+     "url": "/Licitacao?id=719&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=722&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO (.pdf)",
+     "url": "/Licitacao?id=725&handler=Imagem"
+    }
+   ],
+   "pncp_dados": {
+    "estimado": 26177.95,
+    "homologado": 14000.0,
+    "situacao": "Divulgada no PNCP",
+    "modalidade_pncp": "Dispensa",
+    "amparo": "Lei 14.133/2021, Art. 75, II",
+    "vencedores": [
+     {
+      "nome": "SOUZA TECH SERVICE LTDA",
+      "cnpj": "50409562000161",
+      "valor": 14000.0,
+      "itens": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": 194,
+   "data": "11/09/2026",
+   "titulo": "Pregão Eletrônico N.º 2/2026",
+   "objeto": "Contratação de empresa especializada para fornecimento de ambiente tecnológico modular destinado à administração e ao acompanhamento das operações funcionais e documentais do órgão, compreendendo licenciamento temporário de uso de software, equipamentos em regime de comodato, implantação, integração com sistemas existentes, treinamento operacional, suporte técnico e manutenção corretiva e evolutiva",
+   "modalidade": "Pregão Eletrônico",
+   "julgamento": "Menor preço",
+   "etapa": "Homologada",
+   "abertura": "11/09/2026 00:00",
+   "processo": "1046/2026",
+   "pncp": "https://pncp.gov.br/app/editais/54353586000105/2026/10",
+   "pncp_ano": 2026,
+   "pncp_seq": 10,
+   "anexos": [
+    {
+     "nome": "Edital (.pdf)",
+     "url": "/Licitacao?id=695&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=698&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=701&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=704&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=707&handler=Imagem"
+    }
+   ],
+   "pncp_dados": {
+    "estimado": 593738.31,
+    "homologado": 498000.0,
+    "situacao": "Divulgada no PNCP",
+    "modalidade_pncp": "Pregão - Eletrônico",
+    "amparo": "Lei 14.133/2021, Art. 28, I",
+    "vencedores": [
+     {
+      "nome": "I T SISTEMAS ELETRONICOS E INFORMATIZADOS LTDA",
+      "cnpj": "01836497000145",
+      "valor": 498000.0,
+      "itens": 2
+     }
+    ]
+   }
+  },
+  {
+   "id": 191,
+   "data": "10/09/2026",
+   "titulo": "Pregão Eletrônico N.º 1/2026",
+   "objeto": "Registro de preços para futura e eventual contratação de empresa especializada para prestação de serviços de agenciamento de viagens, por intermédio de operadora ou agência de viagens, para serviços de consulta, reserva, marcação, remarcação, emissão, endosso, cancelamento e entrega de bilhetes de passagens aéreas, com as respectivas taxas de embarque e apólices de seguro viagem, hospedagem em hotéis no âmbito nacional e serviços de traslado por carros, vans, ônibus e correlatos, conforme condições, quantidades e exigências estabelecidas neste Edital e seus anexos",
+   "modalidade": "Pregão Eletrônico",
+   "julgamento": "Menor preço",
+   "etapa": "Aberta",
+   "abertura": "10/09/2026 00:00",
+   "processo": "941/2026",
+   "pncp": "https://pncp.gov.br/app/editais/54353586000105/2026/9",
+   "pncp_ano": 2026,
+   "pncp_seq": 9,
+   "anexos": [
+    {
+     "nome": "MATRIZ DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=680&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=683&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=686&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=689&handler=Imagem"
+    },
+    {
+     "nome": "Edital (.pdf)",
+     "url": "/Licitacao?id=692&handler=Imagem"
+    },
+    {
+     "nome": "PEDIDO DE ESCLARECIMENTO - 01 (.pdf)",
+     "url": "/Licitacao?id=727&handler=Imagem"
+    },
+    {
+     "nome": "PEDIDO DE ESCLARECIMENTO - 02 (.pdf)",
+     "url": "/Licitacao?id=730&handler=Imagem"
+    },
+    {
+     "nome": "PEDIDO DE ESCLARECIMENTO - 03 (.pdf)",
+     "url": "/Licitacao?id=733&handler=Imagem"
+    }
+   ],
+   "pncp_dados": {
+    "estimado": 239847.6,
+    "homologado": 239533.21,
+    "situacao": "Divulgada no PNCP",
+    "modalidade_pncp": "Pregão - Eletrônico",
+    "amparo": "Lei 14.133/2021, Art. 28, I",
+    "vencedores": [
+     {
+      "nome": "HOTEL A JATO AGENCIA DE VIAGENS E TURISMO LTDA",
+      "cnpj": "51810293000294",
+      "valor": 239533.208,
+      "itens": 4
+     }
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "data": "03/07/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 7/2026",
+   "objeto": "CONTRATAÇÃO DE EMPRESA(S) ESPECIALIZADA(S) PARA FORNECIMENTO PARCELADO,, CONFORME DEMANDA, DE PRODUTOS DE HIGIENIZAÇÃO, MATERIAIS DE LIMPEZA, ITENS DE COPA E COZINHA, BEM COMO MATERIAIS DESCARTÁVEIS, DESTINADOS AO ATENDIMENTO DAS NECESSIDADES DOS DIVERSOS SETORES DA CÂMARA MUNICIPAL DE ITANHAÉM.",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Homologada",
+   "abertura": "03/07/2026 00:00",
+   "processo": "878/2026",
+   "pncp": "https://pncp.gov.br/app/editais/54353586000105/2026/7",
+   "pncp_ano": 2026,
+   "pncp_seq": 7,
+   "anexos": [
+    {
+     "nome": "AVISO DE CONTRATACAO DIRETA (.pdf)",
+     "url": "/Licitacao?id=668&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=671&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=674&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=677&handler=Imagem"
+    }
+   ],
+   "pncp_dados": {
+    "estimado": 62035.79,
+    "homologado": 22639.05,
+    "situacao": "Divulgada no PNCP",
+    "modalidade_pncp": "Dispensa",
+    "amparo": "Lei 14.133/2021, Art. 75, II",
+    "vencedores": [
+     {
+      "nome": "LA LUNA COMERCIO DE PRODUTOS E ACESSORIOS LTDA",
+      "cnpj": "18112610000142",
+      "valor": 4635.3,
+      "itens": 5
+     },
+     {
+      "nome": "MAK COMERCIO E DISTRIBUIDORA LTDA",
+      "cnpj": "49506420000133",
+      "valor": 3845.9,
+      "itens": 6
+     },
+     {
+      "nome": "AMORIM PRODUTOS DE HIGIENE E LIMPEZA LTDA",
+      "cnpj": "61908002000178",
+      "valor": 3798.45,
+      "itens": 9
+     },
+     {
+      "nome": "SHOPINGA COMERCIO DE MATERIAIS E EQUIPAMENTOS LTDA",
+      "cnpj": "49728772000133",
+      "valor": 3465.0,
+      "itens": 1
+     },
+     {
+      "nome": "RC IMPORTACOES E COMERCIO DE DECORACAO LTDA",
+      "cnpj": "65763322000138",
+      "valor": 2738.4,
+      "itens": 5
+     },
+     {
+      "nome": "FLASH COMERCIO DE PRODUTOS DE HIGIENE LTDA",
+      "cnpj": "19827002000187",
+      "valor": 2500.0,
+      "itens": 1
+     },
+     {
+      "nome": "MY LICITA SOLUCOES INTEGRADAS LTDA",
+      "cnpj": "52715266000114",
+      "valor": 856.0,
+      "itens": 1
+     },
+     {
+      "nome": "FERRALLY - COMERCIO DE EMBALAGENS LTDA",
+      "cnpj": "00528262000123",
+      "valor": 800.0,
+      "itens": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": 185,
+   "data": "30/06/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 6/2026",
+   "objeto": "Contratação de empresa especializada para prestação de serviços de customização, fornecimento de placas, medalha, troféus , confecção e fornecimento de placas de identificação visual e prismas e displays em acrílico, para atender as necessidades da Câmara Municipal de Itanhaém, com entregas parceladas, de acordo com a demanda.",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Em andamento",
+   "abertura": "30/06/2026 00:00",
+   "processo": "701/2026",
+   "pncp": "https://pncp.gov.br/app/editais/54353586000105/2026/6",
+   "pncp_ano": 2026,
+   "pncp_seq": 6,
+   "anexos": [
+    {
+     "nome": "AVISO DE CONTRATACAO DIRETA (.pdf)",
+     "url": "/Licitacao?id=656&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=659&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=662&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=665&handler=Imagem"
+    }
+   ],
+   "pncp_dados": {
+    "estimado": 36039.96,
+    "homologado": 15099.4,
+    "situacao": "Divulgada no PNCP",
+    "modalidade_pncp": "Dispensa",
+    "amparo": "Lei 14.133/2021, Art. 75, II",
+    "vencedores": [
+     {
+      "nome": "ACRILEVE PERSONALIZADOS LTDA",
+      "cnpj": "63096797000192",
+      "valor": 5999.8,
+      "itens": 1
+     },
+     {
+      "nome": "OPUS LICITACOES E SERVICOS LTDA",
+      "cnpj": "14842179000139",
+      "valor": 5559.6,
+      "itens": 1
+     },
+     {
+      "nome": "IBIPORA ADESIVOS LTDA",
+      "cnpj": "45005979000129",
+      "valor": 3090.0,
+      "itens": 2
+     },
+     {
+      "nome": "INDUSTRIA FENIX CORTE A LASER LTDA",
+      "cnpj": "13759849000195",
+      "valor": 450.0,
+      "itens": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": 182,
+   "data": "29/06/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 8/2026",
+   "objeto": "CONTRATAÇÃO DE EMPRESA PARA FORNECIMENTO PARCELADO, CONFORME DEMANDA, DE ÁGUA MINERAL PARA O CONSUMO, SEM GÁS, ACONDICIONADA EM GALÕES DE 20 LITROS (APENAS REPOSIÇÃO DA ÁGUA MINERAL, MEDIANTE TROCA DOS GALÕES EM COMODATO), BEM COMO O FORNECIMENTO DE ÁGUA MINERAL, SEM GÁS, EM COPOS DESCARTÁVEIS DE APROXIMADAMENTE 300 MILILITROS, PARA ATENDER AS NECESSIDADES DA CÂMARA MUNICIPAL DE ITANHAÉM",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Em andamento",
+   "abertura": "29/06/2026 00:00",
+   "processo": "700/2026",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "AVISO DE CONTRATACAO DIRETA (.pdf)",
+     "url": "/Licitacao?id=644&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=647&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=650&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=653&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 179,
+   "data": "26/06/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 5/2026",
+   "objeto": "Contratação de empresa especializada para a administração e intermediação de estágios da Câmara Municipal de Itanhaém",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Em andamento",
+   "abertura": "-",
+   "processo": "2947/2025",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "AVISO DE CONTRATACAO (.pdf)",
+     "url": "/Licitacao?id=632&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=635&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=638&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=641&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 176,
+   "data": "25/06/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 4/2026",
+   "objeto": "CONTRATAÇÃO DE EMPRESA PARA FORNECIMENTO PARCELADO CONFORME DEMANDA DE GÊNEROS ALIMENTÍCIOS (CAFÉ E AÇÚCAR) PARA ATENDER AS NECESSIDADES DA CÂMARA MUNICIPAL DE ITANHAÉM",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Em andamento",
+   "abertura": "-",
+   "processo": "702/2026",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "AVISO DE CONTRATACAO DIRETA (.pdf)",
+     "url": "/Licitacao?id=620&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=623&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=626&handler=Imagem"
+    },
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=629&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 174,
+   "data": "22/05/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 1/2026",
+   "objeto": "Aquisição de suprimentos originais para a multifuncional Lexmark MX431adw",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Em andamento",
+   "abertura": "22/05/2026 00:00",
+   "processo": "940",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=608&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=610&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=612&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATACAO DIRETA (.pdf)",
+     "url": "/Licitacao?id=614&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 172,
+   "data": "18/05/2026",
+   "titulo": "Contratação Direta - Dispensa de Licitação N.º 3/2026",
+   "objeto": "Contratação de Serviços técnicos especializados de planejamento, organização e execução de concurso público, destinado a provimento de cargos públicos da câmara municipal de Itanhaém",
+   "modalidade": "Contratação Direta - Dispensa de Licitação",
+   "julgamento": "-",
+   "etapa": "Concluída",
+   "abertura": "18/05/2026 00:00",
+   "processo": "103",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=596&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=598&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=600&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=602&handler=Imagem"
+    },
+    {
+     "nome": "DESPACHO PRESIDENTE (.pdf)",
+     "url": "/Licitacao?id=604&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 171,
+   "data": "12/12/2025",
+   "titulo": "Pregão Eletrônico N.º 90006/2025",
+   "objeto": "Contratação de empresa especializada para o fornecimento de cadeiras ergonômicas para atender as necessidades da Câmara Municipal da Estância Balneária de Itanhaém",
+   "modalidade": "Pregão Eletrônico",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "12/12/2025 00:00",
+   "processo": "3301",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=579&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=583&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=587&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE RISCO (.pdf)",
+     "url": "/Licitacao?id=591&handler=Imagem"
+    },
+    {
+     "nome": "EDITAL PREGÃO ELETRÔNICO 90006/2025 (.pdf)",
+     "url": "/Licitacao?id=595&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 167,
+   "data": "10/12/2025",
+   "titulo": "Pregão Eletrônico N.º 90005/2025",
+   "objeto": "Contratação de empresa especializada para o fornecimento de aparelhos de ar-condicionado para a Câmara Municipal da Estância Balneária de Itanhaém",
+   "modalidade": "Pregão Eletrônico",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "10/12/2025 00:00",
+   "processo": "3168",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=559&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=563&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=567&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE RISCO (.pdf)",
+     "url": "/Licitacao?id=571&handler=Imagem"
+    },
+    {
+     "nome": "EDITAL PREGÃO ELETRÔNICO 90005/2025 (.pdf)",
+     "url": "/Licitacao?id=575&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 163,
+   "data": "11/12/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 11/2025",
+   "objeto": "Contratação Direta de empresa para fornecimento parcelado, conforme demanda, de água mineral para o consumo, sem gás, acondicionada em galões de 20 litros (apenas reposição da água mineral, mediante troca dos galões em comodato), bem como o fornecimento de água mineral, sem gás, em copos descartáveis de aproximadamente 300 mililitros, para atender as necessidades da Câmara Municipal de Itanhaém.",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "11/12/2025 00:00",
+   "processo": "3107",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=543&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=547&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=551&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 11/2025 (.pdf)",
+     "url": "/Licitacao?id=555&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 159,
+   "data": "10/12/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 10/2025",
+   "objeto": "Contratação de empresa especializada para prestação dos serviços de tradução e interpretação de libras, estimada em 200 (duzentas) horas, para atender as necessidades da Câmara Municipal de Itanhaém.",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "10/12/2025 00:00",
+   "processo": "3114",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=527&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=531&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=535&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 10/2025 (.pdf)",
+     "url": "/Licitacao?id=539&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 155,
+   "data": "04/12/2025",
+   "titulo": "Pregão Eletrônico N.º 90004/2025",
+   "objeto": "Contratação de empresa especializada para a renovação de licenciamento dos produtos Sophos Intercept X Advanced with XDR e Sophos Intercept X Advanced for Server with XDR, bem como a aquisição um appliance firewall Sophos XGS 138 capaz de operar futuramente em configurações de Alta Disponibilidade (HA).",
+   "modalidade": "Pregão Eletrônico",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "04/12/2025 00:00",
+   "processo": "2827",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=507&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=511&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=515&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=519&handler=Imagem"
+    },
+    {
+     "nome": "EDITAL PREGÃO ELETRÔNICO 90004/2025 (.pdf)",
+     "url": "/Licitacao?id=523&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 151,
+   "data": "25/11/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 9/2025",
+   "objeto": "Fornecimento parcelado de Papel toalha: Tipo folha: 2 dobras, não reciclado, medindo 20cm (largura) x 21cm (comprimento), 100% CELULOSE VIRGEM, alta absorção, cor: branca, inodoro, embalagem com 1.000 folhas; Características adicionais: interfolhada. Em conformidade com o INMETRO e com as recomendações contidas nas normas da ABNT/NBR no que couber.",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "25/11/2025 00:00",
+   "processo": "2720",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=491&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=495&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=499&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 9/2025 (.pdf)",
+     "url": "/Licitacao?id=503&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 147,
+   "data": "03/12/2025",
+   "titulo": "Pregão Eletrônico N.º 90003/2025",
+   "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA O FORNECIMENTO DE SOLUÇÃO COMPLETA E INTEGRADA DE SEGURANÇA DE REDE, ABRANGENDO LICENÇAS DE SOFTWARE, RENOVAÇÕES DE SUPORTE E EQUIPAMENTOS",
+   "modalidade": "Pregão Eletrônico",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "03/12/2025 00:00",
+   "processo": "2432",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=471&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=475&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=479&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=483&handler=Imagem"
+    },
+    {
+     "nome": "EDITAL PREGÃO ELETRÔNICO 90003/2025 (.pdf)",
+     "url": "/Licitacao?id=487&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 143,
+   "data": "17/11/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 8/2025",
+   "objeto": "Contratação de empresa para fornecimento parcelado de gênero alimentício (chá), conforme a demanda, para atender as necessidades da Câmara Municipal de Itanhaém",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "17/11/2025 00:00",
+   "processo": "2406",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=455&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=459&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=463&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 8/2025 (.pdf)",
+     "url": "/Licitacao?id=467&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 139,
+   "data": "07/11/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 7/2025",
+   "objeto": "Contratação de empresa especializada para o fornecimento de uma Solução de Gerenciamento de Serviços Corporativos (ITSM) e de uma Solução de Gerenciamento de Ativos de TI (ITAM), na modalidade SaaS (Software as a Service) em nuvem (cloud), com licenciamento por subscrição",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Fracassada",
+   "abertura": "07/11/2025 00:00",
+   "processo": "1815",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=443&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=447&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 7/2025 (.pdf)",
+     "url": "/Licitacao?id=451&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 135,
+   "data": "30/10/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 6/2025",
+   "objeto": "Contratação de empresa para fornecimento parcelado conforme demanda de água mineral para o consumo, sem gás, acondicionada em galões de 20 litros (apenas reposição da água mineral, mediante troca dos galões em comodato), bem como o fornecimento de água mineral, sem gás, em copos descartáveis de aproximadamente 300 mililitros, para atender as necessidades da Câmara Municipal de Itanhaém.",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Fracassada",
+   "abertura": "30/10/2025 00:00",
+   "processo": "1814",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=431&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=435&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 6/2025 (.pdf)",
+     "url": "/Licitacao?id=439&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 131,
+   "data": "24/10/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 5/2025",
+   "objeto": "Contratação de empresa especializada para a renovação da assinatura anual da suíte de aplicativos para escritório Microsoft Office 365 Business Standard",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Concluída",
+   "abertura": "24/10/2025 00:00",
+   "processo": "2249",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=415&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=419&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=423&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 5/2025 (.pdf)",
+     "url": "/Licitacao?id=427&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 127,
+   "data": "09/10/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação Eletrônica N.º 4/2025",
+   "objeto": "Contratação de empresa para fornecimento parcelado, conforme demanda, de gêneros alimentícios (lanches, bolos, salgados e sucos) nas sessões, para atender as necessidades da Câmara Municipal de Itanhaém",
+   "modalidade": "Contratação Direta - Dispensa de Licitação Eletrônica",
+   "julgamento": "-",
+   "etapa": "Concluída",
+   "abertura": "09/10/2025 00:00",
+   "processo": "1188",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=399&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=403&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=407&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 4/2025 (.pdf)",
+     "url": "/Licitacao?id=411&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 123,
+   "data": "23/10/2025",
+   "titulo": "Pregão Eletrônico N.º 90002/2025",
+   "objeto": "Contratação de empresa especializada para o fornecimento de materiais e equipamentos de infraestrutura de Tecnologia da Informação (TI) para a Câmara Municipal da Estância Balneária de Itanhaém.",
+   "modalidade": "Pregão Eletrônico",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "23/10/2025 00:00",
+   "processo": "2093",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=383&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=387&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=391&handler=Imagem"
+    },
+    {
+     "nome": "EDITAL PREGÃO ELETRÔNICO 90002/2025 (.pdf)",
+     "url": "/Licitacao?id=395&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 119,
+   "data": "29/08/2025",
+   "titulo": "Chamamento Público N.º 1/2025",
+   "objeto": "PROSPECÇÃO DO MERCADO IMOBILIÁRIO NO MUNICÍPIO DE ITANHAÉM/SP, NO INTUITO DE CONFERIR MAIOR TRANSPARÊNCIA, VANTAGEM E EFICIÊNCIA NA FUTURA LOCAÇÃO DE IMÓVEL NA MODALIDADE BUILT TO SUIT (LOCAÇÃO SOB DEMANDA), COM FACILITIES, PARA USO INSTITUCIONAL QUE ATENDA ÀS NECESSIDADES DE INSTALAÇÃO E FUNCIONAMENTO DA SEDE DA CÂMARA MUNICIPAL DE ITANHAÉM – SP, EM IMÓVEL ADAPTADO OU A SER CONSTRUÍDO",
+   "modalidade": "Chamamento Público",
+   "julgamento": "-",
+   "etapa": "Deserta",
+   "abertura": "-",
+   "processo": "1551",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "EDITAL DE CHAMAMENTO PÚBLICO N° 01/2025 (.pdf)",
+     "url": "/Licitacao?id=379&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 115,
+   "data": "15/07/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação N.º 90005/2025",
+   "objeto": "Contratação de empresa especializada para o fornecimento de licenças de software TeamViewer Corporate, incluindo os add-ons Asset Management e Device Monitoring, para um ambiente de aproximadamente 100 endpoints, pelo período de 36 (trinta e seis) meses",
+   "modalidade": "Contratação Direta - Dispensa de Licitação",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "15/07/2025 00:00",
+   "processo": "1615",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=374&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=375&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=376&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 90005/2025 (.pdf)",
+     "url": "/Licitacao?id=377&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 114,
+   "data": "14/07/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação N.º 90004/2025",
+   "objeto": "Contratação de assinaturas de softwares para edição de imagem e vídeo, pelo período de 12 (doze) meses, para atender as demandas da Câmara Municipal de Itanhaém",
+   "modalidade": "Contratação Direta - Dispensa de Licitação",
+   "julgamento": "-",
+   "etapa": "Aberta",
+   "abertura": "14/07/2025 00:00",
+   "processo": "1629",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=370&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=371&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=372&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 90004/2025 (.pdf)",
+     "url": "/Licitacao?id=373&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 113,
+   "data": "02/04/2025",
+   "titulo": "Pregão Eletrônico N.º 90001/2025",
+   "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA IMPLANTAÇÃO E DISPONIBILIZAÇÃO DE SOLUÇÃO EM GOVERNANÇA LEGISLATIVA DIGITAL",
+   "modalidade": "Pregão Eletrônico",
+   "julgamento": "-",
+   "etapa": "Homologada",
+   "abertura": "02/04/2025 00:00",
+   "processo": "166",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=365&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=366&handler=Imagem"
+    },
+    {
+     "nome": "TR (.pdf)",
+     "url": "/Licitacao?id=367&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE RISCO (.pdf)",
+     "url": "/Licitacao?id=368&handler=Imagem"
+    },
+    {
+     "nome": "EDITAL PREGÃO ELETRÔNICO 90001/2025 (.pdf)",
+     "url": "/Licitacao?id=369&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 112,
+   "data": "18/02/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação N.º 90003/2025",
+   "objeto": "Contratação de empresa para fornecimento parcelado, conforme demanda, de materiais de expediente para atender as necessidades da Câmara Municipal de Itanhaém.",
+   "modalidade": "Contratação Direta - Dispensa de Licitação",
+   "julgamento": "-",
+   "etapa": "Autorizada",
+   "abertura": "18/02/2025 00:00",
+   "processo": "2578",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=360&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=361&handler=Imagem"
+    },
+    {
+     "nome": "TERMO DE REFERÊNCIA (.pdf)",
+     "url": "/Licitacao?id=362&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE GERENCIAMENTO DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=363&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 90003/2025 (.pdf)",
+     "url": "/Licitacao?id=364&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 111,
+   "data": "03/02/2025",
+   "titulo": "Inexigibilidade N.º 1/2025",
+   "objeto": "CONTRATAÇÃO DE EMPRESA PARA PRESTAÇÃO DE SERVIÇOS TÉCNICOS PROFISSIONAIS EM ASSESSORIA E CONSULTORIA JURÍDICA",
+   "modalidade": "Inexigibilidade",
+   "julgamento": "-",
+   "etapa": "Autorizada",
+   "abertura": "-",
+   "processo": "102",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=355&handler=Imagem"
+    },
+    {
+     "nome": "ESTUDO TÉCNICO PRELIMINAR - ETP (.pdf)",
+     "url": "/Licitacao?id=356&handler=Imagem"
+    },
+    {
+     "nome": "TERMO DE REFERÊNCIA (.pdf)",
+     "url": "/Licitacao?id=357&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE GERENCIAMENTO DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=358&handler=Imagem"
+    },
+    {
+     "nome": "ATO DE AUTORIZAÇÃO DE DESPESA POR INEXIGIBILIDADE DE LICITAÇÃO (.pdf)",
+     "url": "/Licitacao?id=359&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 110,
+   "data": "06/02/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação N.º 90002/2025",
+   "objeto": "Contratação de empresa especializada para a emissão de certificados digitais do tipo A3, padrão ICP-Brasil, com fornecimento do dispositivo criptográfico (token), para atender as demandas da Câmara Municipal de Itanhaém",
+   "modalidade": "Contratação Direta - Dispensa de Licitação",
+   "julgamento": "-",
+   "etapa": "Autorizada",
+   "abertura": "06/02/2025 00:00",
+   "processo": "3",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=350&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=351&handler=Imagem"
+    },
+    {
+     "nome": "TERMO DE REFERÊNCIA (.pdf)",
+     "url": "/Licitacao?id=352&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE GERENCIAMENTO DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=353&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 90002/2025 (.pdf)",
+     "url": "/Licitacao?id=354&handler=Imagem"
+    }
+   ]
+  },
+  {
+   "id": 109,
+   "data": "05/02/2025",
+   "titulo": "Contratação Direta - Dispensa de Licitação N.º 90001/2025",
+   "objeto": "Registro de preços para futura e eventual contratação de empresa especializada para prestação de serviços de agenciamento de viagens, por intermédio de operadora ou agência de viagens, para serviços de consulta, reserva, marcação, remarcação, emissão, endosso, cancelamento e entrega de bilhetes de passagens aéreas, com as respectivas taxas de embarque e apólices de seguro viagem, hospedagem em hotéis no âmbito nacional e serviços de traslado por carros, vans, ônibus e correlatos",
+   "modalidade": "Contratação Direta - Dispensa de Licitação",
+   "julgamento": "-",
+   "etapa": "Autorizada",
+   "abertura": "05/02/2025 00:00",
+   "processo": "103",
+   "pncp": null,
+   "pncp_ano": null,
+   "pncp_seq": null,
+   "anexos": [
+    {
+     "nome": "DFD (.pdf)",
+     "url": "/Licitacao?id=345&handler=Imagem"
+    },
+    {
+     "nome": "ETP (.pdf)",
+     "url": "/Licitacao?id=346&handler=Imagem"
+    },
+    {
+     "nome": "TERMO DE REFERÊNCIA (.pdf)",
+     "url": "/Licitacao?id=347&handler=Imagem"
+    },
+    {
+     "nome": "MATRIZ DE RISCOS (.pdf)",
+     "url": "/Licitacao?id=348&handler=Imagem"
+    },
+    {
+     "nome": "AVISO DE CONTRATAÇÃO DIRETA N° 90001/2025 (.pdf)",
+     "url": "/Licitacao?id=349&handler=Imagem"
+    }
+   ]
+  }
+ ]
+}
