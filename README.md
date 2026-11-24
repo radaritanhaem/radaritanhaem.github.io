@@ -51,4 +51,4 @@ Precisa também do `pdftotext` (pacote poppler).
 3. Estimativa é marcada como estimativa.
 4. Na folha de pagamento não aparecem nomes nem matrículas, só o cargo.
 5. Dado que falta não é falta: ausência de registro não vira acusação.
-6. Porta aberta para correções: contato no fim da página.
+6. Porta aberta para correções: pela aba **Issues** deste repositório.
