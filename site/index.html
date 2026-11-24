@@ -1,6 +1,7 @@
 <title>Radar Itanhaém</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Raio-X de Itanhaém-SP: o que cada vereador fez desde a posse, só com dados oficiais da Câmara.">
+<link rel="icon" href="marca/icone.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
@@ -217,11 +218,21 @@ table.t thead th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;
 .tag.alerta{background:color-mix(in srgb,var(--signal) 14%,transparent);color:var(--signal)}
 footer{border-top:1px solid var(--line);margin-top:48px;padding-block:22px 32px;color:var(--muted);font-size:.85rem}
 .loading{padding-block:40px;color:var(--muted)}
+.barra-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.selo-ti{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--muted);font-size:.75rem;font-weight:700;line-height:1.1}
+.selo-ti img{height:44px;width:auto;display:block}
+@media (max-width:420px){.selo-ti span{display:none}.selo-ti img{height:38px}}
+.rodape-ti{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.rodape-ti img{height:64px;width:auto;display:block}
 </style>
 
 <div class="wrap">
   <header class="hero">
-    <span class="aovivo" id="aovivo"><i></i>Ao vivo · carregando dados</span>
+    <div class="barra-topo">
+      <span class="aovivo" id="aovivo"><i></i>Ao vivo · carregando dados</span>
+      <a class="selo-ti" href="https://www.transparenciaitanhaem.com.br/" target="_blank" rel="noopener" aria-label="Um projeto do Transparência Itanhaém">
+        <span>Um projeto do</span><img src="marca/transparencia-itanhaem.png" alt="Transparência Itanhaém" width="500" height="140"></a>
+    </div>
     <div class="marca" aria-label="Radar Itanhaém">
       <svg viewBox="0 0 120 100" aria-hidden="true">
         <path d="M22 14a50 50 0 0 0 0 72M98 14a50 50 0 0 1 0 72" stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="round"/>
@@ -240,6 +251,15 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding-block:22px 32px;
   <main id="app"><p class="loading">Carregando os dados da Câmara…</p></main>
 
   <footer>
+    <div class="rodape-ti">
+      <a href="https://www.transparenciaitanhaem.com.br/" target="_blank" rel="noopener"><img src="marca/transparencia-itanhaem.png" alt="Transparência Itanhaém" width="500" height="140" loading="lazy"></a>
+      <div><b style="color:var(--fg)">Radar Itanhaém é um projeto do Transparência Itanhaém.</b><br>
+        Notícias e fiscalização em <a href="https://www.transparenciaitanhaem.com.br/" target="_blank" rel="noopener">transparenciaitanhaem.com.br</a> ·
+        <a href="https://www.instagram.com/transparenciaitanhaem_/" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.facebook.com/transparenciaitanhaem/" target="_blank" rel="noopener">Facebook</a> ·
+        <a href="https://www.youtube.com/@transparenciaitanhaem" target="_blank" rel="noopener">YouTube</a> ·
+        <a href="https://www.tiktok.com/@transparenciaitanhaem" target="_blank" rel="noopener">TikTok</a></div>
+    </div>
     Fonte: portal oficial da <a href="https://www.itanhaem.sp.leg.br/" target="_blank" rel="noopener">Câmara Municipal de Itanhaém</a>. Fotos oficiais publicadas pela Câmara. Projeto independente, sem ligação com a Câmara, a Prefeitura ou partidos.
     <span id="rodape-data"></span>
   </footer>
