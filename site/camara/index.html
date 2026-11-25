@@ -1,7 +1,11 @@
-<title>Radar Itanhaém</title>
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raio-X da Câmara | Transparência Itanhaém</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Raio-X de Itanhaém-SP: o que cada vereador fez desde a posse, só com dados oficiais da Câmara.">
-<link rel="icon" href="marca/icone.webp" type="image/webp">
+<link rel="icon" href="/marca/icone.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
@@ -52,7 +56,7 @@ header.hero{padding-block:22px 8px;display:grid;gap:16px}
 .marca{display:flex;align-items:center;gap:14px;color:var(--fg)}
 .marca svg{flex:none;width:clamp(56px,13vw,104px);height:auto}
 .marca .w{display:grid;line-height:.86}
-.marca .w b{font-family:var(--f-display);font-weight:900;font-size:clamp(2.6rem,11vw,5.4rem);letter-spacing:-.035em;text-transform:uppercase}
+.marca .w b{font-family:var(--f-display);font-weight:900;font-size:clamp(2.1rem,9.5vw,4.6rem);letter-spacing:-.035em;text-transform:uppercase}
 .marca .w b + b{color:var(--accent)}
 .intro{font-size:1.2rem;max-width:30ch;margin:0}
 .placar{background:var(--panel);color:var(--panel-fg);border-radius:16px;padding:20px 22px;display:grid;gap:6px;min-width:0}
@@ -224,24 +228,36 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding-block:22px 32px;
 @media (max-width:420px){.selo-ti span{display:none}.selo-ti img{height:38px}}
 .rodape-ti{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .rodape-ti img{height:64px;width:auto;display:block}
+/* topo do portal (igual às outras páginas) */
+.topo-site{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:10}
+.topo-in{max-width:1120px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.topo-site .logo img{height:52px;width:auto;display:block}
+.topo-site .menu{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.topo-site .menu a{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.9rem;color:var(--fg);padding:7px 12px;border-radius:999px}
+.topo-site .menu a:hover{background:var(--soft)}
+.topo-site .menu a[aria-current]{background:var(--accent);color:var(--bg)}
+@media (max-width:640px){.topo-site .logo img{height:42px}.topo-in{gap:8px}.topo-site .menu{flex-basis:100%}}
+main section{scroll-margin-top:120px}
 </style>
 
+<header class="topo-site"><div class="topo-in">
+  <a class="logo" href="/" aria-label="Transparência Itanhaém, página inicial"><img src="/marca/transparencia-itanhaem.png" alt="Transparência Itanhaém" width="500" height="140"></a>
+  <nav class="menu" aria-label="Seções do portal"><a href="/">Início</a><a href="/noticias">Notícias</a><a href="/camara/" aria-current="page">Câmara</a><a href="/prefeitura/">Prefeitura</a><a href="/documentos">Documentos</a><a href="/podcasts">Podcasts</a><a href="/guia-comercial">Guia</a></nav>
+</div></header>
 <div class="wrap">
   <header class="hero">
     <div class="barra-topo">
       <span class="aovivo" id="aovivo"><i></i>Ao vivo · carregando dados</span>
-      <a class="selo-ti" href="https://www.transparenciaitanhaem.com.br/" target="_blank" rel="noopener" aria-label="Um projeto do Transparência Itanhaém">
-        <span>Um projeto do</span><img src="marca/transparencia-itanhaem.png" alt="Transparência Itanhaém" width="500" height="140"></a>
     </div>
-    <div class="marca" aria-label="Radar Itanhaém">
+    <div class="marca" aria-label="Raio-X da Câmara">
       <svg viewBox="0 0 120 100" aria-hidden="true">
         <path d="M22 14a50 50 0 0 0 0 72M98 14a50 50 0 0 1 0 72" stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="round"/>
         <path d="M38 30a28 28 0 0 0 0 40M82 30a28 28 0 0 1 0 40" stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="round"/>
         <circle cx="60" cy="50" r="11" fill="var(--accent)"/>
       </svg>
-      <div class="w"><b>Radar</b><b>Itanhaém</b></div>
+      <div class="w"><b>Raio-X</b><b>da Câmara</b></div>
     </div>
-    <p class="intro"><b>Raio-X de Itanhaém-SP.</b> O que cada vereador fez desde a posse, contado com dados oficiais.</p>
+    <p class="intro"><b>Câmara Municipal de Itanhaém.</b> O que cada vereador fez desde a posse, contado com dados oficiais.</p>
     <div id="topo"></div>
     <nav class="nav" aria-label="Seções">
       <a href="#bairro">Seu bairro</a><a href="#problemas">Problemas que voltam</a><a href="#trabalho">Homenagem ou trabalho?</a><a href="#vereadores">Os vereadores</a><a href="#folha">Salários da Câmara</a><a href="#licitacoes">Licitações</a><a href="#como-funciona">Como funciona</a>
@@ -252,9 +268,9 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding-block:22px 32px;
 
   <footer>
     <div class="rodape-ti">
-      <a href="https://www.transparenciaitanhaem.com.br/" target="_blank" rel="noopener"><img src="marca/transparencia-itanhaem.png" alt="Transparência Itanhaém" width="500" height="140" loading="lazy"></a>
-      <div><b style="color:var(--fg)">Radar Itanhaém é um projeto do Transparência Itanhaém.</b><br>
-        Notícias e fiscalização em <a href="https://www.transparenciaitanhaem.com.br/" target="_blank" rel="noopener">transparenciaitanhaem.com.br</a> ·
+      <a href="/"><img src="/marca/transparencia-itanhaem.png" alt="Transparência Itanhaém" width="500" height="140" loading="lazy"></a>
+      <div><b style="color:var(--fg)">O Raio-X da Câmara é uma seção do Transparência Itanhaém.</b><br>
+        <a href="/">Notícias da cidade</a> · <a href="/prefeitura/">Raio-X da Prefeitura</a> ·
         <a href="https://www.instagram.com/transparenciaitanhaem_/" target="_blank" rel="noopener">Instagram</a> ·
         <a href="https://www.facebook.com/transparenciaitanhaem/" target="_blank" rel="noopener">Facebook</a> ·
         <a href="https://www.youtube.com/@transparenciaitanhaem" target="_blank" rel="noopener">YouTube</a> ·
@@ -454,7 +470,7 @@ function desenharRep(){
 function abrirRep(r){
   const its = r.itens.map(x=>D.props[x]).sort(porData); const ds = datasRep(r);
   const autores = [...new Set(its.map(p=>VER[p[1]]?.apelido))];
-  const msg = `${r.rua}${r.bairro?` (${r.bairro})`:""}, em Itanhaém, já recebeu ${r.n} pedidos de "${r.servico.toLowerCase()}" na Câmara Municipal, de ${fmtM(ds[0])} a ${fmtM(ds[ds.length-1])}, feitos por ${autores.join(", ")}. O problema continua? Os pedidos oficiais estão no Radar Itanhaém.`;
+  const msg = `${r.rua}${r.bairro?` (${r.bairro})`:""}, em Itanhaém, já recebeu ${r.n} pedidos de "${r.servico.toLowerCase()}" na Câmara Municipal, de ${fmtM(ds[0])} a ${fmtM(ds[ds.length-1])}, feitos por ${autores.join(", ")}. O problema continua? Os pedidos oficiais estão no Transparência Itanhaém: transparenciaitanhaem.com.br/camara`;
   abrirPainel(r.rua, `${r.n} pedidos de ${r.servico.toLowerCase()}${r.bairro?` · ${r.bairro}`:""}`, c=>{
     c.innerHTML = `<div class="cobranca"><b>Cobrar</b><span class="small muted">Copie a mensagem e mande para o vereador, para a Prefeitura ou poste nas redes.</span>
       <label for="msg-cobrar" class="small muted" hidden>Mensagem</label><textarea id="msg-cobrar" readonly>${esc(msg)}</textarea><button type="button" class="btn" id="copiar">Copiar mensagem</button></div>
@@ -725,7 +741,7 @@ function secComo(){
     <h3>Salário</h3>
     <p>A <a href="${linkDoc(D.salario.doc)}" target="_blank" rel="noopener">Resolução nº 513/2024</a> manteve o subsídio da Resolução nº 490/2019 para o mandato 2025–2028 (<a href="${linkArq(D.salario.arq)}" target="_blank" rel="noopener">R$ 13.662 por mês no parecer</a>). Depois vieram reajustes. O contador usa o salário base que aparece na <a href="${PORTAL}" target="_blank" rel="noopener">folha de pagamento oficial</a> para a função “Vereador”: R$ 13.662 de janeiro a março de 2025, R$ 14.373 de abril de 2025 a março de 2026 e R$ 14.948 desde abril de 2026. A diferença de abril de 2026 foi paga na folha de maio. Ele multiplica esse valor pelas ${D.salario.cadeiras} cadeiras e pelo tempo que passou. Vereador não recebe 13º na folha da Câmara. Não entram os encargos pagos pela Câmara (INSS patronal).</p>
     ${D.folha?`<h3>Salários da Câmara</h3>
-    <p>A folha vem do <a href="${PORTAL}" target="_blank" rel="noopener">Portal da Transparência da Câmara</a>, mês a mês (${D.folha.de.toLowerCase()} a ${D.folha.ate.toLowerCase()} de ${D.folha.exercicio}). O portal publica nome e matrícula de cada pessoa, mas <b>o Radar não mostra nem um nem outro</b>, só o cargo. Quando um cargo tem uma pessoa só, o cargo basta para conferir no portal.</p>
+    <p>A folha vem do <a href="${PORTAL}" target="_blank" rel="noopener">Portal da Transparência da Câmara</a>, mês a mês (${D.folha.de.toLowerCase()} a ${D.folha.ate.toLowerCase()} de ${D.folha.exercicio}). O portal publica nome e matrícula de cada pessoa, mas <b>o Transparência Itanhaém não mostra nem um nem outro</b>, só o cargo. Quando um cargo tem uma pessoa só, o cargo basta para conferir no portal.</p>
     <p><b>Total bruto</b> = salário base + vencimentos e demais vantagens + férias + aposentadoria + pensão, como o portal publica. A bolsa de estágio já vem dentro de “vantagens” e não é somada duas vezes. <b>Depois dos descontos</b> é a coluna “líquido” do portal.</p>`:""}
     ${D.licitacoes?`<h3>Licitações</h3>
     <p>A lista vem da <a href="${CAMARA}/licitacao" target="_blank" rel="noopener">página de licitações da Câmara</a> (${D.licitacoes.total_portal} processos no total; aqui aparecem os de ${D.licitacoes.desde} em diante). Valor estimado, valor contratado e empresa vencedora vêm da API pública do <a href="https://pncp.gov.br" target="_blank" rel="noopener">PNCP</a>. Quando o vencedor é pessoa física, o nome não aparece.</p>`:""}

@@ -1,6 +1,7 @@
-# Robô do Radar Itanhaém: coleta os dados oficiais toda madrugada, confere e publica no GitHub Pages.
+# Robô do Transparência Itanhaém: coleta os dados oficiais toda madrugada, confere e publica no GitHub Pages.
 # Se a conferência falhar, nada é publicado e o site continua com a última versão boa.
-name: Atualizar o Radar
+# Quando você publica ou edita uma notícia (pasta conteudo/), o site é refeito na hora.
+name: Atualizar o portal
 
 on:
   schedule:
@@ -8,7 +9,7 @@ on:
   workflow_dispatch: {}     # botão "Run workflow" para rodar na hora
   push:
     branches: [main]
-    paths: ["site/**"]      # republica quando você muda o site à mão
+    paths: ["site/**", "conteudo/**", "coletor/gerar_site.py"]   # notícia nova ou mudança no site
 
 permissions:
   contents: write
@@ -16,7 +17,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: radar
+  group: portal
   cancel-in-progress: false
 
 jobs:
@@ -32,10 +33,10 @@ jobs:
       - name: Instalar ferramentas
         run: |
           sudo apt-get update -q && sudo apt-get install -y -q poppler-utils
-          pip install pillow playwright
+          pip install pillow playwright pyyaml
           python -m playwright install --with-deps chromium
       - name: Guardar a versão publicada
-        run: cp site/dados-site.json /tmp/anterior.json
+        run: cp site/camara/dados-site.json /tmp/anterior.json
       - name: Vereadores, propostas e presença
         run: |
           python coletor/coletar.py dados $(seq 2025 $(date +%Y))
@@ -48,15 +49,17 @@ jobs:
         run: python coletor/folha.py /tmp/folha.json && mv /tmp/folha.json dados/folha.json
       - name: Montar os dados do site
         run: |
-          python coletor/processar.py dados/dados.json site/dados-site.json
-          python coletor/processar_extra.py dados/folha.json dados/licitacoes.json site/dados-site.json
-          mkdir -p site/fotos && cp dados/fotos/* site/fotos/
+          python coletor/processar.py dados/dados.json site/camara/dados-site.json
+          python coletor/processar_extra.py dados/folha.json dados/licitacoes.json site/camara/dados-site.json
+          mkdir -p site/camara/fotos && cp dados/fotos/* site/camara/fotos/
       - name: Conferir antes de publicar
-        run: python coletor/validar.py /tmp/anterior.json site/dados-site.json
+        run: python coletor/validar.py /tmp/anterior.json site/camara/dados-site.json
+      - name: Montar as páginas do portal
+        run: python coletor/gerar_site.py
       - name: Salvar no repositório
         run: |
-          git config user.name "robo-radar"
-          git config user.email "robo-radar@users.noreply.github.com"
+          git config user.name "robo-transparencia"
+          git config user.email "robo-transparencia@users.noreply.github.com"
           git add dados site
           git diff --cached --quiet || git commit -m "Dados de $(date +%d/%m/%Y)"
           git pull --rebase origin main && git push
@@ -69,6 +72,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Montar as páginas do portal
+        run: pip install pyyaml && python coletor/gerar_site.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

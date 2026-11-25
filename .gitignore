@@ -3,3 +3,19 @@ __pycache__/
 _tmp.pdf
 _v.pdf
 .claude/
+# páginas geradas por coletor/gerar_site.py (refeitas a cada publicação)
+/site/index.html
+/site/404.html
+/site/*.html
+/site/noticia/
+/site/noticias/
+/site/edicao/
+/site/podcast/
+/site/video/
+/site/evento/
+/site/vaga-de-emprego/
+/site/guia/
+/site/prefeitura/index.html
+/site/rss.xml
+/site/sitemap.xml
+/site/robots.txt

@@ -1,0 +1,125 @@
+/* Transparência Itanhaém: estilo do portal (notícias). A seção /camara/ tem estilo próprio com as mesmas cores. */
+:root{
+  --bg:#ffffff; --fg:#0e1a20; --muted:#5b6b72; --line:#e3e9ec; --soft:#f3f6f8; --card:#ffffff;
+  --accent:#0a63b8; --accent-soft:#e6f0fa; --signal:#e0322b; --ok:#16855a; --amarelo:#f5c400;
+  --panel:#0e1a20; --panel-fg:#ffffff; --panel-muted:#b7c4ca;
+  --shadow:0 1px 2px rgba(14,26,32,.06),0 4px 14px rgba(14,26,32,.06);
+  --f-display:"Archivo","Arial Black",Arial,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b1418; --fg:#e8eff2; --muted:#9aacb3; --line:#1f2f36; --soft:#13222a; --card:#101d23;
+  --accent:#5aa9f0; --accent-soft:#132c42; --signal:#ff6b5e; --ok:#4cc58e; --panel:#16262e; --shadow:none; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1418; --fg:#e8eff2; --muted:#9aacb3; --line:#1f2f36; --soft:#13222a; --card:#101d23;
+  --accent:#5aa9f0; --accent-soft:#132c42; --signal:#ff6b5e; --ok:#4cc58e; --panel:#16262e; --shadow:none; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--f-body);margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);line-height:1.12;text-wrap:balance;margin:0}
+.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+
+/* topo */
+.topo-site{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:10}
+.topo-in{display:flex;align-items:center;gap:18px;padding-block:10px;flex-wrap:wrap}
+.logo img{height:52px;width:auto;display:block}
+.menu{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.menu a{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.9rem;color:var(--fg);padding:7px 12px;border-radius:999px}
+.menu a:hover{background:var(--soft)}
+.menu a[aria-current]{background:var(--accent);color:var(--bg)}
+@media (max-width:640px){.logo img{height:42px}.topo-in{gap:8px}.menu{flex-basis:100%}}
+
+main{padding-block:22px 10px;display:grid;gap:36px}
+
+/* cartões */
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.cartao a{display:grid;gap:10px;text-decoration:none;color:inherit;height:100%}
+.cartao .capa{aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:var(--soft)}
+.cartao .capa img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.cartao a:hover .capa img{transform:scale(1.03)}
+.cartao .sem-capa{display:block;width:100%;height:100%;background:linear-gradient(135deg,var(--accent-soft),var(--soft))}
+.cartao .txt{display:grid;gap:6px;align-content:start}
+.cartao h3{font-size:1.08rem;font-weight:800}
+.cartao a:hover h3{color:var(--accent)}
+.cartao time{font-size:.8rem;color:var(--muted)}
+.cartao .sub{margin:0;color:var(--muted)}
+.cat{justify-self:start;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--cat,var(--accent))}
+.manchetes{display:grid;grid-template-columns:1.6fr 1fr;gap:24px}
+@media (max-width:820px){.manchetes{grid-template-columns:1fr}}
+.cartao.grande h3{font-size:clamp(1.6rem,4.5vw,2.4rem);font-weight:900;letter-spacing:-.015em}
+.lateral{display:grid;gap:16px;align-content:start}
+.lateral .cartao a{grid-template-columns:120px 1fr;align-items:start}
+.lateral .cartao .capa{aspect-ratio:4/3}
+.lateral .cartao h3{font-size:.98rem}
+
+/* blocos de fiscalização */
+.fiscal{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:820px){.fiscal{grid-template-columns:1fr}}
+.bloco-fiscal{display:grid;gap:12px;align-content:start;text-decoration:none;border-radius:18px;padding:22px;background:var(--panel);color:var(--panel-fg)}
+.bloco-fiscal.prefeitura{background:linear-gradient(135deg,#0a4a8a,#0a63b8)}
+.bloco-fiscal .eyebrow{color:var(--amarelo)}
+.bloco-fiscal h2{font-size:clamp(1.4rem,3.5vw,1.9rem);font-weight:900}
+.bloco-fiscal p{margin:0;color:var(--panel-muted)}
+.bloco-fiscal.prefeitura p{color:#d6e6f7}
+.numeros{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.numeros div{background:rgba(255,255,255,.08);border-radius:10px;padding:10px;display:grid;gap:2px}
+.numeros b{font-family:var(--f-display);font-weight:900;font-size:1.25rem;font-variant-numeric:tabular-nums}
+.numeros span{font-size:.76rem;color:var(--panel-muted);line-height:1.3}
+@media (max-width:480px){.numeros{grid-template-columns:1fr}}
+.bloco-fiscal .ir{font-weight:800;color:var(--amarelo)}
+.bloco-fiscal:hover .ir{text-decoration:underline}
+
+.cab-secao{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px;border-bottom:3px solid var(--fg);padding-bottom:6px}
+.cab-secao h2{font-size:1.5rem;font-weight:900}
+.cab-secao a{font-weight:700;text-decoration:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.85rem;font-weight:700;text-decoration:none;color:var(--fg)}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.cab-lista{display:grid;gap:10px}
+.cab-lista h1{font-size:clamp(2rem,6vw,3rem);font-weight:900}
+.cab-lista p{margin:0;color:var(--muted)}
+.btn-mais{display:block;width:100%;border:0;background:var(--panel);color:var(--panel-fg);border-radius:12px;padding:14px;font:inherit;font-weight:700;cursor:pointer;margin-top:18px}
+
+/* matéria */
+.materia{max-width:760px;margin:0 auto;display:grid;gap:14px;width:100%}
+.trilha{font-size:.85rem;color:var(--muted)}
+.trilha a{color:var(--muted);text-decoration:none;font-weight:700}
+.trilha a[style]{color:var(--cat)}
+.materia h1{font-size:clamp(1.9rem,5.5vw,2.9rem);font-weight:900;letter-spacing:-.02em}
+.linha-fina{font-size:1.2rem;color:var(--muted);margin:0;line-height:1.45}
+.assinatura{font-size:.88rem;color:var(--muted);margin:0}
+.capa-materia{margin:0}
+.capa-materia img{width:100%;border-radius:14px;display:block}
+.texto{font-size:1.1rem;line-height:1.75;overflow-wrap:anywhere}
+.texto p{margin:0 0 1.1em}
+.texto img{border-radius:10px;display:block;margin:0 auto}
+.texto figure{margin:1.2em 0}
+.texto figcaption{font-size:.85rem;color:var(--muted);text-align:center;margin-top:6px}
+.texto iframe,.texto video{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000;display:block;margin:1em 0;height:auto}
+.texto iframe[src*="soundcloud"]{aspect-ratio:auto;height:166px;background:transparent}
+.texto iframe.pdf{aspect-ratio:3/4;background:var(--soft)}
+.texto blockquote{border-left:4px solid var(--accent);margin:1em 0;padding:4px 16px;color:var(--muted)}
+.texto table{border-collapse:collapse;width:100%;font-size:.95rem;display:block;overflow-x:auto}
+.texto td,.texto th{border:1px solid var(--line);padding:6px 8px}
+.texto center{display:block}
+.botao{display:inline-block;background:var(--accent);color:var(--bg);text-decoration:none;font-weight:800;padding:10px 16px;border-radius:10px}
+.fonte{font-size:.85rem;color:var(--muted);margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.78rem;font-weight:700;background:var(--soft);color:var(--muted);border-radius:6px;padding:3px 9px}
+.compartilhar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.85rem}
+.compartilhar span{color:var(--muted);font-weight:700}
+.compartilhar a,.compartilhar button{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:5px 12px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.compartilhar a.zap{background:#1f9d55;border-color:#1f9d55;color:#fff}
+.relacionadas{display:grid;gap:14px}
+.relacionadas h2{font-size:1.4rem;font-weight:900}
+
+/* rodapé */
+.rodape-site{border-top:1px solid var(--line);margin-top:40px;padding-block:28px 36px;color:var(--muted);font-size:.9rem}
+.rodape-site img{height:60px;width:auto;display:block;margin-bottom:10px}
+.rodape-site p{margin:6px 0}
