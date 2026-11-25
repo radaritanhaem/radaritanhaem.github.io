@@ -58,6 +58,12 @@ jobs:
           mkdir -p dados/registro
           (python coletor/prefeitura.py despesas /tmp/pref.json && python coletor/prefeitura.py aceitar /tmp/pref.json dados/prefeitura_despesas.json) > dados/registro/prefeitura.txt 2>&1; s=$?
           tail -40 dados/registro/prefeitura.txt; exit $s
+      - name: Prefeitura - compras e licitações homologadas (Dados Abertos)
+        continue-on-error: true
+        run: |
+          mkdir -p dados/registro
+          (python coletor/prefeitura.py compras /tmp/compras.json && python coletor/prefeitura.py aceitar-compras /tmp/compras.json dados/prefeitura_compras.json) > dados/registro/compras.txt 2>&1; s=$?
+          tail -40 dados/registro/compras.txt; exit $s
       - name: Prefeitura - secretários e conferência com o TCE-SP
         continue-on-error: true
         run: |

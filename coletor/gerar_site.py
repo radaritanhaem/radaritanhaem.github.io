@@ -14,7 +14,7 @@ A seção da Câmara (/camara) é feita por outro programa e não é tocada aqui
 
 Uso: python gerar_site.py
 """
-import datetime as dt, glob, html, json, os, re, unicodedata
+import collections, datetime as dt, glob, html, json, os, re, unicodedata
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(RAIZ, "site")
@@ -285,6 +285,17 @@ def mi(v):  # centavos -> texto curto
 def reais(v):
     return "R$ " + f"{v/100:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
+def bloco_compras():
+    pc = os.path.join(RAIZ, "dados", "prefeitura_compras.json")
+    if not os.path.exists(pc):
+        return ""
+    d = json.load(open(pc, encoding="utf-8")); L = d["lista"]
+    tot = sum(c["homologado"] for c in L)
+    return f"""<a class="bloco-fiscal prefeitura" href="/prefeitura/compras/" style="margin-top:4px">
+<span class="eyebrow">Compras e licitações</span><h2>O que a Prefeitura está comprando</h2>
+<p>{len(L)} compras homologadas em {d['exercicio']}, somando {mi(tot)}. Veja o que foi comprado, quanto já foi pago e para quais empresas.</p>
+<span class="ir">Ver todas as compras →</span></a>"""
+
 def pagina_prefeitura():
     pd = os.path.join(RAIZ, "dados", "prefeitura_despesas.json")
     if not os.path.exists(pd):
@@ -356,6 +367,7 @@ def pagina_prefeitura():
 <div><b>{100*gasto_pessoal/total:.0f}%</b><span>vai para salários e encargos dos servidores</span></div>
 <div><b>{100*maior[1]['tot']/total:.0f}%</b><span>fica com {e(nome_unidade(maior[0]))}, a maior secretaria</span></div>
 </div>
+{bloco_compras()}
 <section class="graf"><h2>Quanto foi pago em cada mês</h2>
 <div class="colunas" role="img" aria-label="Total pago por mês em {ano}">{barras_mes}</div>
 <p class="small muted">Pela data do pagamento. Janeiro é baixo porque os pagamentos de despesas do ano anterior não entram nesta conta.</p></section>
@@ -371,6 +383,80 @@ def pagina_prefeitura():
 </section>""".replace(f"{d['linhas']:,} pag", f"{d['linhas']:,}".replace(",", ".") + " pag")
     return pagina(f"Raio-X da Prefeitura | {NOME}", corpo, "/prefeitura/",
                   f"Quanto cada secretaria da Prefeitura de Itanhaém gastou em {ano} e quem comanda cada uma.", ativo="/prefeitura/")
+
+GRUPO_MOD = lambda m: "Concorrência" if m.startswith("Concorr") else m
+
+def norm_busca(s):
+    return unicodedata.normalize("NFD", s or "").encode("ascii", "ignore").decode().lower()
+
+def pagina_compras():
+    pc = os.path.join(RAIZ, "dados", "prefeitura_compras.json")
+    if not os.path.exists(pc):
+        return None
+    d = json.load(open(pc, encoding="utf-8"))
+    pd = os.path.join(RAIZ, "dados", "prefeitura_despesas.json")
+    procs = json.load(open(pd, encoding="utf-8")).get("processos", {}) if os.path.exists(pd) else {}
+    L = sorted(d["lista"], key=lambda c: (c["data"], c["homologado"]), reverse=True)
+    tot = sum(c["homologado"] for c in L); pago = sum(c["pago"] for c in L)
+    sem_lic = [c for c in L if c["modalidade"] in ("Dispensa", "Inexigibilidade")]
+    mods = collections.Counter(GRUPO_MOD(c["modalidade"]) for c in L)
+    def data_c(iso):
+        return f"{int(iso[8:10])} {MESES_C[int(iso[5:7])-1]} {iso[:4]}" if iso else ""
+    def cartao_c(i, c):
+        p = procs.get(c["processo_id"], {})
+        pct = 100 * c["pago"] / c["homologado"] if c["homologado"] else 0
+        forn = []
+        for f, v in p.get("forn", [])[:3]:
+            nm, doc = f.rsplit("|", 1)
+            forn.append(f"<li><span>{e(nm.title() if nm.isupper() else nm)}</span><b>{reais(v)}</b></li>")
+        if p.get("pf"):
+            forn.append(f"<li><span>Pessoas físicas (nomes não exibidos)</span><b>{reais(p['pf'])}</b></li>")
+        un = nome_unidade(p["un"][0][0]) if p.get("un") else ""
+        texto = norm_busca(f"{c['objeto']} {c['justificativa']} {un} {' '.join(f for f, _ in p.get('forn', []))} {c['processo']} {c['numero']}")
+        extra = f" · {c['itens']} itens" if c["itens"] > 1 else ""
+        sec = f" · <b>{e(un)}</b>" if un else ""
+        reticencias = "…" if len(c["objeto"]) >= 88 else ""
+        quem = f'<div class="subt">Quem recebeu</div><ol class="forn">{"".join(forn)}</ol>' if forn else ""
+        just = f'<details><summary>Justificativa</summary><p class="small">{e(c["justificativa"])}</p></details>' if c["justificativa"] else ""
+        return f"""<article class="card-compra" id="c-{i}" data-mod="{e(GRUPO_MOD(c['modalidade']))}" data-texto="{e(texto)}">
+<div class="cc-topo"><b class="cc-valor">{reais(c['homologado'])}</b><span class="tag">{e(c['modalidade'])}</span></div>
+<p class="cc-obj">{e(c['objeto'])}{reticencias}</p>
+<p class="small muted" style="margin:0">{data_c(c['data'])} · nº {e(c['numero'])} · processo {e(c['processo'])}{extra}{sec}</p>
+<div class="cc-barra" data-tip="{reais(c['pago'])} pagos de {reais(c['homologado'])}"><i style="width:{min(100, pct):.1f}%"></i></div>
+<p class="small" style="margin:0"><b>{reais(c['pago'])}</b> já pagos ({pct:.0f}%)</p>
+{quem}
+{just}
+</article>"""
+    maiores = sorted(range(len(L)), key=lambda i: -L[i]["homologado"])[:10]
+    mx = L[maiores[0]]["homologado"] if L else 1
+    rank = "".join(f"""<li><a href="#c-{i}"><span class="nm">{e(L[i]['objeto'][:70])}{'…' if len(L[i]['objeto']) > 70 else ''}</span><span class="v">{mi(L[i]['homologado'])}</span></a>
+<div class="barra"><i style="width:{100*L[i]['homologado']/mx:.1f}%"></i></div></li>""" for i in maiores)
+    chips = '<button type="button" class="chip" data-fmod="" aria-pressed="true">Todas</button>' + "".join(
+        f'<button type="button" class="chip" data-fmod="{e(m)}" aria-pressed="false">{e(m)} ({n})</button>' for m, n in mods.most_common())
+    v_sem = mi(sum(c["homologado"] for c in sem_lic))
+    corpo = f"""<section class="cab-lista"><span class="eyebrow" style="color:var(--accent)">Raio-X da Prefeitura</span>
+<h1>O que a Prefeitura está comprando</h1>
+<p>Todas as compras e contratações homologadas em {d['exercicio']}, com o valor fechado e quanto já foi pago a cada empresa. Dados oficiais do <a href="{e(d['fonte'])}" target="_blank" rel="noopener">Portal de Dados Abertos da Prefeitura</a>, atualizados em {data_br(d['coletado_em'])}. <a href="/prefeitura/">← Voltar ao Raio-X da Prefeitura</a></p></section>
+<div class="tiles-p">
+<div><b>{len(L)}</b><span>compras homologadas em {d['exercicio']}</span></div>
+<div><b>{mi(tot)}</b><span>valor total fechado</span></div>
+<div><b>{mi(pago)}</b><span>já pagos ({100*pago/tot:.0f}%)</span></div>
+<div><b>{len(sem_lic)}</b><span>sem licitação comum (dispensa ou inexigibilidade), {v_sem}</span></div>
+</div>
+<section class="graf"><h2>As 10 maiores compras do ano</h2><ol class="ranking">{rank}</ol></section>
+<section class="graf"><h2>Todas as compras</h2>
+<div class="busca"><input id="q-compra" type="search" placeholder="Buscar: medicamento, uniforme, asfalto, nome da empresa…" autocomplete="off" aria-label="Buscar compra"></div>
+<div class="chips">{chips}</div>
+<p class="small muted" id="n-compra" style="margin:0"></p>
+<div class="grade-compras" id="lista-compras">{''.join(cartao_c(i, c) for i, c in enumerate(L))}</div>
+<button type="button" class="btn-mais" id="mais-compras">Mostrar mais</button></section>
+<section class="prose-p"><h2>Como ler</h2>
+<p><b>Valor fechado (homologado)</b> é o valor final da licitação ou contratação, que pode ser gasto ao longo de meses ou anos. <b>Já pago</b> é o que de fato saiu do caixa até agora. Muitas compras são "registro de preços": a Prefeitura só paga o que usar.</p>
+<p><b>Quem recebeu</b> vem dos pagamentos da Prefeitura ligados ao mesmo número de processo. Aparece o nome das empresas (CNPJ é público); pagamentos a pessoas físicas não têm o nome exibido.</p>
+<p><b>Dispensa e inexigibilidade</b> são permitidas pela Lei 14.133/2021 em casos previstos (valor baixo, emergência, fornecedor único, artistas). Mesmo assim precisam ser publicadas e justificadas.</p>
+<p>O próprio portal da Prefeitura corta a descrição das compras em cerca de 90 letras; por isso alguns textos terminam com "…".</p></section>"""
+    return pagina(f"O que a Prefeitura está comprando | {NOME}", corpo, "/prefeitura/compras/",
+                  f"{len(L)} compras homologadas pela Prefeitura de Itanhaém em {d['exercicio']}, com valores e empresas que receberam.", ativo="/prefeitura/")
 
 def home(itens):
     nots = [m for m in itens if m["pasta"] == "noticias"]
@@ -445,6 +531,9 @@ def main():
         lst = [m for m in itens if m["pasta"] == pasta]
         gravar(f"{pag}.html", pagina_lista(lista, "", lst, f"/{pag}", f"/{pag}")); caminhos.append(f"/{pag}")
     gravar("index.html", home(itens))
+    comp = pagina_compras()
+    if comp:
+        gravar("prefeitura/compras/index.html", comp); caminhos.append("/prefeitura/compras/")
     pref = pagina_prefeitura()
     if pref:
         gravar("prefeitura/index.html", pref)

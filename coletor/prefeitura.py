@@ -130,6 +130,7 @@ def _despesas(pg, ctx, nav, ano, hoje):
                 break
         nav.close()
     d = agregar(texto)
+    d["processos"] = por_processo(texto)
     esperado = round(float(tot_portal.group(1).replace(".", "").replace(",", ".")) * 100)
     if d["total"] != esperado:
         raise RuntimeError(f"soma do CSV ({d['total']}) diferente do total do portal ({esperado})")
@@ -137,6 +138,112 @@ def _despesas(pg, ctx, nav, ano, hoje):
               "total_portal": tot_portal.group(1)}, "fonte": PORTAL + "/filtros-despesasorcamentarias", "coletado_em": time.strftime("%Y-%m-%d")})
     print(f"despesas {ano}: {d['linhas']} pagamentos, R$ {d['total']/100:,.2f} (bate com o portal)")
     return d
+
+# ---------------- compras e licitações homologadas ----------------
+def _num_ano(s):
+    """'5752026' -> '575/2026' (o portal exporta sem a barra; os 4 últimos dígitos são o ano)."""
+    s = re.sub(r"\D", "", s or "")
+    return f"{int(s[:-4])}/{s[-4:]}" if len(s) > 4 and int(s[:-4] or 0) else ""
+
+def _data(s):
+    s = re.sub(r"\D", "", s or "").zfill(8)
+    return f"{s[4:8]}-{s[2:4]}-{s[0:2]}" if s.strip("0") else ""
+
+def ler_compras(texto_csv):
+    """Lê o CSV de 'Compras e Licitações' (homologadas). Alguns textos têm quebra de linha no meio."""
+    linhas = texto_csv.replace("\r\n", "\n").split("\n")
+    cab = [c.strip() for c in linhas[0].split(";")]
+    regs, buf = [], ""
+    for l in linhas[1:]:
+        buf = f"{buf} {l}" if buf else l
+        if buf.count(";") >= len(cab) - 1:
+            regs.append([x.strip() for x in buf.split(";")]); buf = ""
+    if buf.strip():
+        raise RuntimeError("CSV de compras terminou no meio de um registro: " + buf[:80])
+    i = {n: cab.index(n) for n in cab}
+    cent = lambda v: round(float(v or 0) * 100)
+    out = []
+    for r in regs:
+        if len(r) != len(cab):
+            raise RuntimeError(f"registro com {len(r)} colunas: {';'.join(r)[:100]}")
+        out.append({"modalidade": r[i["Modalidade"]], "fundamento": r[i["Fundamento Legal"]],
+                     "numero": _num_ano(r[i["Número"]]), "processo": _num_ano(r[i["Processo Adm"]]),
+                     "processo_id": re.sub(r"\D", "", r[i["Processo Adm"]]), "edital": _num_ano(r[i["Nº Ano Edital"]]),
+                     "data": _data(r[i["Data Licitação"]]), "objeto": re.sub(r"\s+", " ", r[i["Objeto"]]),
+                     "justificativa": re.sub(r"\s+", " ", r[i["Justificativa/Destinação"]]),
+                     "homologado": cent(r[i["Valor Homologado"]]), "empenhado": cent(r[i["Valor Empenhado"]]),
+                     "liquidado": cent(r[i["Valor Liquidado"]]), "pago": cent(r[i["Valor Pago"]]),
+                     "itens": int(r[i["Qtde."]] or 0), "homologacao": r[i["Homologação"]]})
+    return out
+
+def por_processo(texto_csv_despesas):
+    """Dos pagamentos (CSV de despesa paga): quanto foi pago em cada processo, a quem (só empresas) e por qual secretaria."""
+    linhas = list(csv.reader(io.StringIO(texto_csv_despesas), delimiter=";"))
+    cab = [c.strip() for c in linhas[0]]
+    i = {n: cab.index(n) for n in ("Processo", "Unidade Orçamentária", "CPF / CNPJ", "Fornecedor", "Valor Pago")}
+    P = {}
+    for c in linhas[1:]:
+        p = re.sub(r"\D", "", c[i["Processo"]])
+        if not p or not p.strip("0"):
+            continue
+        v = round(float(c[i["Valor Pago"]].strip()) * 100)
+        o = P.setdefault(p, {"pago": 0, "n": 0, "pf": 0, "forn": collections.Counter(), "un": collections.Counter()})
+        o["pago"] += v; o["n"] += 1
+        doc = c[i["CPF / CNPJ"]].strip()
+        if re.fullmatch(r"\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}", doc):
+            o["forn"][f"{c[i['Fornecedor']].strip()}|{doc}"] += v
+        else:
+            o["pf"] += v
+        o["un"][c[i["Unidade Orçamentária"]].strip()] += v
+    return {p: {"pago": o["pago"], "n": o["n"], "pf": o["pf"], "forn": [[a, b] for a, b in o["forn"].most_common(5)],
+                "un": [[a, b] for a, b in o["un"].most_common(3)]} for p, o in P.items()}
+
+def compras(ano):
+    """Abre o portal (Playwright), pesquisa as compras homologadas do ano e baixa o CSV oficial."""
+    from playwright.sync_api import sync_playwright
+    hoje = time.strftime("%d/%m/%Y") if int(time.strftime("%Y")) == ano else f"31/12/{ano}"
+    with sync_playwright() as p:
+        nav = p.chromium.launch()
+        ctx = nav.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36 (robo do Transparencia Itanhaem; coleta lenta)",
+                              locale="pt-BR", timezone_id="America/Sao_Paulo", viewport={"width": 1366, "height": 900})
+        pg = ctx.new_page()
+        try:
+            pg.goto(PORTAL + "/filtros-compraselicitacoes", wait_until="domcontentloaded", timeout=120000)
+            pg.wait_for_selector("#vORGAO_MPAGE", timeout=90000); time.sleep(2)
+            if pg.eval_on_selector("#vORGAO_MPAGE", "s => s.value") != "2":
+                pg.select_option("#vORGAO_MPAGE", "2"); time.sleep(4)
+            if pg.eval_on_selector("#vEXERCICIO_MPAGE", "s => s.value") != str(ano):
+                pg.select_option("#vEXERCICIO_MPAGE", str(ano)); time.sleep(4)
+            pg.wait_for_selector("#W0012vDATAINICIAL", timeout=90000)
+            pg.evaluate("""async ([ini, fim]) => {
+              const sleep = ms => new Promise(r => setTimeout(r, ms));
+              for (const [id, v] of [['W0012vDATAINICIAL', ini], ['W0012vDATAFINAL', fim]]) {
+                const i = document.getElementById(id); i.focus(); i.value = v;
+                i.dispatchEvent(new Event('input', {bubbles: true})); i.dispatchEvent(new Event('change', {bubbles: true})); i.blur(); await sleep(400); }
+              document.getElementById('W0012BTNENTER').click();
+            }""", [f"01/01/{ano}", hoje])
+            pg.wait_for_url("**/resultado-compraselicitacoes", timeout=180000)
+            time.sleep(5)
+            pag = re.search(r"Página \d+ de (\d+)", pg.inner_text("body"))
+            paginas = int(pag.group(1)) if pag else 1
+            pg.click("#DDO_ACTIONGROUPEXPORTContainer_btnGroupDrop"); time.sleep(0.5)
+            pg.locator("#DDO_ACTIONGROUPEXPORTContainer a", has_text="CSV").click()
+            texto = ""
+            for _ in range(30):
+                time.sleep(4)
+                texto = ctx.request.get(PORTAL + "/wpcompraslicitacoeshomologadasexportcsv.aspx", timeout=180000).body().decode("utf-8", "replace")
+                if texto.count("\n") > 1:
+                    break
+        except Exception:
+            registrar_falha(pg, "compras")
+            raise
+        nav.close()
+    lista = ler_compras(texto)
+    if not (paginas - 1) * 10 < len(lista) <= paginas * 10:
+        raise RuntimeError(f"compras: {len(lista)} registros para {paginas} páginas do portal")
+    print(f"compras {ano}: {len(lista)} homologadas, R$ {sum(c['homologado'] for c in lista)/100:,.2f}")
+    return {"exercicio": ano, "ate": hoje, "lista": lista, "fonte": PORTAL + "/filtros-compraselicitacoes",
+            "coletado_em": time.strftime("%Y-%m-%d")}
 
 # ---------------- secretários ----------------
 def secretarios():
@@ -188,6 +295,19 @@ def main():
     if cmd == "despesas":
         d = despesas(int(sys.argv[3]) if len(sys.argv) > 3 else int(time.strftime("%Y")))
         json.dump(d, open(sys.argv[2], "w", encoding="utf-8"), ensure_ascii=False)
+    elif cmd == "compras":
+        d = compras(int(sys.argv[3]) if len(sys.argv) > 3 else int(time.strftime("%Y")))
+        json.dump(d, open(sys.argv[2], "w", encoding="utf-8"), ensure_ascii=False)
+    elif cmd == "aceitar-compras":  # só troca se não diminuiu
+        novo = json.load(open(sys.argv[2], encoding="utf-8"))
+        try:
+            velho = json.load(open(sys.argv[3], encoding="utf-8"))
+        except FileNotFoundError:
+            velho = None
+        if velho and velho["exercicio"] == novo["exercicio"] and len(novo["lista"]) < len(velho["lista"]):
+            raise SystemExit(f"NÃO ACEITO: {len(novo['lista'])} compras < {len(velho['lista'])}")
+        json.dump(novo, open(sys.argv[3], "w", encoding="utf-8"), ensure_ascii=False)
+        print("aceito:", len(novo["lista"]), "compras")
     elif cmd == "secretarios":
         json.dump(secretarios(), open(sys.argv[2], "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     elif cmd == "aceitar":  # só troca os dados se o arquivo novo for pelo menos tão completo quanto o atual

@@ -189,3 +189,18 @@ main > *{min-width:0}
 .forn li{min-width:0}
 .forn li span{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.3}
 .forn li{align-items:baseline}
+
+/* ---------- Compras da Prefeitura ---------- */
+.grade-compras{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:14px}
+.card-compra{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px;display:grid;gap:8px;align-content:start;min-width:0;scroll-margin-top:110px}
+.card-compra:target{outline:3px solid var(--accent)}
+.cc-topo{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.cc-valor{font-family:var(--f-display);font-weight:900;font-size:1.45rem;font-variant-numeric:tabular-nums}
+.cc-obj{margin:0;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
+.cc-barra{height:8px;background:var(--soft);border-radius:4px}
+.cc-barra i{display:block;height:100%;background:var(--g1);border-radius:4px}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+button.chip{cursor:pointer;background:var(--card);font:inherit;font-size:.85rem;font-weight:700}
+.busca{display:flex}
+.busca input{flex:1;min-width:0;font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg)}
+.card-compra[hidden],[hidden]{display:none !important}
