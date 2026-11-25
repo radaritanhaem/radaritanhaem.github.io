@@ -1,54 +1,56 @@
-# Radar Itanhaém
+# Transparência Itanhaém
 
-**Site:** https://radaritanhaem.github.io/
+**Site de teste:** https://radaritanhaem.github.io/ · **Endereço final:** https://www.transparenciaitanhaem.com.br (depois da troca do domínio)
 
-Raio-X da Câmara Municipal de Itanhaém-SP com dados oficiais: propostas de cada vereador, presença nas sessões, problemas que voltam nos bairros, salários da Câmara (por cargo, sem nomes) e licitações.
+Portal de notícias de Itanhaém-SP com fiscalização do poder público:
 
-## O que tem aqui
+- **Notícias** da cidade (`/noticias`, cada matéria em `/noticia/<endereço>`, os mesmos endereços do portal antigo)
+- **Raio-X da Câmara** (`/camara/`): propostas, presença, salários por cargo e licitações, só com dados oficiais
+- **Raio-X da Prefeitura** (`/prefeitura/`): gasto por secretaria e secretários (em construção)
+- Documentos, podcasts, vídeos, eventos, vagas e guia comercial
+
+## Pastas
 
 | Pasta | O que é |
 |---|---|
-| `site/` | O site (uma página só) e os dados prontos (`dados-site.json`) |
-| `coletor/` | O robô que busca os dados oficiais |
-| `dados/` | Os dados brutos baixados (para quem quiser conferir) |
-| `.github/workflows/atualizar.yml` | Agenda do robô: roda toda madrugada às 5h |
+| `conteudo/` | As notícias e demais publicações, um arquivo `.md` por publicação |
+| `site/` | O que vai para o ar. `site/camara/` é o Raio-X da Câmara; `site/uploads/` são fotos e PDFs |
+| `coletor/` | Os programas: robô de dados (`coletar`, `folha`, `licitacoes`...) e o gerador do portal (`gerar_site.py`) |
+| `dados/` | Dados brutos baixados das fontes oficiais |
+| `.pages.yml` | Configuração do painel de publicação |
+
+As páginas de notícias em `site/` são geradas a cada publicação e não ficam guardadas no repositório.
+
+## Publicar uma notícia (painel grátis)
+
+1. Abra https://app.pagescms.org e entre com a conta do GitHub.
+2. Escolha o repositório **radaritanhaem/radaritanhaem.github.io**.
+3. Menu **Notícias → Add an entry**: título, categoria, data, foto de capa e texto. Clique em **Save**.
+4. Em cerca de 1 minuto a notícia está no ar.
+
+Para vídeos, envie para o canal do YouTube e cole o link do vídeo sozinho numa linha do texto: ele vira o player.
+
+## Robô diário
+
+Todo dia às 5h (Brasília) o robô busca os dados da Câmara, confere e publica. Se algo vier estranho, ele **não publica** e o site fica com a última versão boa. Veja na aba **Actions**.
+
+## Pendências antes de desligar o portal antigo
+
+- [ ] **Vídeos enviados ao portal antigo** (19 vídeos, 877 MB): hoje ainda tocam a partir do portal antigo. Antes de desligá-lo, subir no YouTube e trocar nas notícias.
+- [ ] **E-mail @transparenciaitanhaem.com.br**: se for usado, configurar antes da troca do domínio.
+- [ ] **Troca do domínio**: em registro.br, apontar `transparenciaitanhaem.com.br` para o GitHub Pages e configurar o domínio em Settings → Pages.
 
 ## Fontes (somente oficiais)
 
-- Portal da Câmara (SISCAM): vereadores, propostas, relatórios de presença e atas. https://www.itanhaem.sp.leg.br
-- Portal da Transparência da Câmara: folha de pagamento. https://transparencia.itanhaem.sp.leg.br
-- Página de licitações da Câmara e o PNCP (Portal Nacional de Contratações Públicas): https://pncp.gov.br
+- Câmara: https://www.itanhaem.sp.leg.br e https://transparencia.itanhaem.sp.leg.br
+- Licitações: página da Câmara e PNCP (https://pncp.gov.br)
+- Prefeitura: https://dadosabertos.itanhaem.sp.gov.br e TCE-SP (https://transparencia.tce.sp.gov.br)
 
-## Como colocar no ar (uma vez só)
-
-1. Crie uma conta em https://github.com (grátis), se ainda não tiver.
-2. Crie um repositório **público** chamado `radar-itanhaem` (botão **New**). Não marque nenhuma opção de README.
-3. Envie esta pasta para o repositório. Pelo site do GitHub: **Add file → Upload files**, arraste todas as pastas e arquivos e clique em **Commit changes**.
-4. No repositório, vá em **Settings → Pages** e, em **Source**, escolha **GitHub Actions**.
-5. Vá em **Actions**, clique em **Atualizar o Radar** e em **Run workflow**. A primeira coleta leva cerca de 1 hora.
-6. O endereço do site aparece em **Settings → Pages**, no formato `https://SEU-USUARIO.github.io/radar-itanhaem/`.
-
-Depois disso o robô roda sozinho todo dia. Se a coleta vier incompleta ou estranha, ele **não publica** e o site continua com a última versão boa. Para ver o que aconteceu, abra a aba **Actions**: uma bolinha vermelha mostra o motivo.
-
-## Rodar no próprio computador
-
-```
-pip install pillow playwright
-python -m playwright install chromium
-python coletor/coletar.py dados 2025 2026
-python coletor/verificar.py dados/dados.json dados/verificacao.json
-python coletor/licitacoes.py dados/licitacoes.json 2025
-python coletor/folha.py dados/folha.json
-python coletor/processar.py dados/dados.json site/dados-site.json
-python coletor/processar_extra.py dados/folha.json dados/licitacoes.json site/dados-site.json
-```
-Precisa também do `pdftotext` (pacote poppler).
-
-## Regras do projeto
+## Regras
 
 1. Só dados oficiais, sempre com link para a fonte.
-2. A mesma regra vale para todos os vereadores.
+2. A mesma regra vale para todos.
 3. Estimativa é marcada como estimativa.
 4. Na folha de pagamento não aparecem nomes nem matrículas, só o cargo.
 5. Dado que falta não é falta: ausência de registro não vira acusação.
-6. Porta aberta para correções: pela aba **Issues** deste repositório.
+6. Correções pela aba **Issues** deste repositório.
