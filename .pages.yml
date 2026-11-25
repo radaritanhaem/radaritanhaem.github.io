@@ -1,45 +1,115 @@
-# Painel de publicação (Pages CMS, grátis): https://app.pagescms.org
-# Entre com a conta do GitHub, escolha o repositório e use o menu "Notícias".
+# Painel de publicação do Transparência Itanhaém (Pages CMS, grátis): https://app.pagescms.org
+# Entre com a conta do GitHub, escolha o repositório radaritanhaem.github.io e use o menu "Notícias".
 media:
-  input: site/uploads/painel
-  output: /uploads/painel
+  - name: imagens
+    label: Fotos
+    input: site/uploads/painel
+    output: /uploads/painel
+    categories: [image]
+    rename: safe
+  - name: documentos
+    label: Documentos (PDF)
+    input: site/uploads/painel/docs
+    output: /uploads/painel/docs
+    categories: [document]
+    rename: safe
+
 content:
   - name: noticias
     label: Notícias
     type: collection
     path: conteudo/noticias
+    format: yaml-frontmatter
     filename: "{primary}.md"
     view:
       fields: [titulo, categoria, data]
-      sort: [data]
+      primary: titulo
+      sort: [data, titulo]
       default:
         sort: data
         order: desc
     fields:
-      - { name: titulo, label: Título, type: string, required: true }
-      - { name: subtitulo, label: "Linha fina (frase abaixo do título)", type: text }
+      - name: titulo
+        label: Título
+        type: string
+        required: true
+      - name: subtitulo
+        label: Linha fina (frase abaixo do título)
+        type: text
       - name: categoria
         label: Categoria
         type: select
         required: true
         options:
-          values: ["Prefeitura", "Política", "Justiça", "Geral", "Fiscalização", "Saúde", "Educação", "Câmara de Itanhaém", "Licitação prefeitura", "Esportes", "Economia", "Segurança"]
-      - { name: data, label: Data e hora, type: date, options: { time: true }, required: true }
-      - { name: capa, label: Foto de capa, type: image }
-      - { name: autor, label: Autor, type: string, default: "Transparência Itanhaém" }
-      - { name: fonte, label: "Fonte/créditos", type: string }
-      - { name: tags, label: "Tags (separadas por vírgula)", type: string }
-      - { name: rascunho, label: "Rascunho (não publicar ainda)", type: boolean, default: false }
-      - { name: endereco, label: "Endereço (deixe vazio para gerar pelo título)", type: string }
-      - { name: body, label: Texto, type: rich-text }
+          values: [Prefeitura, Política, Justiça, Geral, Fiscalização, Saúde, Educação, Câmara de Itanhaém, Licitação prefeitura, Esportes, Economia, Segurança]
+      - name: data
+        label: Data e hora da publicação
+        type: date
+        options:
+          time: true
+          format: yyyy-MM-dd'T'HH:mm
+      - name: capa
+        label: Foto de capa
+        type: image
+        options:
+          media: imagens
+      - name: autor
+        label: Autor
+        type: string
+        default: Transparência Itanhaém
+      - name: fonte
+        label: Fonte / créditos
+        type: string
+      - name: tags
+        label: Tags (separadas por vírgula)
+        type: string
+      - name: rascunho
+        label: Rascunho (marcado = não aparece no site)
+        type: boolean
+        default: false
+      - name: body
+        label: Texto da notícia
+        type: rich-text
+        options:
+          format: html
+          media: imagens
+
   - name: documentos
     label: Documentos (PDF)
     type: collection
     path: conteudo/edicoes
+    format: yaml-frontmatter
     filename: "{primary}.md"
+    view:
+      fields: [titulo, data]
+      primary: titulo
+      default:
+        sort: data
+        order: desc
     fields:
-      - { name: titulo, label: Título, type: string, required: true }
-      - { name: data, label: Data, type: date, required: true }
-      - { name: arquivo, label: Arquivo PDF, type: file }
-      - { name: capa, label: Imagem de capa, type: image }
-      - { name: body, label: Texto, type: rich-text }
+      - name: titulo
+        label: Título
+        type: string
+        required: true
+      - name: data
+        label: Data
+        type: date
+        options:
+          time: true
+          format: yyyy-MM-dd'T'HH:mm
+      - name: arquivo
+        label: Arquivo PDF
+        type: file
+        options:
+          media: documentos
+      - name: capa
+        label: Imagem de capa
+        type: image
+        options:
+          media: imagens
+      - name: body
+        label: Texto
+        type: rich-text
+        options:
+          format: html
+          media: imagens

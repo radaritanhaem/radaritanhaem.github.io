@@ -69,7 +69,12 @@ def ler_md(caminho):
         if ":" in linha:
             k, v = linha.split(":", 1); v = v.strip()
             try:
-                meta[k.strip()] = json.loads(v) if v.startswith('"') else v
+                if v.startswith('"'):
+                    meta[k.strip()] = json.loads(v)
+                elif len(v) >= 2 and v[0] == v[-1] == "'":
+                    meta[k.strip()] = v[1:-1].replace("''", "'")
+                else:
+                    meta[k.strip()] = v
             except json.JSONDecodeError:
                 meta[k.strip()] = v.strip('"')
     meta["corpo"] = m.group(2).strip()
@@ -112,6 +117,19 @@ def preparar_corpo(c):
     c = re.sub(r'<a href="(https?://(?!www\.transparenciaitanhaem)[^"]+)"(?![^>]*target=)', r'<a href="\1" target="_blank" rel="noopener"', c)
     return c
 
+def norm_data(v):
+    """Datas do painel vêm como 2026-11-25T10:00 (sem fuso): vira horário de Brasília."""
+    v = str(v or "").strip().replace(" ", "T")
+    if not v:
+        return ""
+    if re.fullmatch(r"\d{4}-\d\d-\d\d", v):
+        v += "T00:00"
+    if re.fullmatch(r"\d{4}-\d\d-\d\dT\d\d:\d\d", v):
+        v += ":00"
+    if not re.search(r"([+-]\d\d:\d\d|Z)$", v):
+        v += "-03:00"
+    return v
+
 def carregar():
     itens = []
     for pasta, (rota, *_rest) in TIPOS.items():
@@ -123,7 +141,8 @@ def carregar():
             m["url"] = f"/{rota}/{m['endereco']}"
             m["cat"] = nome_cat(m.get("categoria") or "Geral") if pasta == "noticias" else TIPOS[pasta][1]
             m["cat_slug"] = slug(m["cat"])
-            m["data"] = m.get("data") or "2025-01-01T00:00:00-03:00"
+            m["data"] = norm_data(m.get("data")) or "2025-01-01T00:00:00-03:00"
+            m["atualizado"] = norm_data(m.get("atualizado"))
             itens.append(m)
     itens.sort(key=lambda x: x["data"], reverse=True)
     return itens
