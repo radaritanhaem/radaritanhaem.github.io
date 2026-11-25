@@ -1,6 +1,6 @@
 # Transparência Itanhaém
 
-**Site de teste:** https://radaritanhaem.github.io/ · **Endereço final:** https://www.transparenciaitanhaem.com.br (depois da troca do domínio)
+**Site:** https://www.transparenciaitanhaem.com.br
 
 Portal de notícias de Itanhaém-SP com fiscalização do poder público:
 
@@ -37,8 +37,9 @@ Todo dia às 5h (Brasília) o robô busca os dados da Câmara, confere e publica
 ## Pendências antes de desligar o portal antigo
 
 - [x] **Vídeos enviados ao portal antigo**: os 19 vídeos foram comprimidos e estão em `site/uploads/medias/` (mesmos endereços de antes). Vídeos novos: pelo YouTube.
-- [ ] **E-mail @transparenciaitanhaem.com.br**: se for usado, configurar antes da troca do domínio.
-- [ ] **Troca do domínio**: em registro.br, apontar `transparenciaitanhaem.com.br` para o GitHub Pages e configurar o domínio em Settings → Pages.
+- [x] **E-mail**: o domínio não tem e-mail (o contato é movimentotransparenciaitanhaem@gmail.com).
+- [x] **Troca do domínio** (25/11/2026): DNS na Cloudflare do projeto (grannbo/viddy), 4 registros A do GitHub Pages + CNAME www → radaritanhaem.github.io, todos "DNS only". O domínio é renovado anualmente na HostGator (vence em 02/05/2027).
+- [ ] **Cancelar o plano antigo do portal** só depois de 1 a 2 semanas com tudo funcionando.
 
 ## Fontes (somente oficiais)
 
