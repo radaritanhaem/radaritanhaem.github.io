@@ -75,7 +75,7 @@ def mesa_diretora(vers):
             continue
         cargo = cargos[-1].lower().replace("secretario", "secretário")
         cargo = cargo[0].upper() + cargo[1:]
-        cargo = re.sub(r"(\d\S?) secretário", lambda x: x.group(1).replace("ª", "º") + " Secretário", cargo)
+        cargo = re.sub(r"(\d\S?) secretário", lambda x: x.group(1).replace("ª", "º").replace("°", "º") + " Secretário", cargo)
         for v in vers:
             if v["id"] == int(m.group(1)) and "cargo" not in v:
                 v["cargo"] = cargo + " da Câmara"
@@ -127,11 +127,13 @@ def main():
     saida = sys.argv[1]; anos = [int(a) for a in sys.argv[2:]] or [2025, 2026]
     os.makedirs(saida, exist_ok=True); tmp = os.path.join(saida, "_tmp.pdf")
     vers = vereadores_atuais()
+    for v in vers:
+        v["apelido"] = apelido(v["nome"])
     print(len(vers), "vereadores")
     baixar_fotos(vers, os.path.join(saida, "fotos"))
     mesa_diretora(vers)
     for v in vers:
-        v["apelido"] = apelido(v["nome"]); v["props"] = []
+        v["props"] = []
         for a in anos:
             v["props"] += proposituras(v["id"], a)
         print(" ", v["apelido"], len(v["props"]), "proposituras")
