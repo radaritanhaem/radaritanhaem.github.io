@@ -45,12 +45,19 @@ jobs:
         run: python coletor/licitacoes.py dados/licitacoes.json 2025
       - name: Folha de pagamento (Portal da Transparência)
         # se o portal estiver fora do ar, segue com a última folha boa
+        # o relatório de cada coleta fica em dados/registro/ para conferência
         continue-on-error: true
-        run: python coletor/folha.py /tmp/folha.json && mv /tmp/folha.json dados/folha.json
+        run: |
+          mkdir -p dados/registro
+          python coletor/folha.py /tmp/folha.json > dados/registro/folha.txt 2>&1 && mv /tmp/folha.json dados/folha.json; s=$?
+          tail -40 dados/registro/folha.txt; exit $s
       - name: Prefeitura - gasto pago por secretaria (Dados Abertos)
         # se o portal estiver fora do ar ou vier incompleto, segue com os últimos dados bons
         continue-on-error: true
-        run: python coletor/prefeitura.py despesas /tmp/pref.json && python coletor/prefeitura.py aceitar /tmp/pref.json dados/prefeitura_despesas.json
+        run: |
+          mkdir -p dados/registro
+          (python coletor/prefeitura.py despesas /tmp/pref.json && python coletor/prefeitura.py aceitar /tmp/pref.json dados/prefeitura_despesas.json) > dados/registro/prefeitura.txt 2>&1; s=$?
+          tail -40 dados/registro/prefeitura.txt; exit $s
       - name: Prefeitura - secretários e conferência com o TCE-SP
         continue-on-error: true
         run: |
