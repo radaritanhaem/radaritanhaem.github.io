@@ -236,6 +236,123 @@ def resumo_camara():
             "folha": (d.get("folha") or {}).get("total_bruto"), "folha_per": f'{(d.get("folha") or {}).get("de","").lower()} a {(d.get("folha") or {}).get("ate","").lower()}',
             "lic": len((d.get("licitacoes") or {}).get("lista", [])), "atualizado": d["atualizado"]}
 
+# ---------- Raio-X da Prefeitura ----------
+GRUPOS_PREF = [  # (chave, nome, grupos do coletor) na ordem fixa das cores
+    ("pessoal", "Salários e encargos", ["pessoal"]),
+    ("servicos", "Serviços e contratos", ["servicos"]),
+    ("obras", "Obras e equipamentos", ["obras", "equipamentos"]),
+    ("material", "Material", ["material"]),
+    ("divida", "Dívidas e ações judiciais", ["divida", "sentencas"]),
+    ("outros", "Repasses e outros", ["repasses", "outros"]),
+]
+MESES_C = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
+FORN_NOMES = {"46.578.498/0001-75": "Folha de pagamento dos servidores", "08.424.027/0001-13": "Iprev (previdência dos servidores)",
+              "29.979.036/0001-40": "INSS"}
+
+def nome_unidade(u):
+    u = re.sub(r"-FDO MUNICIPAL SAÚDE", "", u).strip()
+    u = re.sub(r"^SECRETARIA (DE |DA |DO )?", "", u)
+    t = u.lower().title()
+    for a, b in [(" De ", " de "), (" Da ", " da "), (" Do ", " do "), (" E ", " e "), ("Economico", "Econômico"), ("Relações De", "Relações de")]:
+        t = t.replace(a, b)
+    return t
+
+def mi(v):  # centavos -> texto curto
+    r = v / 100
+    if r >= 1e6:
+        return f"R$ {r/1e6:,.1f} mi".replace(",", "X").replace(".", ",").replace("X", ".")
+    return f"R$ {r/1e3:,.0f} mil".replace(",", ".")
+
+def reais(v):
+    return "R$ " + f"{v/100:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+def pagina_prefeitura():
+    pd = os.path.join(RAIZ, "dados", "prefeitura_despesas.json")
+    if not os.path.exists(pd):
+        return None
+    d = json.load(open(pd, encoding="utf-8"))
+    secs = json.load(open(os.path.join(RAIZ, "dados", "prefeitura_secretarios.json"), encoding="utf-8"))
+    pc = os.path.join(RAIZ, "dados", "prefeitura_conferencia.json")
+    conf = json.load(open(pc, encoding="utf-8")) if os.path.exists(pc) else {}
+    import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from prefeitura import casar
+    ano, total = d["exercicio"], d["total"]
+    meses = sorted(d["meses"])
+    unidades = sorted(d["unidades"].items(), key=lambda kv: -kv[1]["tot"])
+    maior = unidades[0]
+    # meses
+    mx = max(d["meses"].values())
+    barras_mes = "".join(f"""<div class="col" data-tip="{MESES_C[int(m[5:])-1]}/{m[:4]}: {reais(d['meses'][m])}" tabindex="0">
+<span class="v">{mi(d['meses'][m]).replace('R$ ','')}</span><i style="height:{max(2,100*d['meses'][m]/mx):.1f}%"></i><span class="m">{MESES_C[int(m[5:])-1]}</span></div>""" for m in meses)
+    # ranking
+    ranking = "".join(f"""<li><a href="#s-{slug(u)}"><span class="nm">{e(nome_unidade(u))}</span><span class="v">{mi(x['tot'])}</span></a>
+<div class="barra" data-tip="{e(nome_unidade(u))}: {reais(x['tot'])} ({100*x['tot']/total:.1f}% do total)"><i style="width:{100*x['tot']/maior[1]['tot']:.1f}%"></i></div></li>""" for u, x in unidades)
+    # cartões
+    legenda = "".join(f'<span><i class="sw g{i+1}"></i>{n}</span>' for i, (_, n, _g) in enumerate(GRUPOS_PREF))
+    cards = []
+    for u, x in unidades:
+        s = casar(u, secs)
+        pessoa = (f'<b>{e(s["nome"])}</b><span class="muted">{e(s["cargo"])}{" · " + e(s["formacao"]) if s.get("formacao") else ""}</span>'
+                  if s and s.get("nome") else '<b class="muted">Não informado no site da Prefeitura</b>')
+        link = f' · <a href="{e(s["pagina"])}" target="_blank" rel="noopener">página oficial ↗</a>' if s else ""
+        g = d["grupos"].get(u, {})
+        comp = [(i, n, sum(g.get(k, 0) for k in ks)) for i, (_, n, ks) in enumerate(GRUPOS_PREF)]
+        pilha = "".join(f'<i class="g{i+1}" style="width:{100*v/x["tot"]:.2f}%" data-tip="{n}: {reais(v)} ({100*v/x["tot"]:.0f}%)"></i>' for i, n, v in comp if v > 0)
+        tabela = "".join(f'<tr><td><i class="sw g{i+1}"></i>{n}</td><td class="r">{reais(v)}</td><td class="r">{100*v/x["tot"]:.0f}%</td></tr>' for i, n, v in comp if v > 0)
+        mxu = max(x["mes"].values())
+        mini = "".join(f'<i style="height:{max(3,100*x["mes"].get(m,0)/mxu):.0f}%" data-tip="{MESES_C[int(m[5:])-1]}: {reais(x["mes"].get(m,0))}"></i>' for m in meses)
+        forn = []
+        for f, v in x["forn"]:
+            if f == "PF":
+                nomef = "Pessoas físicas (nomes não exibidos)"
+            else:
+                nm, doc = f.rsplit("|", 1)
+                nomef = FORN_NOMES.get(doc, nm.title() if nm.isupper() else nm)
+            forn.append(f"<li><span>{e(nomef)}</span><b>{mi(v)}</b></li>")
+        npag = f"{x['n']:,}".replace(",", ".")
+        cards.append(f"""<article class="card-sec" id="s-{slug(u)}">
+<div class="cab-card"><h3>{e(nome_unidade(u))}</h3><div class="pessoa">{pessoa}</div></div>
+<div class="nums"><div><b>{mi(x['tot'])}</b><span>pagos em {ano} ({100*x['tot']/total:.1f}% da Prefeitura)</span></div>
+<div><b>{mi(x['tot']/len(meses))}</b><span>por mês, em média</span></div></div>
+<div class="mini" aria-label="Pago por mês">{mini}</div><div class="mini-leg"><span>{MESES_C[int(meses[0][5:])-1]}</span><span>{MESES_C[int(meses[-1][5:])-1]}</span></div>
+<div class="subt">Para onde vai</div><div class="pilha-sec">{pilha}</div>
+<details><summary>Ver valores</summary><table class="t-comp">{tabela}</table></details>
+<div class="subt">Quem mais recebeu</div><ol class="forn">{''.join(forn[:6])}</ol>
+<p class="small muted" style="margin:0">{npag} pagamentos{link}</p></article>""")
+    bate = [k for k, v in conf.items() if v.get("status") == "bate"]
+    dif = [k for k, v in conf.items() if v.get("status") == "diferente"]
+    falta = [k for k, v in conf.items() if v.get("status") != "bate" and v.get("status") != "diferente"]
+    nm = lambda ks: ", ".join(MESES_C[int(k[5:])-1] for k in sorted(ks))
+    conferencia = (f"Conferimos o total pago de cada mês com os dados que a Prefeitura manda ao Tribunal de Contas do Estado (TCE-SP): "
+                   f"{'<b>bate centavo por centavo</b> em ' + nm(bate) if bate else ''}"
+                   f"{'; <b>diferente</b> em ' + nm(dif) if dif else ''}"
+                   f"{'. O TCE ainda não publicou ' + nm(falta) if falta else ''}.") if conf else ""
+    gasto_pessoal = sum(d["grupos"][u].get("pessoal", 0) for u in d["grupos"])
+    corpo = f"""<section class="cab-lista"><span class="eyebrow" style="color:var(--accent)">Raio-X da Prefeitura</span>
+<h1>Para onde vai o dinheiro da Prefeitura</h1>
+<p>Tudo o que a Prefeitura de Itanhaém pagou em {ano}, secretaria por secretaria, com o nome de quem comanda cada uma. Dados oficiais do <a href="{e(d['fonte'])}" target="_blank" rel="noopener">Portal de Dados Abertos da Prefeitura</a>, atualizados em {data_br(d['coletado_em'])}.</p></section>
+<div class="tiles-p">
+<div><b>{mi(total)}</b><span>pagos em {ano} até {d['filtro']['emissao_ate'][:5]}</span></div>
+<div><b>{mi(total/len(meses))}</b><span>por mês, em média</span></div>
+<div><b>{100*gasto_pessoal/total:.0f}%</b><span>vai para salários e encargos dos servidores</span></div>
+<div><b>{100*maior[1]['tot']/total:.0f}%</b><span>fica com {e(nome_unidade(maior[0]))}, a maior secretaria</span></div>
+</div>
+<section class="graf"><h2>Quanto foi pago em cada mês</h2>
+<div class="colunas" role="img" aria-label="Total pago por mês em {ano}">{barras_mes}</div>
+<p class="small muted">Pela data do pagamento. Janeiro é baixo porque os pagamentos de despesas do ano anterior não entram nesta conta.</p></section>
+<section class="graf"><h2>Quanto cada secretaria recebeu em {ano}</h2><ol class="ranking">{ranking}</ol></section>
+<section class="graf"><h2>Secretaria por secretaria</h2>
+<p class="muted" style="margin:0 0 10px">Toque numa barra para ver o valor.</p><div class="legenda-p">{legenda}</div>
+<div class="grade-sec">{''.join(cards)}</div></section>
+<section class="prose-p"><h2>Como funciona</h2>
+<p>Usamos a consulta <b>Despesas Orçamentárias, despesa paga</b> do portal oficial da Prefeitura: cada pagamento de {ano}, com data, secretaria, tipo de gasto e quem recebeu. A soma ({reais(total)}) é igual ao total que o próprio portal mostra. São {d['linhas']:,} pagamentos.</p>
+<p>{conferencia}</p>
+<p><b>"Folha de pagamento dos servidores"</b> aparece quando a Prefeitura paga a si mesma para depois creditar os salários: é assim que o sistema registra a folha. <b>Pessoas físicas</b> que receberam pagamentos (prestadores, auxílios) não têm o nome exibido aqui.</p>
+<p>Entram só os pagamentos de despesas criadas em {ano}. Contas de anos anteriores pagas agora ("restos a pagar") ficam de fora. Os secretários são os que aparecem nas páginas oficiais da Prefeitura; quando a página não informa, dizemos isso.</p>
+</section>""".replace(f"{d['linhas']:,} pag", f"{d['linhas']:,}".replace(",", ".") + " pag")
+    return pagina(f"Raio-X da Prefeitura | {NOME}", corpo, "/prefeitura/",
+                  f"Quanto cada secretaria da Prefeitura de Itanhaém gastou em {ano} e quem comanda cada uma.", ativo="/prefeitura/")
+
 def home(itens):
     nots = [m for m in itens if m["pasta"] == "noticias"]
     destaque, lateral, resto = nots[0], nots[1:5], nots[5:17]
@@ -249,9 +366,17 @@ def home(itens):
   <div><b>R$ {fmt(c['salario'])}</b><span>salário de cada um dos {c['cadeiras']} vereadores</span></div>
   <div><b>{c['lic']}</b><span>licitações da Câmara desde 2025</span></div></div>
   <span class="ir">Abrir o Raio-X da Câmara →</span></a>"""
-    prefeitura = """<a class="bloco-fiscal prefeitura" href="/prefeitura/">
+    pd = os.path.join(RAIZ, "dados", "prefeitura_despesas.json")
+    nums_pref = '<p>Gastos pagos por secretaria, mês a mês, com dados oficiais do portal da Prefeitura e do Tribunal de Contas.</p>'
+    if os.path.exists(pd):
+        dp = json.load(open(pd, encoding="utf-8"))
+        top = max(dp["unidades"].items(), key=lambda kv: kv[1]["tot"])
+        nums_pref = f"""<div class="numeros"><div><b>{mi(dp['total'])}</b><span>pagos pela Prefeitura em {dp['exercicio']}</span></div>
+  <div><b>{len(dp['unidades'])}</b><span>secretarias e órgãos, cada um com seu secretário</span></div>
+  <div><b>{100*top[1]['tot']/dp['total']:.0f}%</b><span>vai para {e(nome_unidade(top[0]))}</span></div></div>"""
+    prefeitura = f"""<a class="bloco-fiscal prefeitura" href="/prefeitura/">
   <span class="eyebrow">Raio-X da Prefeitura</span><h2>Quanto cada secretaria gasta e quem comanda cada uma</h2>
-  <p>Gastos pagos por secretaria, mês a mês, com dados oficiais do portal da Prefeitura e do Tribunal de Contas.</p>
+  {nums_pref}
   <span class="ir">Abrir o Raio-X da Prefeitura →</span></a>"""
     cats = sorted({(m["cat"], m["cat_slug"]) for m in nots})
     chips = "".join(f'<a class="chip" href="/noticias/{s}">{e(n)}</a>' for n, s in cats)
@@ -301,7 +426,10 @@ def main():
         lst = [m for m in itens if m["pasta"] == pasta]
         gravar(f"{pag}.html", pagina_lista(lista, "", lst, f"/{pag}", f"/{pag}")); caminhos.append(f"/{pag}")
     gravar("index.html", home(itens))
-    if not os.path.exists(os.path.join(SITE, "prefeitura", "dados-prefeitura.json")):  # até o Raio-X da Prefeitura ficar pronto
+    pref = pagina_prefeitura()
+    if pref:
+        gravar("prefeitura/index.html", pref)
+    else:  # sem dados da Prefeitura ainda
         gravar("prefeitura/index.html", pagina(f"Raio-X da Prefeitura | {NOME}", """<section class="cab-lista"><span class="eyebrow" style="color:var(--accent)">Em construção</span>
 <h1>Raio-X da Prefeitura</h1><p>Em breve: quanto cada secretaria da Prefeitura de Itanhaém gasta por mês, quanto já gastou no ano e quem é o secretário de cada pasta, com dados oficiais.</p>
 <p>Enquanto isso, veja o <a href="/camara/">Raio-X da Câmara</a>.</p></section>""", "/prefeitura/", ativo="/prefeitura/"))

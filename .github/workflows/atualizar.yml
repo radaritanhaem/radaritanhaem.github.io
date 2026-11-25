@@ -47,6 +47,15 @@ jobs:
         # se o portal estiver fora do ar, segue com a última folha boa
         continue-on-error: true
         run: python coletor/folha.py /tmp/folha.json && mv /tmp/folha.json dados/folha.json
+      - name: Prefeitura - gasto pago por secretaria (Dados Abertos)
+        # se o portal estiver fora do ar ou vier incompleto, segue com os últimos dados bons
+        continue-on-error: true
+        run: python coletor/prefeitura.py despesas /tmp/pref.json && python coletor/prefeitura.py aceitar /tmp/pref.json dados/prefeitura_despesas.json
+      - name: Prefeitura - secretários e conferência com o TCE-SP
+        continue-on-error: true
+        run: |
+          python coletor/prefeitura.py secretarios /tmp/sec.json && mv /tmp/sec.json dados/prefeitura_secretarios.json
+          python coletor/prefeitura.py conferir dados/prefeitura_despesas.json /tmp/conf.json && mv /tmp/conf.json dados/prefeitura_conferencia.json
       - name: Montar os dados do site
         run: |
           python coletor/processar.py dados/dados.json site/camara/dados-site.json
