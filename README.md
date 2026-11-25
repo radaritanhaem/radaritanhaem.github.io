@@ -36,7 +36,7 @@ Todo dia às 5h (Brasília) o robô busca os dados da Câmara, confere e publica
 
 ## Pendências antes de desligar o portal antigo
 
-- [ ] **Vídeos enviados ao portal antigo** (19 vídeos, 877 MB): hoje ainda tocam a partir do portal antigo. Antes de desligá-lo, subir no YouTube e trocar nas notícias.
+- [x] **Vídeos enviados ao portal antigo**: os 19 vídeos foram comprimidos e estão em `site/uploads/medias/` (mesmos endereços de antes). Vídeos novos: pelo YouTube.
 - [ ] **E-mail @transparenciaitanhaem.com.br**: se for usado, configurar antes da troca do domínio.
 - [ ] **Troca do domínio**: em registro.br, apontar `transparenciaitanhaem.com.br` para o GitHub Pages e configurar o domínio em Settings → Pages.
 
