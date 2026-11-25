@@ -3,7 +3,7 @@ titulo: "CÂMARA DE ITANHAÉM PREVÊ GASTO DE R$ 15 MIL COM TROFÉUS, PLACAS E H
 subtitulo: "Empenhos emitidos em julho de 2026 preveem a aquisição de troféus, placas de homenagem, placas de identificação e displays para utilização nas atividades do Poder Legislativo."
 categoria: "Câmara de Itanhaém"
 cor: ""
-data: "2026-07-22T10:53:00-03:00"
+data: "2026-07-22T10:53"
 atualizado: "2026-07-22T11:07:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/camara-de-itanhaem-preve-gasto-de-r-15-mil-com-trofeus-placas-e-homenagens.jpg"

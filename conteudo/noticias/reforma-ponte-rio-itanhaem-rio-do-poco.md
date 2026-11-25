@@ -3,7 +3,7 @@ titulo: "Itanhaém garante recursos e terá nova ponte; investimento é de R$ 1,
 subtitulo: "Construção será feita sobre o Rio do Poço, na Avenida Europa."
 categoria: "Política"
 cor: "#c71f15"
-data: "2026-03-24T15:06:00-03:00"
+data: "2026-03-24T15:06"
 atualizado: "2026-06-03T23:14:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/reforma-ponte-rio-itanhaem-rio-do-poco1780456958.jpg"

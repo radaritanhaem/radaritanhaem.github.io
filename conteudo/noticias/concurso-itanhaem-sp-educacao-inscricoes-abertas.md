@@ -3,7 +3,7 @@ titulo: "PREFEITURA DE ITANHAÉM ABRE CONCURSO COM 106 VAGAS NA EDUCAÇÃO E SAL
 subtitulo: "O edital da prefeitura de Itanhaém exige, para os cargos de Professor de Creche, PEB I e PEB II, curso normal em nível superior ou licenciatura plena em Pedagogia"
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-09-08T09:33:00-03:00"
+data: "2026-09-08T09:33"
 atualizado: "2026-09-08T09:54:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/09/concurso-itanhaem-sp-educacao-inscricoes-abertas.jpg"

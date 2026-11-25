@@ -3,7 +3,7 @@ titulo: "Itanhaém suspende licitação de R$ 1,28 milhão para contratação de
 subtitulo: "Prefeitura previa R$ 712 mil apenas para arbitragem de futebol, com até 800 partidas no ano."
 categoria: "Justiça"
 cor: "#113e75"
-data: "2026-06-16T16:53:00-03:00"
+data: "2026-06-16T16:53"
 atualizado: "2026-06-16T17:07:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/itanhaem-suspende-licitacao-de-r-1-28-milhao-para-contratacao-de-arbitros1781640465.jpg"

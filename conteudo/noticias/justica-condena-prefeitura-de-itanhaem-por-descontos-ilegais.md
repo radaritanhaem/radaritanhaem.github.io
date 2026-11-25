@@ -3,7 +3,7 @@ titulo: "Justiça condena Prefeitura de Itanhaém por descontos ilegais em salá
 subtitulo: "Decisão judicial obriga o Executivo a devolver valores retirados indevidamente de educadores após greve de 2022; juiz rejeitou alegação de \"reuniões informais\" da Prefeitura."
 categoria: "Justiça"
 cor: "#113e75"
-data: "2026-07-03T13:06:00-03:00"
+data: "2026-07-03T13:06"
 atualizado: "2026-07-03T13:25:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/justica-condena-prefeitura-de-itanhaem-por-descontos-ilegais-em-salarios-de-servidores-gestao-municipal-e-criticada-por-falta-de-transparencia.jpg"

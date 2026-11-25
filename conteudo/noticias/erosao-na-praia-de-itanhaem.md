@@ -3,7 +3,7 @@ titulo: "EROSÃO NA PRAIA DE ITANHAÉM NÃO É CAUSADA APENAS POR RESSACAS, APON
 subtitulo: "Estudo do Instituto de Pesquisas Ambientais aponta influência de fatores naturais e da ocupação humana e recomenda recuperação de dunas e retirada gradual de enrocamentos"
 categoria: "Geral"
 cor: "#656565"
-data: "2026-09-15T19:09:00-03:00"
+data: "2026-09-15T19:09"
 atualizado: "2026-09-15T19:27:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/09/erosao-na-praia-de-itanhaem-nao-e-causada-apenas-por-ressacas-aponta-parecer-tecnico.jpg"

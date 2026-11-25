@@ -3,7 +3,7 @@ titulo: "📊 LICITAÇÕES DA PREFEITURA DE ITANHAÉM — JANEIRO A AGOSTO DE 20
 subtitulo: "💰 ONDE ESTÁ SENDO GASTO O DINHEIRO PÚBLICO?"
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-09-19T15:23:00-03:00"
+data: "2026-09-19T15:23"
 atualizado: "2026-09-19T15:43:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/09/licitacoes-da-prefeitura-de-itanhaem-janeiro-a-agosto-de-2026.jpg"

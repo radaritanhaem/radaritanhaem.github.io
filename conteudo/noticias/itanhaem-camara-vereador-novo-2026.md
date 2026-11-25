@@ -3,7 +3,7 @@ titulo: "Câmara de Itanhaém tem novo vereador eleito após reprocessamento de 
 subtitulo: "Reprocessamento ocorreu após candidato ter diploma cassado e votos anulados."
 categoria: "Política"
 cor: "#c71f15"
-data: "2026-05-01T15:06:00-03:00"
+data: "2026-05-01T15:06"
 atualizado: "2026-06-18T12:52:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/itanhaem-camara-vereador-novo-20261781797964.jpg"

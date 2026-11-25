@@ -3,7 +3,7 @@ titulo: "MINISTÉRIO PÚBLICO PEDE INDENIZAÇÃO DE R$ 1 MILHÃO EM CASO ENVOLVE
 subtitulo: "Ação judicial aponta possível conflito de interesses durante o exercício de funções públicas. MP também pede que a Prefeitura revise licenças, alvarás e aprovações concedidos entre 2021 e 2025."
 categoria: "Justiça"
 cor: "#113e75"
-data: "2026-11-08T20:23:00-03:00"
+data: "2026-11-08T20:23"
 atualizado: "2026-11-08T20:33:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/11/ministerio-publico-pede-indenizacao-de-r-1-milhao-em-caso-envolvendo-ex-secretario-de-itanhaem.jpg"

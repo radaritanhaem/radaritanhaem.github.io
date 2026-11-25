@@ -3,7 +3,7 @@ titulo: "Itanhaém autoriza parcelamento de dívidas em até 70 vezes, inclusive
 subtitulo: "Nova Lei nº 4.935 permite parcelar débitos tributários e não tributários; dívidas acima de R$ 30 mil poderão ser divididas em até 70 parcelas"
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-08-24T09:54:00-03:00"
+data: "2026-08-24T09:54"
 atualizado: "2026-08-24T09:54:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/itanhaem-autoriza-parcelamento-de-dividas-em-ate-70-vezes-inclusive-para-debitos-em-cobranca-judicial.jpg"

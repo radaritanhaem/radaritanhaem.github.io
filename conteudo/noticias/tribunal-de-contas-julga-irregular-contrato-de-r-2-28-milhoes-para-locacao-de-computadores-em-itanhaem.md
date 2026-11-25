@@ -3,7 +3,7 @@ titulo: "Tribunal de Contas julga irregular contrato de R$ 2,28 milhões para lo
 subtitulo: "Sindicância recomenda envio do caso ao Ministério Público"
 categoria: "Justiça"
 cor: "#113e75"
-data: "2026-06-11T11:19:00-03:00"
+data: "2026-06-11T11:19"
 atualizado: "2026-06-11T13:56:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/tribunal-de-contas-julga-irregular-contrato-de-r-2-28-milhoes-para-locacao-de-computadores-em-itanhaem1781189671.jpg"

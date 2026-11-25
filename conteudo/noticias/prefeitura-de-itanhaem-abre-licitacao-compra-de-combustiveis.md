@@ -3,7 +3,7 @@ titulo: "PREFEITURA DE ITANHAÉM ABRE LICITAÇÃO DE ATÉ R$ 4,3 MILHÕES PARA C
 subtitulo: "Pregão prevê aquisição de até 595 mil litros de gasolina e diesel para abastecer veículos e máquinas da administração municipal."
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-07-17T19:45:00-03:00"
+data: "2026-07-17T19:45"
 atualizado: "2026-07-17T19:51:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/prefeitura-de-itanhaem-abre-licitacao-de-ate-r-4-3-milhoes-para-compra-de-combustiveis.jpg"

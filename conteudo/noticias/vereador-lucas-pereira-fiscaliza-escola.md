@@ -3,7 +3,7 @@ titulo: "VEREADOR LUCAS PEREIRA FISCALIZA ESCOLA SILVA MARASCA APÓS DENÚNCIAS 
 subtitulo: "Parlamentar esteve na unidade para verificar problemas estruturais e cobra da Prefeitura informações sobre obras, prazos e solução definitiva"
 categoria: "Fiscalização"
 cor: "#54b575"
-data: "2026-08-17T23:34:00-03:00"
+data: "2026-08-17T23:34"
 atualizado: "2026-08-18T00:18:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/vereador-lucas-pereira-fiscaliza-escola-silva-marasca-apos-denuncias-de-pais.jpg"

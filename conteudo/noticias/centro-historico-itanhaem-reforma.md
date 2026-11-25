@@ -3,7 +3,7 @@ titulo: "Itanhaém investirá mais de R$ 13 milhões na requalificação do Cent
 subtitulo: "O projeto dará uma nova cara ao espaço que é símbolo de Itanhaém, com grande importância cultural e histórica para o país"
 categoria: "Geral"
 cor: "#656565"
-data: "2026-06-02T15:06:00-03:00"
+data: "2026-06-02T15:06"
 atualizado: "2026-06-03T23:09:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/centro-historico-itanhaem-reforma1780454091.jpg"

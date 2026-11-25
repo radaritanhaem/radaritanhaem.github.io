@@ -3,7 +3,7 @@ titulo: "Câmara de Itanhaém já gastou R$ 8,1 milhões em 4 meses e despesas c
 subtitulo: "Balancetes de janeiro a abril revelam alta nos gastos do Legislativo; indenizações e ajudas de custo cresceram mais de 1.100% no período"
 categoria: "Política"
 cor: "#c71f15"
-data: "2026-06-18T14:48:00-03:00"
+data: "2026-06-18T14:48"
 atualizado: "2026-06-19T14:13:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/camara-de-itanhaem-ja-gastou-r-8-1-milhoes-em-4-meses-e-despesas-com-indenizacoes-disparam1781806304.jpg"

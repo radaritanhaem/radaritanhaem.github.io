@@ -3,7 +3,7 @@ titulo: "Câmara de Itanhaém abre concurso público com salários de até R$ 7 
 subtitulo: "Concurso oferece salários de R$ 4.174 a R$ 7.097; inscrições de 14 de setembro a 19 de outubro de 2026."
 categoria: "Câmara de Itanhaém"
 cor: ""
-data: "2026-09-08T09:28:00-03:00"
+data: "2026-09-08T09:28"
 atualizado: "2026-09-08T09:55:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/09/camara-de-itanhaem-abre-concurso-publico-com-salarios-de-ate-r-7-mil.jpg"

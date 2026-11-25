@@ -3,7 +3,7 @@ titulo: "IPTU ultrapassa 2.000% em Itanhaém após mudança na cobrança; morado
 subtitulo: "Prefeitura incluiu área construída em imóveis antes tributados como terrenos. Em um dos casos, o IPTU saltou de R$ 610 em 2025 para R$ 13,5 mil em 2026."
 categoria: "Política"
 cor: "#c71f15"
-data: "2026-01-20T15:06:00-03:00"
+data: "2026-01-20T15:06"
 atualizado: "2026-06-03T23:13:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/itanhaem-imposto-prefeitura-20261780493109.jpg"

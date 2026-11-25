@@ -3,7 +3,7 @@ titulo: "Inspetor de escola é preso após ser denunciado por abuso infantil em 
 subtitulo: "Marcelo foi detido após a mãe de uma das vítimas relatar o ocorrido às autoridades ao conversar com seu filho"
 categoria: "Justiça"
 cor: "#113e75"
-data: "2026-08-12T19:56:00-03:00"
+data: "2026-08-12T19:56"
 atualizado: "2026-08-12T20:02:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/inspetor-de-escola-e-preso-apos-ser-denunciado-por-abuso-infantil-em-itanhaem-sp.jpg"

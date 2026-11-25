@@ -3,7 +3,7 @@ titulo: "Governo de SP inaugura novos reservatórios em Itanhaém; investimento 
 subtitulo: "Estruturas ampliam segurança hídrica para mais de 1,2 milhão de moradores da Baixada Santista"
 categoria: "Geral"
 cor: "#656565"
-data: "2026-06-17T13:34:00-03:00"
+data: "2026-06-17T13:34"
 atualizado: "2026-06-19T12:49:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/governo-de-sp-inaugura-novos-reservatorios-em-itanhaem1781884170.jpg"

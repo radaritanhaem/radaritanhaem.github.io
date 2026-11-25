@@ -3,7 +3,7 @@ titulo: "Itanhaém ganha espaço de lazer à beira-mar com obra de R$ 4 milhões
 subtitulo: "Revitalização da Praia do Cibratel contou com investimento do Governo de SP e inclui quadras, pista de skate e áreas para famílias e turistas."
 categoria: "Fiscalização"
 cor: "#54b575"
-data: "2026-02-15T15:06:00-03:00"
+data: "2026-02-15T15:06"
 atualizado: "2026-06-03T23:12:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/itanhaem-lazer-cibratel-investimentos-governosp1780493403.jpg"

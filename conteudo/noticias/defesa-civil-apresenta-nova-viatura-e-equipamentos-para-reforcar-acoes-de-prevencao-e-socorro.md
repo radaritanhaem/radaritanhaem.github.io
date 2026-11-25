@@ -3,7 +3,7 @@ titulo: "Defesa Civil apresenta nova viatura e equipamentos para reforçar açõ
 subtitulo: "Novos equipamentos e viatura ampliam a capacidade de resposta da Defesa Civil em situações de emergência no município."
 categoria: "Geral"
 cor: "#656565"
-data: "2026-06-18T13:23:00-03:00"
+data: "2026-06-18T13:23"
 atualizado: "2026-06-18T13:32:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/defesa-civil-apresenta-nova-viatura-e-equipamentos-para-reforcar-acoes-de-prevencao-e-socorro1781800294.jpg"

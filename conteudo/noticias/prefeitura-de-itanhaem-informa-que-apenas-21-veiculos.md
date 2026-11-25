@@ -3,7 +3,7 @@ titulo: "Prefeitura de Itanhaém informa que apenas 21 veículos próprios da Ed
 subtitulo: "Documento enviado à Câmara aponta ainda que 13 veículos foram considerados inservíveis, cinco aguardam manutenção e transporte escolar conta com apoio de 55 veículos terceirizados."
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-07-22T22:46:00-03:00"
+data: "2026-07-22T22:46"
 atualizado: "2026-07-23T10:45:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/prefeitura-de-itanhaem-informa-que-apenas-21-veiculos1784814321.jpg"

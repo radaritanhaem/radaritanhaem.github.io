@@ -3,7 +3,7 @@ titulo: "Após Justiça suspender licitação de R$ 11,3 milhões, Prefeitura de
 subtitulo: "Novo pregão foi publicado oito meses após ação apresentada pelo advogado Leonardo Bacaro levar à suspensão do processo anterior; valor estimado caiu cerca de 34%, mas os dois editais possuem diferenças no objeto"
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-09-18T10:56:00-03:00"
+data: "2026-09-18T10:56"
 atualizado: "2026-09-18T11:05:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/09/apos-justica-suspender-licitacao-de-r-11-3-milhoes-prefeitura-de-itanhaem-lanca-novo-edital-de-r-7-4-milhoes-para-uniformes.jpg"

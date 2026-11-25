@@ -3,7 +3,7 @@ titulo: "Suspeita de crime ambiental leva polícia a investigar usina de resídu
 subtitulo: "Moradores denunciaram despejo de líquido escuro no Rio Aguapeu e mortandade de peixes; amostras foram coletadas para análise do Instituto de Criminalística."
 categoria: "Justiça"
 cor: "#113e75"
-data: "2026-07-03T12:28:00-03:00"
+data: "2026-07-03T12:28"
 atualizado: "2026-07-03T12:39:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/suspeita-de-crime-ambiental-leva-policia-a-investigar-usina-de-residuos-em-itanhaem.jpg"

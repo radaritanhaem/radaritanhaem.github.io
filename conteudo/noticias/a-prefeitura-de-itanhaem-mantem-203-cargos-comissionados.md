@@ -3,7 +3,7 @@ titulo: "A Prefeitura de Itanhaém mantém 203 cargos comissionados, com gasto s
 subtitulo: "Educação lidera em quantidade e custo."
 categoria: "Política"
 cor: "#c71f15"
-data: "2026-06-22T13:20:00-03:00"
+data: "2026-06-22T13:20"
 atualizado: "2026-06-22T14:04:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/a-prefeitura-de-itanhaem-mantem-203-cargos-comissionados-com-gasto-superior-a-r-1-56-milhao-por-mes.jpg"

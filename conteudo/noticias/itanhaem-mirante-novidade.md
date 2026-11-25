@@ -3,7 +3,7 @@ titulo: "Nova atração de Itanhaém, Mirante do Morro do Paranambuco segue em c
 subtitulo: "Ecologicamente pensado, a estrutura do acesso pela Praça da Gruta terá apoios suspensos que não irão intervir na vegetação."
 categoria: "Fiscalização"
 cor: "#54b575"
-data: "2026-06-02T18:48:00-03:00"
+data: "2026-06-02T18:48"
 atualizado: "2026-06-03T23:07:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/itanhaem-mirante-novidade1780437143.jpg"

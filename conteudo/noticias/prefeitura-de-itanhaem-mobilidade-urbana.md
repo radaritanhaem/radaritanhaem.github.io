@@ -3,7 +3,7 @@ titulo: "Prefeitura de Itanhaém abre licitação de até R$ 370 mil para elabor
 subtitulo: "Contratação será definida pelo critério de técnica e preço, com maior peso para a qualidade técnica da empresa responsável pelo estudo."
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-08-06T10:15:00-03:00"
+data: "2026-08-06T10:15"
 atualizado: "2026-08-06T10:21:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/prefeitura-de-itanhaem-abre-licitacao-de-ate-r-370-mil-para-elaboracao-do-plano-de-mobilidade-urbana.jpg"

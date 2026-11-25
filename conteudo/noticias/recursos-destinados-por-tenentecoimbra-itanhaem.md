@@ -3,7 +3,7 @@ titulo: "Recursos destinados por Tenente Coimbra beneficiam educação, seguran�
 subtitulo: "Investimentos anunciados contemplam implantação de escola cívico-militar, aquisição de quadriciclos para patrulhamento e recursos para o Hospital Regional Jorge Rossmann"
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-08-18T12:02:00-03:00"
+data: "2026-08-18T12:02"
 atualizado: "2026-08-18T15:09:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/recursos-destinados-por-tenentecoimbra-itanhaem1787076569.jpg"

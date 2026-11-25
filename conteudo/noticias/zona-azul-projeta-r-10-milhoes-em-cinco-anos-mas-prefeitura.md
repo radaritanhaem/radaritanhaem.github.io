@@ -3,7 +3,7 @@ titulo: "ZONA AZUL PROJETA R$ 10 MILHÕES EM CINCO ANOS, MAS PREFEITURA RECEBEU 
 subtitulo: "Estudo da própria Prefeitura prevê arrecadação anual superior a R$ 2 milhões; resposta à Câmara não apresenta, no mesmo documento, o faturamento mensal real da concessionária"
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-09-14T09:41:00-03:00"
+data: "2026-09-14T09:41"
 atualizado: "2026-09-14T10:31:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/09/zona-azul-projeta-r-10-milhoes-em-cinco-anos-mas-prefeitura-recebeu-r-361-mil.jpg"

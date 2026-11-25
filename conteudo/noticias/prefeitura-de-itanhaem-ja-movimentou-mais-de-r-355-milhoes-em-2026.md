@@ -3,7 +3,7 @@ titulo: "Prefeitura de Itanhaém já movimentou mais de R$ 355 milhões em 2026;
 subtitulo: "Levantamento do Transparência Itanhaém mostra como os recursos públicos foram distribuídos entre as secretarias municipais entre janeiro e julho."
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-07-10T14:22:00-03:00"
+data: "2026-07-10T14:22"
 atualizado: "2026-07-10T14:50:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/prefeitura-de-itanhaem-ja-movimentou-mais-de-r-355-milhoes-em-2026-veja-quanto-cada-secretaria-utilizou-do-orcamento.jpg"

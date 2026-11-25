@@ -3,7 +3,7 @@ titulo: "MP deflagra Operação Buraco Negro contra desvios de R$ 24,9 milhões 
 subtitulo: "Cinco mandados de busca e apreensão são cumpridos, inclusive na sede do Instituto de Previdência dos Servidores Públicos de Itanhaém. Justiça pediu afastamento de dois funcionários."
 categoria: "Justiça"
 cor: "#113e75"
-data: "2026-11-07T17:41:00-03:00"
+data: "2026-11-07T17:41"
 atualizado: "2026-11-08T21:40:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/11/mp-deflagra-operacao-buraco-negro-contra-desvios-de-r-24-9-milhoes-de-previdencia-no-litoral-de-sp.jpg"

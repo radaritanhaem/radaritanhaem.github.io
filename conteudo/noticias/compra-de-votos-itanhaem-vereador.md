@@ -3,7 +3,7 @@ titulo: "Justiça Eleitoral reprocessa votos para vereador em Itanhaém após ca
 subtitulo: "Retotalização acontece nesta quinta-feira (30) após candidato ser condenado por compra de votos."
 categoria: "Política"
 cor: "#c71f15"
-data: "2026-04-29T15:06:00-03:00"
+data: "2026-04-29T15:06"
 atualizado: "2026-06-03T23:11:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/compra-de-votos-itanhaem-vereador1780456733.jpg"

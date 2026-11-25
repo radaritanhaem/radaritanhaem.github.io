@@ -3,7 +3,7 @@ titulo: "Prefeitura admite que uniformes não serão entregues de imediato e anu
 subtitulo: "Em resposta oficial à Câmara, Secretaria de Educação afirma que ainda trabalha para entregar os kits \"nos próximos meses\" e confirma que processo anterior foi abandonado após impugnação."
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-07-22T13:47:00-03:00"
+data: "2026-07-22T13:47"
 atualizado: "2026-07-22T13:59:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/prefeitura-admite-que-uniformes-nao-serao-entregues-de-imediato-e-anuncia-nova-licitacao-em-itanhaem.jpg"

@@ -3,7 +3,7 @@ titulo: "Judiciário e MP desmontam tese de “sabotagem política” sobre unif
 subtitulo: "Decisões da Justiça e parecer do MP enfraquecem tese"
 categoria: "LICITAÇÃO PREFEITURA"
 cor: ""
-data: "2026-06-23T12:43:00-03:00"
+data: "2026-06-23T12:43"
 atualizado: "2026-06-23T21:20:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/judiciario-e-mp-desmontam-tese-de-sabotagem-politica1782234288.jpg"

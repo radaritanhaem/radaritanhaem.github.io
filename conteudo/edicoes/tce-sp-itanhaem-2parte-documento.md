@@ -3,7 +3,7 @@ titulo: "TCE-SP ( Parte 02 ) parecer desfavorável às contas da Prefeitura de I
 subtitulo: ""
 categoria: "Geral"
 cor: ""
-data: ""
+data: "2026-08-01T12:00"
 atualizado: ""
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/capa-previsao-do-mercado-financeiro-para-crescimento-do-pib-sobe-para-5-051787266351.jpg"

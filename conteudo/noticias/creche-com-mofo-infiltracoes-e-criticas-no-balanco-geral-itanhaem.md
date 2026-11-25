@@ -3,7 +3,7 @@ titulo: "Creche com mofo, infiltrações e críticas no Balanço Geral expõe fa
 subtitulo: "Unidade municipal alvo de denúncias funciona em imóvel alugado por R$ 6.928,02 mensais"
 categoria: "Geral"
 cor: "#656565"
-data: "2026-07-07T20:27:00-03:00"
+data: "2026-07-07T20:27"
 atualizado: "2026-07-07T20:35:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/creche-com-mofo-infiltracoes-e-criticas-no-balanco-geral-expoe-falhas-da-gestao-cervantes-em-itanhaem.jpg"

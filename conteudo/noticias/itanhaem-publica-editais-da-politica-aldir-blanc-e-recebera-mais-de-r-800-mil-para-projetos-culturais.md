@@ -3,7 +3,7 @@ titulo: "Itanhaém publica editais da Política Aldir Blanc e receberá mais de 
 subtitulo: "Recursos do Governo Federal serão destinados a artistas, produtores culturais, coletivos e espaços culturais do município"
 categoria: "Fiscalização"
 cor: "#54b575"
-data: "2026-06-24T11:03:00-03:00"
+data: "2026-06-24T11:03"
 atualizado: "2026-06-24T11:03:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/itanhaem-publica-editais-da-politica-aldir-blanc-e-recebera-mais-de-r-800-mil-para-projetos-culturais.jpg"

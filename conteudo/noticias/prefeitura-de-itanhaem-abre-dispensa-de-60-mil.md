@@ -3,7 +3,7 @@ titulo: "Prefeitura de Itanhaém abre dispensa de R$ 60 mil para realizar passei
 subtitulo: "Empresa será responsável pela organização dos passeios turísticos da cidade."
 categoria: "Fiscalização"
 cor: "#54b575"
-data: "2026-07-02T15:09:00-03:00"
+data: "2026-07-02T15:09"
 atualizado: "2026-07-02T15:17:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/prefeitura-de-itanhaem-abre-dispensa-de-r-60-mil-para-realizar-passeio-turistico-descubra-e-viva-itanhaem.jpg"

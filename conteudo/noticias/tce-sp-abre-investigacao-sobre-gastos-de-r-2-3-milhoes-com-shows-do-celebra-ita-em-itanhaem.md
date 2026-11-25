@@ -3,7 +3,7 @@ titulo: "TCE-SP abre investigação sobre gastos de R$ 2,3 milhões com shows do
 subtitulo: "Tribunal de Contas recebeu representação que questiona contratações de artistas"
 categoria: "Justiça"
 cor: "#113e75"
-data: "2026-06-11T14:49:00-03:00"
+data: "2026-06-11T14:49"
 atualizado: "2026-06-11T15:23:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/tce-sp-abre-investigacao-sobre-gastos-de-r-2-3-milhoes-com-shows-do-celebra-ita-em-itanhaem.jpg"

@@ -3,7 +3,7 @@ titulo: "Operação integrada combate descarte irregular de resíduos em Itanha�
 subtitulo: "Fiscalização reúne municípios da Baixada Santista para coibir despejo clandestino de entulho e resíduos em áreas urbanas e ambientais"
 categoria: "Política"
 cor: "#c71f15"
-data: "2026-06-10T18:19:00-03:00"
+data: "2026-06-10T18:19"
 atualizado: "2026-06-10T18:19:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/operacao-integrada-combate-descarte-irregular-de-residuos-em-itanhaem.jpg"

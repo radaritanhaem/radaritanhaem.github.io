@@ -3,7 +3,7 @@ titulo: "ESCOLA MUNICIPAL QUE CUSTA R$ 48 MIL POR MÊS EM ALUGUEL TEM AULAS PARA
 subtitulo: "Professores e pais cobram providências da Prefeitura após infiltrações, mofo, goteiras e riscos na estrutura da unidade"
 categoria: "Educação"
 cor: "#216991"
-data: "2026-08-15T16:26:00-03:00"
+data: "2026-08-15T16:26"
 atualizado: "2026-08-15T16:26:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/escola-municipal-que-custa-r-48-mil-por-mes-em-aluguel-tem-aulas-paralisadas.jpg"

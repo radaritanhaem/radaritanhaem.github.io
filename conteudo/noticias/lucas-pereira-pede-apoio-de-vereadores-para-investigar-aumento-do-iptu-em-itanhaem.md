@@ -3,7 +3,7 @@ titulo: "LUCAS PEREIRA PEDE APOIO DE VEREADORES PARA INVESTIGAR AUMENTO DO IPTU 
 subtitulo: "Vereador afirma que apenas ele e Daniel Machado haviam assinado a proposta e convoca os demais parlamentares a participarem da comissão que pretende analisar os critérios utilizados no cálculo do imposto."
 categoria: "Câmara de Itanhaém"
 cor: ""
-data: "2026-09-15T11:45:00-03:00"
+data: "2026-09-15T11:45"
 atualizado: "2026-09-15T11:45:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/09/lucas-pereira-pede-apoio-de-vereadores-para-investigar-aumento-do-iptu-em-itanhaem-1789484147.jpg"

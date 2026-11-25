@@ -3,7 +3,7 @@ titulo: "TCE-SP ( Parte 01 )  Parecer desfavorável às contas da Prefeitura de 
 subtitulo: ""
 categoria: "Geral"
 cor: ""
-data: ""
+data: "2026-08-01T12:00"
 atualizado: ""
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/tce-sp-itanhaem-1parte-documento1787265974.jpg"

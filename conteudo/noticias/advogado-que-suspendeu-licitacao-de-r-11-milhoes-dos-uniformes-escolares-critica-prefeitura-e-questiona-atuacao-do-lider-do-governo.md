@@ -3,7 +3,7 @@ titulo: "Advogado que suspendeu licitação de R$ 11 milhões dos uniformes esco
 subtitulo: "ATRASO DOS UNIFORMES REPERCUTE"
 categoria: "LICITAÇÃO PREFEITURA"
 cor: ""
-data: "2026-06-25T12:31:00-03:00"
+data: "2026-06-25T12:31"
 atualizado: "2026-06-25T13:04:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/advogado-que-suspendeu-licitacao-de-r-11-milhoes-dos-uniformes-escolares-critica-prefeitura-e-questiona-atuacao-do-lider-do-governo.jpg"

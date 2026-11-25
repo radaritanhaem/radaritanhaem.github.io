@@ -3,7 +3,7 @@ titulo: "PREFEITURA DE ITANHAÉM MANTÉM 36 IMÓVEIS ALUGADOS E GASTA MAIS DE R$
 subtitulo: "Gasto anual ultrapassa R$ 4,6 milhões"
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-07-16T13:48:00-03:00"
+data: "2026-07-16T13:48"
 atualizado: "2026-07-16T14:48:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/prefeitura-de-itanhaem-mantem-36-imoveis-alugados-e-gasta-mais-de-r-384-mil-por-mes.jpg"

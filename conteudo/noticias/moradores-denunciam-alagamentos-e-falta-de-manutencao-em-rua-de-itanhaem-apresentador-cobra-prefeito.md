@@ -3,7 +3,7 @@ titulo: "Moradores denunciam alagamentos e falta de manutenção em rua de Itanh
 subtitulo: "Moradores da Rua Ranieri Mazilli, no bairro Santa Terezinha, em Itanhaém, procuraram o programa Balanço Geral para denunciar as condições da via."
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-09-20T22:27:00-03:00"
+data: "2026-09-20T22:27"
 atualizado: "2026-09-20T22:27:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/09/moradores-denunciam-alagamentos-e-falta-de-manutencao-em-rua-de-itanhaem-apresentador-cobra-prefeito.jpg"

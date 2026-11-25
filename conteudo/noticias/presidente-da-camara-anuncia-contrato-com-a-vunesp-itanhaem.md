@@ -3,7 +3,7 @@ titulo: "Presidente da Câmara anuncia contrato com a Vunesp para novo concurso 
 subtitulo: "Câmara Municipal firma contrato com a Vunesp e promete concurso público após mais de duas décadas sem novas convocações de servidores efetivos."
 categoria: "Geral"
 cor: "#656565"
-data: "2026-06-25T13:04:00-03:00"
+data: "2026-06-25T13:04"
 atualizado: "2026-06-25T19:25:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/presidente-da-camara-anuncia-contrato-com-a-vunesp-para-novo-concurso-publico-em-itanhaem.jpg"

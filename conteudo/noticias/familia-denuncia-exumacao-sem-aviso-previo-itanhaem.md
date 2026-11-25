@@ -3,7 +3,7 @@ titulo: "Família denuncia exumação sem aviso prévio e cobra explicações da
 subtitulo: "Após encontrar outro sepultamento no local onde seu pai estava enterrado, moradora cobra explicações da Prefeitura;"
 categoria: "Geral"
 cor: "#656565"
-data: "2026-06-20T16:03:00-03:00"
+data: "2026-06-20T16:03"
 atualizado: "2026-06-20T16:31:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/familia-denuncia-exumacao-sem-aviso-previo-e-cobra-explicacoes-da-prefeitura-de-itanhaem.jpg"

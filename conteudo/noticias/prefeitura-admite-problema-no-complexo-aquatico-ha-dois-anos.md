@@ -3,7 +3,7 @@ titulo: "PREFEITURA ADMITE PROBLEMA NO COMPLEXO AQUÁTICO HÁ DOIS ANOS, MAS REF
 subtitulo: "Resposta enviada à Câmara revela que a administração municipal conhece a situação desde 2024, porém a obra ainda não foi licitada, não possui cronograma definido e segue sem previsão de início."
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-07-20T11:29:00-03:00"
+data: "2026-07-20T11:29"
 atualizado: "2026-07-20T11:50:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/prefeitura-admite-problema-no-complexo-aquatico-ha-dois-anos-mas-reforma-ainda-nao-tem-data-para-comecar.jpg"

@@ -3,7 +3,7 @@ titulo: "Câmara de Itanhaém promove audiência pública para discutir regras d
 subtitulo: "Audiência Pública discutirá o uso da faixa de areia, barracas, cadeiras e comércio ambulante em Itanhaém\""
 categoria: "Política"
 cor: "#c71f15"
-data: "2026-06-09T21:23:00-03:00"
+data: "2026-06-09T21:23"
 atualizado: "2026-06-09T23:35:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/quem-pode-trabalhar-na-praia-camara-vai-debater-novas-regras1781052094.jpg"

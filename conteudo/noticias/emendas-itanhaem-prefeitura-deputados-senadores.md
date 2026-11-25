@@ -3,7 +3,7 @@ titulo: "ITANHAÉM RECEBE MAIS DE R$ 24 MILHÕES EM EMENDAS FEDERAIS E ESTADUAIS
 subtitulo: "Recursos destinados por deputados estaduais e federais contemplam saúde, assistência social, educação, infraestrutura, turismo, segurança pública e defesa civil."
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-08-06T07:54:00-03:00"
+data: "2026-08-06T07:54"
 atualizado: "2026-08-06T09:02:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/itanhaem-recebe-mais-de-r-24-milhoes-em-emendas-federais-e-estaduais-veja-quem-enviou-os-recursos-e-para-onde-vao.jpg"

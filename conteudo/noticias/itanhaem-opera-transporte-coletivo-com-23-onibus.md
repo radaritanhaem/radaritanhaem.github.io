@@ -3,7 +3,7 @@ titulo: "Itanhaém opera transporte coletivo com 23 ônibus e prevê renovação
 subtitulo: "Prefeitura informa que 21 veículos estão em operação, dois permanecem como reserva e que todos possuem ar-condicionado e equipamentos de acessibilidade"
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-08-07T14:41:00-03:00"
+data: "2026-08-07T14:41"
 atualizado: "2026-08-07T15:04:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/itanhaem-opera-transporte-coletivo-com-23-onibus1786125275.jpg"

@@ -3,7 +3,7 @@ titulo: "PREFEITURA TEM MAIS DE R$ 12,4 MILHÕES EM CONTRATOS PARA LOCAÇÃO DE 
 subtitulo: "Documento enviado à Câmara mostra contratos para equipamentos utilizados na zeladoria, enquanto 10 dos 25 veículos e maquinários próprios estão em manutenção."
 categoria: "Prefeitura"
 cor: "#009b35"
-data: "2026-07-28T11:17:00-03:00"
+data: "2026-07-28T11:17"
 atualizado: "2026-07-28T12:05:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/prefeitura-tem-mais-de-12-milhoes-em-contratos-para-locacao1785251151.jpg"

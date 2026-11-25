@@ -3,7 +3,7 @@ titulo: "Prefeitura abre licitação de R$ 2,4 milhões para demolir blocos do F
 subtitulo: "Concorrência eletrônica está marcada para julho e prevê a demolição dos blocos B, C e D do condomínio"
 categoria: "LICITAÇÃO PREFEITURA"
 cor: ""
-data: "2026-06-22T09:26:00-03:00"
+data: "2026-06-22T09:26"
 atualizado: "2026-06-22T09:40:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/prefeitura-abre-licitacao-de-r-2-4-milhoes-para-demolir-blocos-do-flat-prive-em-itanhaem.jpg"

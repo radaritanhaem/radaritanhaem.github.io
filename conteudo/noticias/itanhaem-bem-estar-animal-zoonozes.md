@@ -3,7 +3,7 @@ titulo: "Itanhaém fortalece ações de bem-estar animal e ganhará nova unidade
 subtitulo: "Com a nova unidade, a Prefeitura reforça o compromisso com a saúde pública, o bem-estar animal e a melhoria contínua dos serviços oferecidos à população"
 categoria: "Geral"
 cor: "#656565"
-data: "2026-05-28T15:06:00-03:00"
+data: "2026-05-28T15:06"
 atualizado: "2026-06-03T23:10:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/06/itanhaem-bem-estar-animal-zoonozes1780494201.jpg"

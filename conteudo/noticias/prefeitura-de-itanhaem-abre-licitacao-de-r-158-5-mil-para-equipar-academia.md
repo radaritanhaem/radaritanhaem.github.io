@@ -3,7 +3,7 @@ titulo: "PREFEITURA DE ITANHAÉM ABRE LICITAÇÃO DE R$ 158,5 MIL PARA EQUIPAR A
 subtitulo: "Compra inclui aparelhos de musculação, esteiras, bicicletas ergométricas, sistema de som, notebook e ar-condicionado para projeto voltado à promoção da saúde."
 categoria: "Saúde"
 cor: "#2c6ab2"
-data: "2026-07-23T11:13:00-03:00"
+data: "2026-07-23T11:13"
 atualizado: "2026-07-23T11:28:00-03:00"
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/07/prefeitura-de-itanhaem-abre-licitacao-de-r-158-5-mil-para-equipar-academia-da-usf-belas-artes.jpg"

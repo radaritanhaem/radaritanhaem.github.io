@@ -3,7 +3,7 @@ titulo: "TCE-SP ( Parte 3) parecer desfavorável às contas da Prefeitura de Ita
 subtitulo: ""
 categoria: "Geral"
 cor: ""
-data: ""
+data: "2026-08-01T12:00"
 atualizado: ""
 autor: "Transparência Itanhaém"
 capa: "/uploads/images/2026/08/capa-inovacao-e-sustentabilidade-empresas-brasileiras-apostam-no-futuro-verde1787266555.jpg"
