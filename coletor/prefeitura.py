@@ -77,9 +77,28 @@ def despesas(ano):
     hoje = time.strftime("%d/%m/%Y") if int(time.strftime("%Y")) == ano else f"31/12/{ano}"
     with sync_playwright() as p:
         nav = p.chromium.launch()
-        ctx = nav.new_context(user_agent=UA)
+        ctx = nav.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36 (robo do Transparencia Itanhaem; coleta lenta)", locale="pt-BR", timezone_id="America/Sao_Paulo", viewport={"width": 1366, "height": 900})
         pg = ctx.new_page()
-        pg.goto(PORTAL + "/filtros-despesasorcamentarias", wait_until="networkidle", timeout=120000)
+        try:
+            return _despesas(pg, ctx, nav, ano, hoje)
+        except Exception:
+            registrar_falha(pg, "prefeitura")
+            raise
+
+def registrar_falha(pg, nome):
+    import os
+    os.makedirs("dados/registro", exist_ok=True)
+    try:
+        pg.screenshot(path=f"dados/registro/{nome}.png", full_page=True)
+        open(f"dados/registro/{nome}.html", "w", encoding="utf-8").write(pg.content()[:300000])
+        print("  falha registrada:", nome, pg.url, file=sys.stderr)
+    except Exception as e:
+        print("  não consegui registrar a falha:", e, file=sys.stderr)
+
+def _despesas(pg, ctx, nav, ano, hoje):
+    if True:
+        pg.goto(PORTAL + "/filtros-despesasorcamentarias", wait_until="domcontentloaded", timeout=120000)
+        pg.wait_for_selector("#vORGAO_MPAGE", timeout=90000); time.sleep(2)
         pg.select_option("#vORGAO_MPAGE", "2"); time.sleep(4)
         if pg.eval_on_selector("#vEXERCICIO_MPAGE", "s => s.value") != str(ano):
             pg.select_option("#vEXERCICIO_MPAGE", str(ano)); time.sleep(4)

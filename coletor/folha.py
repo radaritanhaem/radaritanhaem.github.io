@@ -49,6 +49,27 @@ JS_LER = r"""async () => {
   return {mes, pag: lab(), rows: all};
 }"""
 
+def abrir(pg):
+    """Abre a página de filtros e espera o botão do mês aparecer (o portal nunca fica 'quieto' na rede)."""
+    pg.goto(URL, wait_until="domcontentloaded", timeout=120000)
+    try:
+        pg.wait_for_selector("#W0012COMBO_MESContainer_btnGroupDrop", timeout=90000)
+    except Exception:
+        registrar_falha(pg, "folha-abrir")
+        raise
+    time.sleep(2)
+
+def registrar_falha(pg, nome):
+    """Guarda print e HTML da página em dados/registro/ para entender o erro."""
+    import os
+    os.makedirs("dados/registro", exist_ok=True)
+    try:
+        pg.screenshot(path=f"dados/registro/{nome}.png", full_page=True)
+        open(f"dados/registro/{nome}.html", "w", encoding="utf-8").write(pg.content()[:300000])
+        print("  falha registrada:", nome, pg.url, file=sys.stderr)
+    except Exception as e:
+        print("  não consegui registrar a falha:", e, file=sys.stderr)
+
 def num(s):
     return round(float(s.replace(".", "").replace(",", ".")) * 100)
 
@@ -69,8 +90,8 @@ def coletar(exercicio):
     meses = {}
     with sync_playwright() as p:
         nav = p.chromium.launch()
-        pg = nav.new_page(user_agent="RadarItanhaem/0.1 (projeto civico de transparencia; coleta lenta)")
-        pg.goto(URL, wait_until="networkidle", timeout=120000)
+        pg = nav.new_page(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36 (robo do Transparencia Itanhaem; coleta lenta)", locale="pt-BR", timezone_id="America/Sao_Paulo", viewport={"width": 1366, "height": 900})
+        abrir(pg)
         if str(exercicio) != pg.eval_on_selector("#vEXERCICIO_MPAGE", "s => s.value"):
             pg.select_option("#vEXERCICIO_MPAGE", str(exercicio)); time.sleep(5)
         lista = [m for m in pg.evaluate(JS_MESES) if "13" not in m]
@@ -78,7 +99,7 @@ def coletar(exercicio):
         for m in lista:
             for tentativa in range(3):
                 try:
-                    pg.goto(URL, wait_until="networkidle", timeout=120000)
+                    abrir(pg)
                     pg.evaluate(JS_ESCOLHER, m)
                     pg.wait_for_url("**/resultado-recursoshumanos", timeout=60000)
                     r = pg.evaluate(JS_LER)
@@ -93,6 +114,7 @@ def coletar(exercicio):
                 except Exception as e:
                     print("  tentativa", tentativa + 1, m, e, file=sys.stderr); time.sleep(10)
             else:
+                registrar_falha(pg, "folha-" + m)
                 raise RuntimeError("não consegui ler " + m)
         nav.close()
     anonimizar(meses)

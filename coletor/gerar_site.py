@@ -111,8 +111,8 @@ def markdown(t):
 
 def preparar_corpo(c):
     c = markdown(c)
-    # vídeos grandes ainda não foram para o YouTube: por enquanto tocam do portal antigo
-    c = re.sub(r'src="(/uploads/medias/[^"]+\.mp4)"', lambda m: f'src="{PORTAL_ANTIGO}{m.group(1)}"', c)
+    # vídeos do portal antigo foram comprimidos e ficam no próprio site (site/uploads/medias)
+    c = re.sub(r"<video\b(?![^>]*preload)", '<video preload="metadata"', c)
     c = re.sub(r"<(img|iframe)\b(?![^>]*loading=)", r'<\1 loading="lazy"', c)
     c = re.sub(r'<a href="(https?://(?!www\.transparenciaitanhaem)[^"]+)"(?![^>]*target=)', r'<a href="\1" target="_blank" rel="noopener"', c)
     return c
