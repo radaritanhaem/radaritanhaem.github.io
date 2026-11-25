@@ -1,0 +1,12 @@
+meses disponíveis: ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO']
+  JANEIRO 76 pessoas
+  FEVEREIRO 80 pessoas
+  MARÇO 81 pessoas
+  ABRIL 81 pessoas
+  MAIO 80 pessoas
+  JUNHO 77 pessoas
+  JULHO 77 pessoas
+  AGOSTO 78 pessoas
+  SETEMBRO 76 pessoas
+  OUTUBRO 75 pessoas
+ok 2026 ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO']
