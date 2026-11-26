@@ -115,12 +115,17 @@ def ler_presenca(pdf_bytes, tmp):
     with open(tmp, "wb") as f: f.write(pdf_bytes)
     txt = subprocess.run(["pdftotext", "-f", "1", "-l", "1", "-raw", "-enc", "UTF-8", tmp, "-"],
                          capture_output=True).stdout.decode("utf-8", "replace").replace("\r", "")
-    data = re.search(r"Data (\d\d/\d\d/\d{4})", txt)
-    regs = re.findall(r"^(\S+(?: \S+)*?) (PRESENTE|Ausente|AUSENTE|Justificad\w*|JUSTIFICAD\w*|Licen\w*|LICEN\w*)\n\d+\n(.+?)(?: (\d\d:\d\d:\d\d))?\n(\d+)$",
-                      txt, re.M)
-    hab = re.search(r"Habilitados: (\d+)", txt)
-    return {"data": data.group(1) if data else None,
-            "habilitados": int(hab.group(1)) if hab else None,
+    data = re.search(r"Data\s+(\d\d/\d\d/\d{4})", txt)
+    hab = re.search(r"Habilitados:\s*(\d+)", txt)
+    # A ordem do modo -raw vem do próprio PDF (partido, status, legislatura, nome, horário, id em cada linha da
+    # tabela); só as quebras de linha mudam de um programa para outro. Por isso juntamos tudo com espaços.
+    plano = re.sub(r"\s+", " ", txt)
+    regs = re.findall(r"(?:^| )([A-Za-zÀ-ÿ]+) (PRESENTE|Presente|Ausente|AUSENTE|Justificad\w*|JUSTIFICAD\w*|Licen\w*|LICEN\w*) "
+                      r"\d{1,3} ([A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'´`.\- ]*?[A-Za-zÀ-ÿ.])(?: (\d\d:\d\d:\d\d))? (\d{1,6})(?= |$)", plano)
+    habilitados = int(hab.group(1)) if hab else None
+    if habilitados and len(regs) != habilitados:
+        print(f"  aviso: relatório com {habilitados} habilitados, mas li {len(regs)} nomes", file=sys.stderr)
+    return {"data": data.group(1) if data else None, "habilitados": habilitados,
             "registros": [{"id": int(i), "partido": p, "status": st.upper(), "nome": n.strip()} for p, st, n, h, i in regs]}
 
 def main():

@@ -18,6 +18,11 @@ def main():
     checa(len(nov.get("sessoes", [])) >= len(ant.get("sessoes", [])),
           f"sessões caíram de {len(ant.get('sessoes', []))} para {len(nov.get('sessoes', []))}")
     checa(all(v.get("foto") for v in nov.get("vereadores", [])), "vereador sem foto")
+    # presença: se há sessões com relatório, os vereadores precisam ter presença lida (e o total não pode cair)
+    pres = lambda d: sum(sum(v.get("pres", {}).values()) for v in d.get("vereadores", []))
+    if nov.get("sessoes"):
+        checa(pres(nov) > 0, "presença vazia: os relatórios de presença não foram lidos")
+        checa(pres(nov) >= pres(ant), f"registros de presença caíram de {pres(ant)} para {pres(nov)}")
     checa(nov.get("salario", {}).get("mensal", 0) > 0, "salário zerado")
 
     fa, fn = ant.get("folha"), nov.get("folha")
