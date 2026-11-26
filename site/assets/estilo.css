@@ -204,3 +204,8 @@ button.chip{cursor:pointer;background:var(--card);font:inherit;font-size:.85rem;
 .busca{display:flex}
 .busca input{flex:1;min-width:0;font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg)}
 .card-compra[hidden],[hidden]{display:none !important}
+/* barras mensais: cada parte na sua linha (no celular o número de cima some e a barra não pode "subir") */
+.colunas .col .v{grid-row:1}
+.colunas .col i{grid-row:2;min-height:2px}
+.colunas .col .m{grid-row:3}
+@media (max-width:560px){.colunas .col .v{display:none}.colunas{gap:3px}.colunas .col{grid-template-rows:0 1fr auto}}
