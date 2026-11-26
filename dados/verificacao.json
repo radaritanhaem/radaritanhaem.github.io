@@ -29,7 +29,9 @@
  {
   "sessao": null,
   "pagina": 186,
-  "ausentes_relatorio": [],
+  "ausentes_relatorio": [
+   7
+  ],
   "ata": "ATA DA 41ª SO 2026",
   "trechos_ata": [
    "VEREADOR FERNANDO DA S. X. DE MIRANDA AUSENTE",
@@ -52,7 +54,9 @@
  {
   "sessao": null,
   "pagina": 194,
-  "ausentes_relatorio": [],
+  "ausentes_relatorio": [
+   16
+  ],
   "ata": "ATA  DA 43ª S O ",
   "trechos_ata": [
    "VEREADOR WILLIAN TADEU RAMOS DE SOUSA AUSENTE",
@@ -130,7 +134,9 @@
  {
   "sessao": "58ª Sessão Ordinária de 06 de julho de 2026",
   "pagina": 356,
-  "ausentes_relatorio": [],
+  "ausentes_relatorio": [
+   4508
+  ],
   "ata": "Ata da 58ª Sessão Ordinária, realizada em 06-07-26",
   "trechos_ata": [
    "VEREADOR JOSE DOMINGOS GONCALVES SILVA AUSENTE",
@@ -140,12 +146,14 @@
   "ausentes_ata": [
    4508
   ],
-  "bate": false
+  "bate": true
  },
  {
   "sessao": "59ª Sessão Ordinária de 13 de julho de 2026",
   "pagina": 401,
-  "ausentes_relatorio": [],
+  "ausentes_relatorio": [
+   2217
+  ],
   "ata": "ATA DA 59º 13.07.2026",
   "trechos_ata": [
    "VEREADOR LUCAS GABRIEL SETUBAL ABBASI AUSENTE",
@@ -154,7 +162,7 @@
   "ausentes_ata": [
    2217
   ],
-  "bate": false
+  "bate": true
  },
  {
   "sessao": "60ª Sessão Ordinária de 20 de julho de 2026",
@@ -168,7 +176,10 @@
  {
   "sessao": "61ª Sessão Ordinária de 10 de agosto de 2026",
   "pagina": 437,
-  "ausentes_relatorio": [],
+  "ausentes_relatorio": [
+   1451,
+   2217
+  ],
   "ata": "Ata da 61º 10.08.26 ",
   "trechos_ata": [
    "VEREADORES EDINALDO DOS SANTOS BARROS E LUCAS G. S. ABBASI AUSENTES",
@@ -180,7 +191,7 @@
    1451,
    2217
   ],
-  "bate": false
+  "bate": true
  },
  {
   "sessao": "62ª Sessão Ordinária de 17 de agosto de 2026",
@@ -194,7 +205,9 @@
  {
   "sessao": "63ª Sessão Ordinária de 24 de agosto de 2026",
   "pagina": 455,
-  "ausentes_relatorio": [],
+  "ausentes_relatorio": [
+   1675
+  ],
   "ata": "Ata 63º SO de 24.08.2026",
   "trechos_ata": [
    "VEREADOR FERNANDO DA SILVA XAVIER DE MIRANDA AUSENTE",
@@ -204,12 +217,15 @@
   "ausentes_ata": [
    1675
   ],
-  "bate": false
+  "bate": true
  },
  {
   "sessao": "65ª Sessão Ordinária de 08 de setembro de 2026",
   "pagina": 478,
-  "ausentes_relatorio": [],
+  "ausentes_relatorio": [
+   4508,
+   4908
+  ],
   "ata": "ATA 65º 08.09.26.",
   "trechos_ata": [
    "VEREADORES LUCAS DE OLIVEIRA PEREIRA E JOSE DOMINGOS GONCALVES SILVA AUSENTES",
@@ -221,7 +237,7 @@
    4508,
    4908
   ],
-  "bate": false
+  "bate": true
  },
  {
   "sessao": "66ª Sessão Ordinária de 14 de setembro de 2026",
@@ -240,7 +256,9 @@
  {
   "sessao": "68ª Sessão Ordinária de 28 de setembro de 2026",
   "pagina": 517,
-  "ausentes_relatorio": [],
+  "ausentes_relatorio": [
+   4508
+  ],
   "ata": "ATA 68ª 28.09.2026",
   "trechos_ata": [
    "VEREADOR JOSE DOMINGOS GONCALVES SILVA AUSENTE",
@@ -251,7 +269,7 @@
   "ausentes_ata": [
    4508
   ],
-  "bate": false
+  "bate": true
  },
  {
   "sessao": "69ª Sessão Ordinária de 05 de outubro de 2026",
@@ -274,7 +292,10 @@
  {
   "sessao": "73ª Sessão Ordinária de 09 de novembro de 2026",
   "pagina": 592,
-  "ausentes_relatorio": [],
+  "ausentes_relatorio": [
+   4508,
+   4511
+  ],
   "ata": "ATA da 73ª S.O",
   "trechos_ata": [
    "VEREADORES ALEXANDRE FIRMINO ALVES E JOSE DOMINGOS GONCALVES AUSENTES",
@@ -287,12 +308,14 @@
    4508,
    4511
   ],
-  "bate": false
+  "bate": true
  },
  {
   "sessao": "74ª Sessão Ordinária de 16 de novembro de 2026",
   "pagina": 601,
-  "ausentes_relatorio": [],
+  "ausentes_relatorio": [
+   4908
+  ],
   "ata": "ATA da 74ª S.O",
   "trechos_ata": [
    "VEREADOR LUCAS DE OLIVEIRA PEREIRA AUSENTE",
@@ -302,6 +325,6 @@
   "ausentes_ata": [
    4908
   ],
-  "bate": false
+  "bate": true
  }
 ]
