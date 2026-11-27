@@ -17,6 +17,8 @@ Documentos complementares:
 | `/camara/` | Raio-X da Câmara: propostas, bairros, problemas que voltam, presença, salários por cargo, licitações | página própria `site/camara/index.html` + `site/camara/dados-site.json` |
 | `/prefeitura/` | Raio-X da Prefeitura: gasto pago por secretaria, mês a mês, secretários | `gerar_site.py` (`pagina_prefeitura`) |
 | `/prefeitura/compras/` | Compras e licitações homologadas, valor pago e empresas que receberam | `gerar_site.py` (`pagina_compras`) |
+| `/prefeitura/entidades/` | Associações e entidades sem fins lucrativos que receberam (valor pago), achadas pela natureza jurídica do CNPJ na Receita | `entidades.py` + `gerar_site.py` (`pagina_entidades`) |
+| Quadro vermelho "Alerta do TCE-SP" | Em `/prefeitura/`, `/itaprev/` e `/camara/` (entre `<!--alertas-tce-->`), só quando há alerta | `tce_alertas.py` + `gerar_site.py` (`bloco_alertas`) |
 | `/itaprev/` | Raio-X da Previdência (ITAPREV): entra x sai, repasses, benefícios, equipe, compras | `gerar_site.py` (`pagina_itaprev`) |
 | `/documentos`, `/podcasts`, `/videos`, `/guia-comercial`, `/eventos`, `/vagas` | Conteúdo migrado do portal antigo | `gerar_site.py` |
 | `rss.xml`, `sitemap.xml`, `404.html` | — | `gerar_site.py` |
@@ -43,6 +45,8 @@ coletor/             programas (Python 3.12)
   licitacoes.py      licitações da Câmara (página da Câmara + API do PNCP)
   prefeitura.py      Prefeitura e ITAPREV (portal GCASP, Playwright): despesas pagas, compras, secretários, conferência TCE
   itaprev.py         ITAPREV: entra x sai e repasses (API TCE-SP) + folha do instituto (Playwright)
+  entidades.py       entidades sem fins lucrativos pagas pela Prefeitura (cadastro da Receita via minhareceita.org; cache em dados/cnpj_receita.json)
+  tce_alertas.py     alertas do TCE-SP: comunicados SDG do art. 59 da LRF (PDF, pdftotext -raw) + contagem do painel Visor
   validar.py         trava de segurança antes de publicar
   gerar_site.py      gera todas as páginas do portal a partir de conteudo/ e dados/
   migrar_portal.py   (uso único, já feito) copiou o portal antigo
@@ -78,6 +82,10 @@ python coletor/prefeitura.py conferir dados/prefeitura_despesas.json dados/prefe
 # ITAPREV
 python coletor/itaprev.py tce dados/itaprev_tce.json          # sem Playwright
 python coletor/itaprev.py folha dados/itaprev_folha.json      # Playwright
+
+# Entidades sem fins lucrativos e alertas do TCE (sem Playwright)
+python coletor/entidades.py dados/prefeitura_despesas.json dados/prefeitura_entidades.json
+python coletor/tce_alertas.py dados/tce_alertas.json
 
 # Conferir e gerar o portal
 python coletor/validar.py <dados-site anterior> site/camara/dados-site.json

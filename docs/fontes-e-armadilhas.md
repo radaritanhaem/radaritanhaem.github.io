@@ -84,3 +84,20 @@ Mesmo sistema GCASP. Órgãos no combo `#vORGAO_MPAGE`: 1 Câmara, 2 Prefeitura,
 - Baixar binários de fora no robô (ex.: xpdf no GitHub) também foi bloqueado pela política — por isso o leitor de PDF foi tornado independente do programa.
 - Python com `-I` ignora `PYTHONIOENCODING`; use `-X utf8`.
 - Edições via heredoc em bash podem transformar `\b` em caractere de controle — conferir regex depois.
+
+## Entidades sem fins lucrativos (Prefeitura)
+
+- `prefeitura.py` guarda em `prefeitura_despesas.json` o campo `pj`: total pago a **cada** CNPJ (com secretaria, tipo de despesa, modalidade e objeto).
+- `entidades.py` confere a natureza jurídica de cada CNPJ em https://minhareceita.org (reserva: BrasilAPI, que limita após ~90 consultas seguidas). Fica o grupo 3 (sem fins lucrativos), menos cartórios (3034) e condomínios (3085). O cache `dados/cnpj_receita.json` guarda só código, descrição e razão social.
+- **Matriz e filial** (mesma raiz de 8 dígitos) são somadas: a Prefeitura estornou R$ 3,4 mi da filial da Vida Livre e pagou na matriz em set/2026.
+- O nome na Prefeitura pode ser outro: "Associação Beneficente de Amparo e Solidariedade" é o **Instituto Anglicano de Itanhaém** na Receita. O cartão mostra os dois.
+- Receber ≠ doação: muitos pagamentos são aluguel (Santa Casa, Mitra Diocesana) ou serviço por pregão.
+- Câmara (TCE-SP, jan–set/2026): só o CIEE (estágio, R$ 5.955,62).
+
+## Alertas do TCE-SP
+
+- Comunicados SDG "ALERTAS de que trata o parágrafo 1º do artigo 59 da LRF" (busca em /legislacao?termo=ALERTAS artigo 59&f[0]=tipo:18). Em 2026: nº 26, 36, 42 e 55.
+- Ler com `pdftotext -raw` (o `-layout` desalinha as linhas das tabelas!). Seções: inciso II (pessoal), incisos I/III/V, "municípios que deixaram de enviar o balancete", "1. Câmaras", "2. Entidades da administração indireta". Linha fora de seção conhecida vai para `a_conferir` e não é publicada.
+- O título de seção do comunicado 36/2026 diz "2º BIMESTRE 2025" por erro do TCE; o site usa o texto "relativos ao ..." da página do comunicado.
+- Visor (painel.tce.sp.gov.br, Pentaho): abrir `.../visor.wcdf/generatedContent?userid=anony&password=zero` para pegar o cookie e então POST em `/pentaho/plugin/cda/api/doQuery` (`dataAccessId=visorDS`, `parampAno`, `parampEntidade=PREFEITURA MUNICIPAL`, `parampAssunto`). Só dá contagem. Existe contagem escondida para "CÂMARA MUNICIPAL" (3 em 2026) sem detalhe; não publicada.
+- O site do ITAPREV (gcaspp.com) passou a ter verificação anti-robô da Cloudflare em 27/11/2026: pagamentos, compras e folha do instituto só atualizam pelo navegador do app. Não contornar.
