@@ -1,0 +1,2922 @@
+{
+ "exercicio": 2026,
+ "coletado_em": "2026-11-27",
+ "fonte": "https://dadosabertos.itanhaem.sp.gov.br/filtros-despesasorcamentarias",
+ "cadastro": "Receita Federal (natureza jurídica), via minhareceita.org / BrasilAPI",
+ "total": 2570612592,
+ "cnpjs_conferidos": 566,
+ "entidades": [
+  {
+   "cnpj": "06.087.219/0001-56",
+   "nome": "ASSOCIAÇÃO HOSPITALAR DO BRASIL",
+   "nome_receita": "ASSOCIACAO HOSPITALAR DO BRASIL",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 961138271,
+   "n": 11,
+   "un": [
+    [
+     "SECRETARIA DE SAÚDE-FDO MUNICIPAL SAÚDE",
+     961138271
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     520727531
+    ],
+    [
+     "3.3.90.39 - SERVIÇO MÉDICO-HOSPITALAR, ODONTOLÓGICO E LABORATORIAIS",
+     256223936
+    ],
+    [
+     "3.3.90.39 - SERVIÇOS TÉCNICOS PROFISSIONAIS",
+     184186804
+    ]
+   ],
+   "mes": {
+    "2026-11": 92663509,
+    "2026-10": 84181176,
+    "2026-09": 88725833,
+    "2026-08": 91523295,
+    "2026-07": 83316927,
+    "2026-06": 88845648,
+    "2026-05": 83326964,
+    "2026-04": 84054828,
+    "2026-03": 83600193,
+    "2026-02": 96517074,
+    "2026-01": 84382824
+   },
+   "mod": [
+    [
+     "Inexigibilidade",
+     961138271
+    ]
+   ],
+   "obj": [
+    [
+     "Outras Prestações de Serviço",
+     961138271
+    ]
+   ]
+  },
+  {
+   "cnpj": "17.663.544/0001-36",
+   "nome": "PORTAL DE INTERVENCAO E APOIO BIOPSICOSSOCIAL VIDA LIVRE",
+   "nome_receita": "PORTAL DE INTERVENCAO E APOIO BIOPSICOSSOCIAL VIDA LIVRE",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 460452901,
+   "n": 192,
+   "un": [
+    [
+     "SECRETARIA DE ASSISTÊNCIA, DESENVOLVIMENTO E INCLUSÃO SOCIAL",
+     460452901
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - SERVIÇOS DE ASSISTÊNCIA SOCIAL",
+     459452901
+    ],
+    [
+     "3.3.90.39 - SERVIÇOS TÉCNICOS PROFISSIONAIS",
+     1000000
+    ]
+   ],
+   "mes": {
+    "2026-11": 36753867,
+    "2026-10": 36753867,
+    "2026-09": 40755267,
+    "2026-08": 22825300,
+    "2026-07": 36960700,
+    "2026-06": 29299200,
+    "2026-04": 103927000,
+    "2026-05": 25330000,
+    "2026-03": 54608900,
+    "2026-02": 34119400,
+    "2026-01": 39119400
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     460452901
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "03.722.285/0001-62",
+   "nome": "ASSOCIAÇÃO EDUCACIONAL DA JUVENTUDE",
+   "nome_receita": "ASSOCIACAO EDUCACIONAL DA JUVENTUDE - ASSEJ",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 361276880,
+   "n": 9,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     361276880
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     361276880
+    ]
+   ],
+   "mes": {
+    "2026-10": 46203143,
+    "2026-09": 46203143,
+    "2026-08": 46203139,
+    "2026-06": 92499957,
+    "2026-04": 87787674,
+    "2026-03": 42379824
+   },
+   "mod": [
+    [
+     "Pregão Presencial",
+     361276880
+    ]
+   ],
+   "obj": [
+    [
+     "Outras Prestações de Serviço",
+     361276880
+    ]
+   ]
+  },
+  {
+   "cnpj": "54.352.729/0001-56",
+   "nome": "ASSOCIAÇÃO BENEFICENTE DE AMPARO E SOLIDARIEDADE-A",
+   "nome_receita": "INSTITUTO ANGLICANO DE ITANHAEM",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 94775200,
+   "n": 10,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     94775200
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     94775200
+    ]
+   ],
+   "mes": {
+    "2026-10": 9477520,
+    "2026-09": 9477520,
+    "2026-08": 9477520,
+    "2026-07": 9477520,
+    "2026-06": 9477520,
+    "2026-05": 9477520,
+    "2026-04": 9477520,
+    "2026-03": 9477520,
+    "2026-02": 9477520,
+    "2026-11": 9477520
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     94775200
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "45.087.327/0001-80",
+   "nome": "PROMOÇÃO HUMANA DE ITANHAÉM",
+   "nome_receita": "PROMOCAO HUMANA DE ITANHAEM",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 80558920,
+   "n": 12,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     80558920
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     80558920
+    ]
+   ],
+   "mes": {
+    "2026-11": 8055892,
+    "2026-10": 8055892,
+    "2026-09": 8055892,
+    "2026-08": 8055892,
+    "2026-07": 8055892,
+    "2026-06": 8055892,
+    "2026-05": 8055892,
+    "2026-04": 8055892,
+    "2026-03": 8055892,
+    "2026-02": 8055892
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     80558920
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "51.074.607/0001-57",
+   "nome": "LAR ESPÍRITA DA CRIANÇA JOSÉ DE ANCHIETA",
+   "nome_receita": "LAR ESPIRITA DA CRIANCA JOSE DE ANCHIETA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 78189540,
+   "n": 10,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     78189540
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     78189540
+    ]
+   ],
+   "mes": {
+    "2026-10": 7818954,
+    "2026-09": 7818954,
+    "2026-08": 7818954,
+    "2026-07": 7818954,
+    "2026-06": 7818954,
+    "2026-05": 7818954,
+    "2026-04": 7818954,
+    "2026-03": 7818954,
+    "2026-02": 7818954,
+    "2026-11": 7818954
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     78189540
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "06.141.215/0001-09",
+   "nome": "ASSOCIAÇÃO ITANHAENSE DE PROTEÇÃO AOS ANIMAIS - AIPA",
+   "nome_receita": "ASSOCIACAO ITANHAENSE DE PROTECAO AOS ANIMAIS - AIPA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 73143388,
+   "n": 11,
+   "un": [
+    [
+     "SECRETARIA DE DEFESA DO MEIO AMBIENTE E BEM-ESTAR ANIMAL",
+     73143388
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     73143388
+    ]
+   ],
+   "mes": {
+    "2026-11": 13668382,
+    "2026-08": 13216668,
+    "2026-06": 6608334,
+    "2026-05": 6608334,
+    "2026-04": 6608334,
+    "2026-03": 6608334,
+    "2026-02": 6608334,
+    "2026-01": 6608334,
+    "2026-09": 6608334
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     73143388
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "08.992.727/0001-04",
+   "nome": "ASS.DOSPROD.RURAIS DAMICROBACIAHIDRO.DO RIO BRANCO",
+   "nome_receita": "ASSOCIACAO DOS PRODUTORES RURAIS DA MICROBACIA HIDROGRAFICA DO RIO BRANCO, PESCADORES ARTESANAIS, AQUICULTORES E INDIGENAS DE ITANHAEM E REGIAO",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 70154950,
+   "n": 15,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     70154950
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.30 - OUTROS MATERIAIS DE CONSUMO",
+     51951736
+    ],
+    [
+     "3.3.90.30 - GÊNEROS DE ALIMENTAÇÃO",
+     18203214
+    ]
+   ],
+   "mes": {
+    "2026-11": 35870758,
+    "2026-09": 8659368,
+    "2026-08": 25624824
+   },
+   "mod": [
+    [
+     "Inexigibilidade",
+     70154950
+    ]
+   ],
+   "obj": [
+    [
+     "Gêneros Alimentícios",
+     70154950
+    ]
+   ]
+  },
+  {
+   "cnpj": "10.396.726/0001-49",
+   "nome": "ASSOCIAÇÃO DE PAIS E AMIGOS DOS EXCEPCIONAIS DE IT",
+   "nome_receita": "ASSOCIACAO DE PAIS E AMIGOS DOS EXCEPCIONAIS DE ITANHAEM",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 66400000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE ASSISTÊNCIA, DESENVOLVIMENTO E INCLUSÃO SOCIAL",
+     66400000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - SERVIÇOS DE ASSISTÊNCIA SOCIAL",
+     60000000
+    ],
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     6400000
+    ]
+   ],
+   "mes": {
+    "2026-10": 60000000,
+    "2026-03": 6400000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     66400000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "14.919.503/0001-70",
+   "nome": "INSTITUTO BODEGUITA",
+   "nome_receita": "INSTITUTO BODEGUITA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 40000000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE ASSISTÊNCIA, DESENVOLVIMENTO E INCLUSÃO SOCIAL",
+     40000000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - SERVIÇOS DE ASSISTÊNCIA SOCIAL",
+     40000000
+    ]
+   ],
+   "mes": {
+    "2026-09": 20000000,
+    "2026-03": 20000000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     40000000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "44.134.865/0001-16",
+   "nome": "ASSOCIAÇÃO SOCIEDADE EM AÇÃO",
+   "nome_receita": "ASSOCIACAO SOCIEDADE EM ACAO",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 30000000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE ASSISTÊNCIA, DESENVOLVIMENTO E INCLUSÃO SOCIAL",
+     30000000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - SERVIÇOS DE ASSISTÊNCIA SOCIAL",
+     30000000
+    ]
+   ],
+   "mes": {
+    "2026-08": 30000000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     30000000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "06.877.819/0002-07",
+   "nome": "INSTITUTO GREMAR - PESQUISA, EDUCACAO E GESTAO DE FAUNA",
+   "nome_receita": "INSTITUTO GREMAR - PESQUISA, EDUCACAO E GESTAO DE FAUNA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 29133345,
+   "n": 17,
+   "un": [
+    [
+     "SECRETARIA DE DEFESA DO MEIO AMBIENTE E BEM-ESTAR ANIMAL",
+     29133345
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     29133345
+    ]
+   ],
+   "mes": {
+    "2026-11": 4446831,
+    "2026-10": 3536271,
+    "2026-09": 4013282,
+    "2026-08": 3926482,
+    "2026-07": 4013282,
+    "2026-06": 3926482,
+    "2026-05": 4013282,
+    "2026-04": 390211,
+    "2026-03": 477011,
+    "2026-02": 390211
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     29133345
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "08.899.190/0001-32",
+   "nome": "ASSOCIAÇÃO DE DANÇA ITANHAEM",
+   "nome_receita": "ASSOCIACAO DE DANCA ITANHAEM - ADI",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 27814800,
+   "n": 16,
+   "un": [
+    [
+     "SECRETARIA DE ASSISTÊNCIA, DESENVOLVIMENTO E INCLUSÃO SOCIAL",
+     18000000
+    ],
+    [
+     "SECRETARIA DE ESPORTES E LAZER",
+     9814800
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - SERVIÇOS DE ASSISTÊNCIA SOCIAL",
+     18000000
+    ],
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     9814800
+    ]
+   ],
+   "mes": {
+    "2026-09": 9260800,
+    "2026-08": 12521600,
+    "2026-11": 1260800,
+    "2026-10": 1260800,
+    "2026-07": 3510800
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     27814800
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "12.153.589/0001-47",
+   "nome": "INSTITUTO BRAZOLIN",
+   "nome_receita": "INSTITUTO BRAZOLIN",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 23500000,
+   "n": 7,
+   "un": [
+    [
+     "SECRETARIA DE ESPORTES E LAZER",
+     23500000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     23500000
+    ]
+   ],
+   "mes": {
+    "2026-07": 12250000,
+    "2026-11": 2250000,
+    "2026-10": 2250000,
+    "2026-09": 2250000,
+    "2026-08": 4500000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     23500000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "62.249.222/0001-08",
+   "nome": "SINDICATO DOS EMPREGADOS EM EMPRESAS DE COMPRA, VENDA, LOCAÇÃO E ADM IMOVEIS RES. E COM. DE SÃO PAUL",
+   "nome_receita": "SINDICATO DOS EMPREG.EM.EMP.DE COMP.VEN.LOC.E ADM.DE IMOV.RES.E.COM.DE S.P.GUAR.BAR.DIAD.E S.CAET.",
+   "tipo": "Sindicato / entidade sindical",
+   "natureza_juridica": "Entidade Sindical",
+   "pago": 13799134,
+   "n": 10,
+   "un": [
+    [
+     "SECRETARIA DE ADMINISTRAÇÃO",
+     13799134
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - LOCAÇÃO DE IMÓVEIS",
+     13799134
+    ]
+   ],
+   "mes": {
+    "2026-10": 1396051,
+    "2026-09": 1396051,
+    "2026-08": 1396051,
+    "2026-07": 1396051,
+    "2026-06": 1369155,
+    "2026-05": 1369155,
+    "2026-04": 1369155,
+    "2026-03": 1369155,
+    "2026-02": 2738310
+   },
+   "mod": [
+    [
+     "Dispensa",
+     13799134
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "04.977.354/0001-41",
+   "nome": "ASSOCIACAO ESPORTIVA DO LITORAL",
+   "nome_receita": "ASSOCIACAO ESPORTIVA DO LITORAL",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 13799000,
+   "n": 3,
+   "un": [
+    [
+     "SECRETARIA DE ESPORTES E LAZER",
+     13799000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     10479000
+    ],
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIRO PESSOA JURÍDICA  - PAGAMENTO ANTECIPADO",
+     3320000
+    ]
+   ],
+   "mes": {
+    "2026-11": 6519000,
+    "2026-10": 3960000,
+    "2026-04": 3320000
+   },
+   "mod": [
+    [
+     "Pregão Eletrônico",
+     10479000
+    ],
+    [
+     "Dispensa",
+     3320000
+    ]
+   ],
+   "obj": [
+    [
+     "Outras Prestações de Serviço",
+     13799000
+    ]
+   ]
+  },
+  {
+   "cnpj": "50.332.857/0001-87",
+   "nome": "IRMANDADE SANTA CASA DE MISERICORDIA DE ITANHAEM",
+   "nome_receita": "IRMANDADE DA SANTA CASA DE MISERICORDIA DE ITANHAEM",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 11811610,
+   "n": 10,
+   "un": [
+    [
+     "SECRETARIA DE SAÚDE-FDO MUNICIPAL SAÚDE",
+     11811610
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - LOCAÇÃO DE IMÓVEIS",
+     11811610
+    ]
+   ],
+   "mes": {
+    "2026-09": 1181161,
+    "2026-08": 2362322,
+    "2026-06": 1181161,
+    "2026-05": 1181161,
+    "2026-04": 1181161,
+    "2026-03": 1181161,
+    "2026-02": 1181161,
+    "2026-01": 1181161,
+    "2026-10": 1181161
+   },
+   "mod": [
+    [
+     "Dispensa",
+     11811610
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "62.658.984/0003-11",
+   "nome": "UNIÃO DOS FUNCIONÁRIOS DO BANCO NOSSA CAIXA",
+   "nome_receita": "ASSOCIACAO DOS FUNCIONARIOS DO BANCO NOSSA CAIXA E BANCO DO BRASIL",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 10485316,
+   "n": 11,
+   "un": [
+    [
+     "SECRETARIA DE ADMINISTRAÇÃO",
+     10485316
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - LOCAÇÃO DE IMÓVEIS",
+     10485316
+    ]
+   ],
+   "mes": {
+    "2026-11": 1911772,
+    "2026-10": 3823544,
+    "2026-05": 950000,
+    "2026-04": 950000,
+    "2026-03": 950000,
+    "2026-02": 950000,
+    "2026-01": 950000
+   },
+   "mod": [
+    [
+     "Dispensa",
+     10485316
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "47.673.793/0102-17",
+   "nome": "Associacao Fundo de Incentivo A Pesquisa",
+   "nome_receita": "ASSOCIACAO FUNDO DE INCENTIVO A PESQUISA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 9389115,
+   "n": 9,
+   "un": [
+    [
+     "SECRETARIA DE SAÚDE-FDO MUNICIPAL SAÚDE",
+     9389115
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     7391889
+    ],
+    [
+     "3.3.90.39 - SERVIÇOS TÉCNICOS PROFISSIONAIS",
+     1997226
+    ]
+   ],
+   "mes": {
+    "2026-11": 1224676,
+    "2026-10": 2357464,
+    "2026-09": 873128,
+    "2026-07": 2139192,
+    "2026-06": 1079407,
+    "2026-04": 760640,
+    "2026-03": 954608
+   },
+   "mod": [
+    [
+     "Pregão Eletrônico",
+     9389115
+    ]
+   ],
+   "obj": [
+    [
+     "Outras Prestações de Serviço",
+     9389115
+    ]
+   ]
+  },
+  {
+   "cnpj": "27.090.171/0001-05",
+   "nome": "INSTITUTO NACIONAL TALENTOS DE INCLUSÃO PROFISSIONAL INTAL",
+   "nome_receita": "INSTITUTO NACIONAL TALENTOS DE INCLUSAO PROFISSIONAL - INTAL",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 9288343,
+   "n": 8,
+   "un": [
+    [
+     "SECRETARIA DE ADMINISTRAÇÃO",
+     9288343
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     9288343
+    ]
+   ],
+   "mes": {
+    "2026-09": 2388798,
+    "2026-07": 1214377,
+    "2026-05": 3439070,
+    "2026-03": 1010316,
+    "2026-02": 1235782
+   },
+   "mod": [
+    [
+     "Inexigibilidade",
+     9288343
+    ]
+   ],
+   "obj": [
+    [
+     "Outras Prestações de Serviço",
+     9288343
+    ]
+   ]
+  },
+  {
+   "cnpj": "44.172.734/0001-23",
+   "nome": "ASSOCIAÇÃO SURF CIBRATEL",
+   "nome_receita": "ASSOCIACAO DE SURF CIBRATEL",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 9135200,
+   "n": 7,
+   "un": [
+    [
+     "SECRETARIA DE ESPORTES E LAZER",
+     9135200
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     9135200
+    ]
+   ],
+   "mes": {
+    "2026-07": 6805200,
+    "2026-11": 466000,
+    "2026-10": 466000,
+    "2026-09": 466000,
+    "2026-08": 932000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     9135200
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "13.391.406/0001-94",
+   "nome": "INSTITUTO BELIEVE",
+   "nome_receita": "INSTITUTO BELIEVE",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 8000000,
+   "n": 1,
+   "un": [
+    [
+     "SECRETARIA DE ASSISTÊNCIA, DESENVOLVIMENTO E INCLUSÃO SOCIAL",
+     8000000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - SERVIÇOS DE ASSISTÊNCIA SOCIAL",
+     8000000
+    ]
+   ],
+   "mes": {
+    "2026-10": 8000000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     8000000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "29.575.415/0001-75",
+   "nome": "ARTE SUAVE PARA A VIDA",
+   "nome_receita": "ARTE SUAVE PARA A VIDA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 7200000,
+   "n": 6,
+   "un": [
+    [
+     "SECRETARIA DE ESPORTES E LAZER",
+     7200000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     7200000
+    ]
+   ],
+   "mes": {
+    "2026-11": 1200000,
+    "2026-10": 1200000,
+    "2026-09": 1200000,
+    "2026-08": 2400000,
+    "2026-07": 1200000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     7200000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "26.245.042/0001-86",
+   "nome": "ASSOC.COM.ESP.CULT.EDUC.ASSIST. CRESCER E VIVER COM ITANHAÉM",
+   "nome_receita": "ASSOCIACAO COMUNITARIA, ESPORTIVA, CULTURAL, EDUCACIONAL, E ASSISTENCIAL CRESCER E VIVER COM ITANHAEM",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 6300000,
+   "n": 6,
+   "un": [
+    [
+     "SECRETARIA DE ESPORTES E LAZER",
+     6300000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     6300000
+    ]
+   ],
+   "mes": {
+    "2026-11": 1050000,
+    "2026-10": 1050000,
+    "2026-09": 1050000,
+    "2026-08": 2100000,
+    "2026-07": 1050000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     6300000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "58.259.771/0001-88",
+   "nome": "MITRA DIOCESANA DE SANTOS",
+   "nome_receita": "MITRA DIOCESANA DE SANTOS",
+   "tipo": "Organização religiosa",
+   "natureza_juridica": "Organização Religiosa",
+   "pago": 5200000,
+   "n": 7,
+   "un": [
+    [
+     "SECRETARIA DE CULTURA E ECONOMIA CRIATIVA",
+     5200000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - LOCAÇÃO DE IMÓVEIS",
+     5200000
+    ]
+   ],
+   "mes": {
+    "2026-11": 1040000,
+    "2026-10": 1040000,
+    "2026-09": 1040000,
+    "2026-08": 2080000
+   },
+   "mod": [
+    [
+     "Dispensa",
+     5200000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "02.257.253/0001-70",
+   "nome": "APM DA EM MARIA CRISTINA DE MACEDO GOMES",
+   "nome_receita": "APM DA EMEI PROF MARIA CRISTINA DE MACEDO GOMES",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 4990000,
+   "n": 3,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     4990000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     4990000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-04": 3870000,
+    "2026-03": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     4990000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "54.337.449/0001-79",
+   "nome": "ASSOCIAÇÃO DAS PREF DAS CID ESTÂNCIAS",
+   "nome_receita": "ASSOCIACAO DAS PREFEITURAS DAS CIDADES ESTANCIA DO ESTADO DE SAO PAULO",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 3358025,
+   "n": 1,
+   "un": [
+    [
+     "SECRETARIA DE ADMINISTRAÇÃO",
+     3358025
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.70.41 - CONTRIBUIÇÕES",
+     3358025
+    ]
+   ],
+   "mes": {
+    "2026-01": 3358025
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     3358025
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "09.285.960/0001-10",
+   "nome": "Instituto Cita - Canto de Integracao de Todas As Artes",
+   "nome_receita": "INSTITUTO CITA - CANTO DE INTEGRACAO DE TODAS AS ARTES",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 3350000,
+   "n": 1,
+   "un": [
+    [
+     "SECRETARIA DE CULTURA E ECONOMIA CRIATIVA",
+     3350000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     3350000
+    ]
+   ],
+   "mes": {
+    "2026-03": 3350000
+   },
+   "mod": [
+    [
+     "Inexigibilidade",
+     3350000
+    ]
+   ],
+   "obj": [
+    [
+     "Outras Prestações de Serviço",
+     3350000
+    ]
+   ]
+  },
+  {
+   "cnpj": "07.977.073/0001-87",
+   "nome": "CONSORCIO DE DESENVOLVIMENTO INTERMUNICIPAL DO VAL",
+   "nome_receita": "CONSORCIO DE DESENVOLVIMENTO INTERMUNICIPAL DO VALE DO RIBEIRA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 3268093,
+   "n": 12,
+   "un": [
+    [
+     "SECRETARIA DE ADMINISTRAÇÃO",
+     3268093
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.70.41 - CONTRIBUIÇÕES",
+     3268093
+    ]
+   ],
+   "mes": {
+    "2026-11": 405250,
+    "2026-09": 512393,
+    "2026-08": 486300,
+    "2026-06": 243150,
+    "2026-05": 486300,
+    "2026-03": 243150,
+    "2026-02": 486300,
+    "2026-10": 405250
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     3268093
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "03.725.818/0001-60",
+   "nome": "APM DA EM PROFª IGNEZ MARTINS",
+   "nome_receita": "APM DA E.M. PROF IGNEZ MARTINS",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 3170000,
+   "n": 3,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     3170000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     3170000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-04": 2370000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     3170000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "00.474.973/0001-62",
+   "nome": "ECAD - ESCRIT CENTRAL DE ARREC E DISTRIB",
+   "nome_receita": "ESCRITORIO CENTRAL DE ARRECADACAO E DISTRIBUICAO ECAD",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 2161833,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE TURISMO",
+     1957850
+    ],
+    [
+     "SECRETARIA DE CULTURA E ECONOMIA CRIATIVA",
+     203983
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     2161833
+    ]
+   ],
+   "mes": {
+    "2026-06": 203983,
+    "2026-02": 1957850
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     2161833
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "43.728.245/0007-38",
+   "nome": "Servico de Apoio As Micro e Peq Empresas de Sao Paulo",
+   "nome_receita": "SERVICO DE APOIO AS MICRO E PEQUENAS EMPRESAS DO ESTADO DE SAO PAULO",
+   "tipo": "Serviço Social Autônomo (Sistema S)",
+   "natureza_juridica": "Serviço Social Autônomo",
+   "pago": 1829736,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE DESENVOLVIMENTO ECONOMICO E RELAÇÕES DE TRABALHO",
+     1829736
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - LOCAÇÃO BENS MÓVEIS DE OUTRAS NATUREZAS E INTANGÍVEIS",
+     1769000
+    ],
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     60736
+    ]
+   ],
+   "mes": {
+    "2026-10": 1829736
+   },
+   "mod": [
+    [
+     "Inexigibilidade",
+     1829736
+    ]
+   ],
+   "obj": [
+    [
+     "Outras Prestações de Serviço",
+     1769000
+    ]
+   ]
+  },
+  {
+   "cnpj": "46.578.175/0001-81",
+   "nome": "ABRIGO A VELHICE ALLAN KARDEC",
+   "nome_receita": "ABRIGO A VELHICE ALLAN KARDEC",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1550000,
+   "n": 1,
+   "un": [
+    [
+     "SECRETARIA DE SAÚDE-FDO MUNICIPAL SAÚDE",
+     1550000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - LOCAÇÃO DE IMÓVEIS",
+     1550000
+    ]
+   ],
+   "mes": {
+    "2026-11": 1550000
+   },
+   "mod": [
+    [
+     "Inexigibilidade",
+     1550000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "71.556.351/0001-21",
+   "nome": "APM DA EM. HARRY FORSSELL",
+   "nome_receita": "A.P.M. DA EM. HARRY FORSSELL",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1440000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1440000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1440000
+    ]
+   ],
+   "mes": {
+    "2026-08": 900000,
+    "2026-04": 540000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1440000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "21.903.709/0001-77",
+   "nome": "APM DA EM MARIA PATROCINA CONDOTA",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL MARIA PATROCINA CONDOTA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1440000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1440000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1440000
+    ]
+   ],
+   "mes": {
+    "2026-08": 900000,
+    "2026-03": 540000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1440000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "42.494.942/0001-13",
+   "nome": "APM E.M. OSMAR RODRIGUES",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL OSMAR RODRIGUES",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1440000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1440000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1440000
+    ]
+   ],
+   "mes": {
+    "2026-08": 900000,
+    "2026-04": 540000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1440000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "20.691.124/0001-78",
+   "nome": "APM DA EM PROFª SILVIA REGINA SCHIAVON MARASCA",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA E. M. PROF SILVIA REGINA SCHIAVON MARASCA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1440000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1440000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1440000
+    ]
+   ],
+   "mes": {
+    "2026-08": 900000,
+    "2026-03": 540000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1440000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "48.681.522/0001-22",
+   "nome": "APM DA E.M. EUGENIA PITTA RANGEL VELOSO",
+   "nome_receita": "APM DA E.M. PROFA EUGENIA PITTA RANGEL VELOSO",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1440000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1440000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1440000
+    ]
+   ],
+   "mes": {
+    "2026-08": 900000,
+    "2026-03": 540000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1440000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "59.480.558/0001-64",
+   "nome": "UNIAO DIRIGENTES MUNICIPAIS DE EDUC DO EST SP-UNDI",
+   "nome_receita": "UNIAO DIRIGENTES MUNICIPAIS DE EDUC DO EST SP-UNDIME-SP",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1401040,
+   "n": 4,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1401040
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - EXPOSIÇÕES, CONGRESSOS E CONFERÊNCIAS",
+     849840
+    ],
+    [
+     "3.3.90.39 - ASSINATURAS DE PERIÓDICOS E ANUIDADES",
+     551200
+    ]
+   ],
+   "mes": {
+    "2026-10": 110000,
+    "2026-03": 739840,
+    "2026-02": 551200
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1401040
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "11.372.415/0001-02",
+   "nome": "LIGA DE BASKETBALL DA BAIXADA SANTISTA",
+   "nome_receita": "LIGA DE BASKETBALL DA BAIXADA SANTISTA - LBBS",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1183000,
+   "n": 1,
+   "un": [
+    [
+     "SECRETARIA DE ESPORTES E LAZER",
+     1183000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1183000
+    ]
+   ],
+   "mes": {
+    "2026-03": 1183000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1183000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "02.120.869/0001-03",
+   "nome": "APM DA EM MARIA DO CARMO ABREU SODRE",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA E.M. MARIA DO CARMO DE ABREU SODRE",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 1,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-09": 1120000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "54.352.950/0001-04",
+   "nome": "APM DA E.M. MARIA AP. SOARES AMENDOLA",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL PROFESSORA MARIA APARECIDA SOARES AMENDOLA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-03": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "03.078.580/0001-28",
+   "nome": "APM EM PROFª MARIA DA PENHA C.  SANCHES",
+   "nome_receita": "APM DA E.M. PROF MARIA DA PENHA CORREA SANCHES",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-03": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "12.208.180/0001-80",
+   "nome": "APM DA E.M. MARIA GRACIETTE DIAS",
+   "nome_receita": "APM DA EM PROFESSORA MARIA GRACIETTE DIAS",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-03": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "03.065.605/0001-59",
+   "nome": "APM DA EM LUIZ GONZAGA SILVA FONSECA",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA EMEFEI. PROF. LUIZ GONZAGA SILVA FONSECA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-03": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "51.669.752/0001-80",
+   "nome": "APM DA E.M. CELIA MARINA DAL POZZO BORGES",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL PROFESSORA CELIA MARINA DAL POZZO BORGES",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-03": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "54.353.057/0001-01",
+   "nome": "APM DA E.M PROFESSORA DALVA DATI RUIVO",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL PROF DALVA DATI RUIVO",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-03": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "03.724.418/0001-30",
+   "nome": "APM DA EM FILOMENA DIAS APELLIAN",
+   "nome_receita": "A.P.M. DA E.M. PROF FILOMENA DIAS APELIAN",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-03": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "02.097.009/0001-98",
+   "nome": "APM DA EM LEONOR MENDES DE BARROS",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA E. M. LEONOR MENDES DE BARROS",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-03": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "02.137.546/0001-14",
+   "nome": "APM DA EM ANA CANDIDA EBLING DE OLIVEIRA",
+   "nome_receita": "A.P.M. DA E.M. ANA CANDIDA EBLING DE OLIVEIRA .",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-04": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "48.681.506/0001-30",
+   "nome": "APM DA E.M.BERNARDINO DE SOUZA PEREIRA",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL BERNARDINO DE SOUZA PEREIRA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1120000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     1120000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     1120000
+    ]
+   ],
+   "mes": {
+    "2026-08": 700000,
+    "2026-04": 420000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1120000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "45.876.117/0001-71",
+   "nome": "INSTITUTO DE ESTUDOS DE PROTESTO DE TÍTULOS DO BRASIL - SEÇÃO SÃO PAULO - IEPTB-SP",
+   "nome_receita": "INSTITUTO DE ESTUDOS DE PROTESTO DE TITULOS DO BRASIL - SECAO SAO PAULO - IEPTB - SP",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 1040964,
+   "n": 10,
+   "un": [
+    [
+     "PROCURADORIA GERAL DO MUNICÍPIO",
+     1040964
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     735241
+    ],
+    [
+     "3.3.90.39 - SERVIÇOS JUDICIÁRIOS",
+     305723
+    ]
+   ],
+   "mes": {
+    "2026-11": 231097,
+    "2026-10": 234261,
+    "2026-08": 396478,
+    "2026-05": 55433,
+    "2026-04": 27570,
+    "2026-03": 4500,
+    "2026-02": 91625
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1040964
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "37.318.313/0001-00",
+   "nome": "OPERADOR NACIONAL DO REGISTRO ELETRÔNICO DE IMÓVEIS",
+   "nome_receita": "OPERADOR NACIONAL DO SISTEMA DE REGISTRO ELETRONICO DE IMOVEIS ( ONR )",
+   "tipo": "Serviço Social Autônomo (Sistema S)",
+   "natureza_juridica": "Serviço Social Autônomo",
+   "pago": 1000045,
+   "n": 3,
+   "un": [
+    [
+     "PROCURADORIA GERAL DO MUNICÍPIO",
+     1000045
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     500045
+    ],
+    [
+     "3.3.90.39 - SERVIÇOS DE CÓPIAS E REPRODUÇÃO DE DOCUMENTOS",
+     500000
+    ]
+   ],
+   "mes": {
+    "2026-10": 500045,
+    "2026-02": 500000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     1000045
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "43.290.816/0001-00",
+   "nome": "FEDERAÇÃO AQUATICA PAULISTA",
+   "nome_receita": "FEDERACAO AQUATICA PAULISTA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 955943,
+   "n": 7,
+   "un": [
+    [
+     "SECRETARIA DE ESPORTES E LAZER",
+     955943
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     838243
+    ],
+    [
+     "3.3.90.39 - SERVIÇO DE SELEÇÃO E TREINAMENTO",
+     117700
+    ]
+   ],
+   "mes": {
+    "2026-11": 196964,
+    "2026-10": 135988,
+    "2026-09": 136532,
+    "2026-06": 278632,
+    "2026-04": 19507,
+    "2026-03": 188320
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     838243
+    ],
+    [
+     "Inexigibilidade",
+     117700
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "03.657.079/0001-16",
+   "nome": "Associacao Nacional de Municipios e Meio Ambiente",
+   "nome_receita": "ASSOCIACAO NACIONAL DE MUNICIPIOS E MEIO AMBIENTE",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 880000,
+   "n": 1,
+   "un": [
+    [
+     "SECRETARIA DE DEFESA DO MEIO AMBIENTE E BEM-ESTAR ANIMAL",
+     880000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - SERVIÇO DE SELEÇÃO E TREINAMENTO",
+     880000
+    ]
+   ],
+   "mes": {
+    "2026-09": 880000
+   },
+   "mod": [
+    [
+     "Inexigibilidade",
+     880000
+    ]
+   ],
+   "obj": [
+    [
+     "Outras Prestações de Serviço",
+     880000
+    ]
+   ]
+  },
+  {
+   "cnpj": "02.562.422/0001-86",
+   "nome": "APM DA EM OLGA LOPES DE MENDONÇA",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL 'OLGA LOPES DE MENDONCA'",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "14.839.248/0001-55",
+   "nome": "APM DA E.M. ZULEICA BARROS DE ASSIS",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA E.M. ZULEICA BARROS DE ASSIS",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "02.221.754/0001-05",
+   "nome": "APM DA EM WALTER ARDUINI",
+   "nome_receita": "APM DA E.M. PROF WALTER ARDUINI",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "20.691.659/0001-49",
+   "nome": "APM DA EM MARIA DA CONCEIÇÃO CARVALHO BATISTA",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA E. M. MARIA DA CONCEICAO CARVALHO BATISTA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 400000,
+    "2026-06": 400000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "54.353.040/0001-46",
+   "nome": "APM DA E.M. PROFª MARIA CONCEIÇÃO LUZ",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL DE ENSINO FUNDAMENTAL PROFESSORA MARIA DA CONCEICAO LUZ",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "05.152.156/0001-01",
+   "nome": "APM DA EM MARIA DAS G. ALVES DOS SANTOS",
+   "nome_receita": "APM DA E.M. PROF MARIA DAS GRACAS ALVES SANTOS",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "03.060.044/0001-03",
+   "nome": "APM DA EM NEUSA PINTO FONSECA",
+   "nome_receita": "A P M DA ESCOLA MUNICIPAL PROF NEUSA PINTO FONSECA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "15.391.947/0001-48",
+   "nome": "APM DA E.M. PROFº NILDEMAR DE SOUZA OLIVEIRA",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL PROFESSOR NILDEMAR DE SOUZA OLIVEIRA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "03.755.159/0001-04",
+   "nome": "APM E.M. PEDRINA POMPEU BASTOS",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL PEDRINA POMPEU BASTOS",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "02.137.544/0001-25",
+   "nome": "APM DA EM SHIRLEY MARIANO ESTRIGA",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL PROFESSORA SHIRLEY MARIANO ESTRIGA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "31.510.186/0001-52",
+   "nome": "APM EM TIA POMBINHA",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA E. M. TIA POMBINHA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "02.137.543/0001-80",
+   "nome": "APM E. M. LIONS CLUBE",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA E.M. LIONS CLUBE",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "18.132.550/0001-20",
+   "nome": "APM DA E.M. LILIAN APARECIDA BORGES PRADO",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL LILIAN APARECIDA BORGES PRADO",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "02.218.457/0001-00",
+   "nome": "APM PROF CARLOS AUGUSTO GUIMARÃES DA SILVA",
+   "nome_receita": "APM DA EM CARLOS AUGUSTO GUIMARES DA SILVA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "04.375.673/0001-87",
+   "nome": "APM DA EM PROFª DIVA DO C. ALVES LIMA",
+   "nome_receita": "APM. DA E.M. DIVA DO CARMO ALVES DE LIMA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-05": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "51.671.162/0001-92",
+   "nome": "APM DA EM PROFª DIVANI MARIA CARDOSO",
+   "nome_receita": "APM DA E. M. PROF. DIVANI MARIA CARDOSO",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "14.488.003/0001-20",
+   "nome": "APM DA E.M. DR. EDSON BAPTISTA DE ANDRADE",
+   "nome_receita": "APM DA ESCOLA MUNICIPAL DR EDSON BAPTISTA DE ANDRADE",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "05.098.054/0001-55",
+   "nome": "APM DA EM PROFª ELGA REIS",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL PROF ELGA REIS",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "28.075.598/0001-05",
+   "nome": "APM DA E.M. PROFª GIOCONDA FAGÁ",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA E.M. PROFESSORA GIOCONDA FAGA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "48.221.243/0001-86",
+   "nome": "APM EM ITAILDE SILVA CASTRO BRAGANTE",
+   "nome_receita": "APM DA ESCOLA MUNICIPAL ITAILDE SILVA CASTRO BRAGANTE",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "02.097.011/0001-67",
+   "nome": "APM DA EM JOSE TEIXEIRA ROSAS",
+   "nome_receita": "APM. DA ESCOLA MUNICIPAL RURAL JOSE TEIXEIRA ROSAS",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-04": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "54.352.877/0001-70",
+   "nome": "APM DA EEPG LIDIA MARTHA F. GIANOTTI",
+   "nome_receita": "APM DA ESCOLA MUNICIPAL PROF LIDIA MARTHA FERRIELLO GIANOTTI",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "20.370.255/0001-53",
+   "nome": "APM DA EM BENEDITA MATIAS GONÇALVES",
+   "nome_receita": "ASSOCIACAO DE PAIS E MESTRES DA ESCOLA MUNICIPAL BENEDITA MATIAS GONCALVES",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 800000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE EDUCAÇÃO",
+     800000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     800000
+    ]
+   ],
+   "mes": {
+    "2026-08": 500000,
+    "2026-03": 300000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     800000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "08.342.854/0001-68",
+   "nome": "LIGA PAULISTA DE BASKETBALL",
+   "nome_receita": "LIGA PAULISTA DE BASKETBALL",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 791500,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE ESPORTES E LAZER",
+     791500
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     791500
+    ]
+   ],
+   "mes": {
+    "2026-08": 461500,
+    "2026-01": 330000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     791500
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "59.995.241/0001-60",
+   "nome": "CONSELHO DE SEC MUN DE SAÚDE DO EST SP",
+   "nome_receita": "CONSELHO DE SECRETARIOS MUNICIPAIS DE SAUDE DO ESTADO DE SAO PAULO DR. SEBASTIAO DE MORAES - COSEMS/SP",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 314500,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE SAÚDE-FDO MUNICIPAL SAÚDE",
+     314500
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - EXPOSIÇÕES, CONGRESSOS E CONFERÊNCIAS",
+     314500
+    ]
+   ],
+   "mes": {
+    "2026-04": 314500
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     314500
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "03.032.597/0001-44",
+   "nome": "ASSOCIAÇÃO FRENTE PAULISTA D.P. MUNICIPAIS DA ASSI",
+   "nome_receita": "ASSOCIACAO DA FRENTE PAULISTA DOS DIRIGENTES PUBLICOS MUNICIPAIS DA ASSISTENCIA SOCIAL",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 225000,
+   "n": 1,
+   "un": [
+    [
+     "SECRETARIA DE ASSISTÊNCIA, DESENVOLVIMENTO E INCLUSÃO SOCIAL",
+     225000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     225000
+    ]
+   ],
+   "mes": {
+    "2026-03": 225000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     225000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "00.075.518/0001-94",
+   "nome": "SOCIEDADE PAULISTA DE INFECTOLOGIA",
+   "nome_receita": "SOCIEDADE PAULISTA DE INFECTOLOGIA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 115000,
+   "n": 2,
+   "un": [
+    [
+     "SECRETARIA DE SAÚDE-FDO MUNICIPAL SAÚDE",
+     115000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     115000
+    ]
+   ],
+   "mes": {
+    "2026-05": 115000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     115000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "02.979.605/0001-00",
+   "nome": "INSTITUTO FESTIVAL DE DANÇA DE JOINVILLE",
+   "nome_receita": "INSTITUTO FESTIVAL DE DANCA DE JOINVILLE",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 102000,
+   "n": 1,
+   "un": [
+    [
+     "SECRETARIA DE CULTURA E ECONOMIA CRIATIVA",
+     102000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     102000
+    ]
+   ],
+   "mes": {
+    "2026-04": 102000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     102000
+    ]
+   ],
+   "obj": []
+  },
+  {
+   "cnpj": "64.068.867/0001-61",
+   "nome": "CONFEDERAÇÃO DAMÍSTICA BRASILEIRA",
+   "nome_receita": "CONFEDERACAO DAMISTICA BRASILEIRA",
+   "tipo": "Associação",
+   "natureza_juridica": "Associação Privada",
+   "pago": 60000,
+   "n": 1,
+   "un": [
+    [
+     "SECRETARIA DE ESPORTES E LAZER",
+     60000
+    ]
+   ],
+   "nat": [
+    [
+     "3.3.90.39 - OUTROS SERVIÇOS DE TERCEIROS - PESSOA JURÍDICA",
+     60000
+    ]
+   ],
+   "mes": {
+    "2026-10": 60000
+   },
+   "mod": [
+    [
+     "Outros/Não Aplicável",
+     60000
+    ]
+   ],
+   "obj": []
+  }
+ ]
+}

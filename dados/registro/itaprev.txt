@@ -1,14 +1,15 @@
-  falha registrada: prefeitura https://transparenciaonline.gcaspp.com/filtros-despesasorcamentarias
+  falha registrada: itaprev-despesas https://transparenciaonline.gcaspp.com/filtros-despesasorcamentarias
+  MOTIVO: o portal mostrou a verificação anti-robô (Cloudflare) e não liberou o acesso automático. O site continua com os últimos dados bons; colete pelo navegador do app.
 Traceback (most recent call last):
-  File "/home/runner/work/radaritanhaem.github.io/radaritanhaem.github.io/coletor/prefeitura.py", line 356, in <module>
+  File "/home/runner/work/radaritanhaem.github.io/radaritanhaem.github.io/coletor/prefeitura.py", line 368, in <module>
     main()
-  File "/home/runner/work/radaritanhaem.github.io/radaritanhaem.github.io/coletor/prefeitura.py", line 322, in main
+  File "/home/runner/work/radaritanhaem.github.io/radaritanhaem.github.io/coletor/prefeitura.py", line 334, in main
     d = despesas(int(sys.argv[3]) if len(sys.argv) > 3 else int(time.strftime("%Y")))
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/radaritanhaem.github.io/radaritanhaem.github.io/coletor/prefeitura.py", line 103, in despesas
+  File "/home/runner/work/radaritanhaem.github.io/radaritanhaem.github.io/coletor/prefeitura.py", line 112, in despesas
     return _despesas(pg, ctx, nav, ano, hoje)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/radaritanhaem.github.io/radaritanhaem.github.io/coletor/prefeitura.py", line 122, in _despesas
+  File "/home/runner/work/radaritanhaem.github.io/radaritanhaem.github.io/coletor/prefeitura.py", line 134, in _despesas
     pg.wait_for_selector("#vORGAO_MPAGE", timeout=90000); time.sleep(2)
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 21403, in wait_for_selector
