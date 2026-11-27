@@ -6,7 +6,8 @@ Portal de notícias de Itanhaém-SP com fiscalização do poder público:
 
 - **Notícias** da cidade (`/noticias`, cada matéria em `/noticia/<endereço>`, os mesmos endereços do portal antigo)
 - **Raio-X da Câmara** (`/camara/`): propostas, presença, salários por cargo e licitações, só com dados oficiais
-- **Raio-X da Prefeitura** (`/prefeitura/`): gasto por secretaria e secretários (em construção)
+- **Raio-X da Prefeitura** (`/prefeitura/`): gasto por secretaria, secretários e compras (`/prefeitura/compras/`)
+- **Raio-X da Previdência** (`/itaprev/`): entra x sai do ITAPREV, repasses, benefícios e compras
 - Documentos, podcasts, vídeos, eventos, vagas e guia comercial
 
 ## Pastas
@@ -32,7 +33,7 @@ Para vídeos, envie para o canal do YouTube e cole o link do vídeo sozinho numa
 
 ## Robô diário
 
-Todo dia às 5h (Brasília) o robô busca os dados da Câmara, confere e publica. Se algo vier estranho, ele **não publica** e o site fica com a última versão boa. Veja na aba **Actions**.
+Todo dia às 5h (Brasília) o robô busca os dados da Câmara, da Prefeitura e do ITAPREV, confere e publica. Se algo vier estranho, ele **não publica** e o site fica com a última versão boa. Veja na aba **Actions**.
 
 ## Pendências antes de desligar o portal antigo
 
@@ -41,11 +42,26 @@ Todo dia às 5h (Brasília) o robô busca os dados da Câmara, confere e publica
 - [x] **Troca do domínio** (25/11/2026): DNS na Cloudflare do projeto (grannbo/viddy), 4 registros A do GitHub Pages + CNAME www → radaritanhaem.github.io, todos "DNS only". O domínio é renovado anualmente na HostGator (vence em 02/05/2027).
 - [ ] **Cancelar o plano antigo do portal** só depois de 1 a 2 semanas com tudo funcionando.
 
+## Documentação técnica
+
+- [`CLAUDE.md`](CLAUDE.md): mapa do projeto, comandos, robô, domínio e regras.
+- [`docs/fontes-e-armadilhas.md`](docs/fontes-e-armadilhas.md): como cada fonte oficial é lida e os problemas já resolvidos.
+- [`docs/historico-e-proximos-passos.md`](docs/historico-e-proximos-passos.md): decisões, linha do tempo e pendências.
+
+## Como continuar o desenvolvimento numa conversa nova
+
+1. Baixe o projeto para uma pasta do computador que não vá ser apagada:
+   `git clone https://github.com/radaritanhaem/radaritanhaem.github.io.git transparencia-itanhaem`
+2. No app do Claude, abra uma conversa nova **escolhendo essa pasta** (o `CLAUDE.md` é lido automaticamente).
+3. Comece com: *"Leia o CLAUDE.md e os arquivos da pasta docs. Quero continuar o projeto: ..."*
+4. Antes de mexer, puxe a versão mais nova: `git pull` (o robô salva dados novos todo dia).
+
 ## Fontes (somente oficiais)
 
 - Câmara: https://www.itanhaem.sp.leg.br e https://transparencia.itanhaem.sp.leg.br
 - Licitações: página da Câmara e PNCP (https://pncp.gov.br)
 - Prefeitura: https://dadosabertos.itanhaem.sp.gov.br e TCE-SP (https://transparencia.tce.sp.gov.br)
+- Previdência (ITAPREV): https://transparenciaonline.gcaspp.com e TCE-SP
 
 ## Regras
 
