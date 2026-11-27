@@ -73,6 +73,10 @@ jobs:
         # confere a natureza jurídica de cada CNPJ que recebeu (cadastro da Receita); só consulta CNPJs novos
         continue-on-error: true
         run: python coletor/entidades.py dados/prefeitura_despesas.json /tmp/ent.json && mv /tmp/ent.json dados/prefeitura_entidades.json
+      - name: Alertas do Tribunal de Contas (TCE-SP) para Prefeitura, Câmara e ITAPREV
+        # comunicados oficiais de alerta (LRF art. 59) + painel Visor; se o TCE estiver fora do ar, fica a última versão
+        continue-on-error: true
+        run: python coletor/tce_alertas.py /tmp/alertas.json && mv /tmp/alertas.json dados/tce_alertas.json
       - name: Previdência (ITAPREV) - entra e sai, mês a mês (TCE-SP)
         continue-on-error: true
         run: python coletor/itaprev.py tce /tmp/ita_tce.json && mv /tmp/ita_tce.json dados/itaprev_tce.json

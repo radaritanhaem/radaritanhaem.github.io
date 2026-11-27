@@ -255,6 +255,47 @@ def resumo_camara():
             "folha": (d.get("folha") or {}).get("total_bruto"), "folha_per": f'{(d.get("folha") or {}).get("de","").lower()} a {(d.get("folha") or {}).get("ate","").lower()}',
             "lic": len((d.get("licitacoes") or {}).get("lista", [])), "atualizado": d["atualizado"]}
 
+# ---------- Alertas do Tribunal de Contas (TCE-SP) ----------
+NOMES_ORGAO = {"prefeitura": "a Prefeitura de Itanhaém", "camara": "a Câmara Municipal de Itanhaém", "itaprev": "o ITAPREV (previdência dos servidores)"}
+VISOR_ASSUNTOS = [("LRF", "Lei de Responsabilidade Fiscal (contas, dívida, pessoal)"), ("ENSINO", "Educação"), ("SAÚDE", "Saúde"),
+                  ("CUMPRIMENTO DAS INSTRUÇÕES DO TCE", "Envio de dados e documentos ao TCE"), ("PLANEJAMENTO ORÇAMENTÁRIO", "Planejamento do orçamento")]
+
+def bloco_alertas(orgao):
+    p = os.path.join(RAIZ, "dados", "tce_alertas.json")
+    if not os.path.exists(p):
+        return ""
+    d = json.load(open(p, encoding="utf-8"))
+    itens = []
+    for c in d.get("comunicados", []):
+        for a in c.get("alertas", []):
+            if a.get("orgao") == orgao:
+                quando = re.sub(r"\s*do ano de (\d{4})", r" de \1", c.get("relativo") or a.get("periodo", ""))
+                itens.append(f"""<li><b>{e(a['texto'])}.</b> <span class="quando">Referente ao {e(quando)} · Comunicado SDG nº {e(c['numero'])}, de {data_br(c['data'])} · <a href="{e(c['pdf'])}" target="_blank" rel="noopener">documento oficial ↗</a></span></li>""")
+    visor = d.get("visor_prefeitura") if orgao == "prefeitura" else None
+    vis = [(n, visor.get(k, 0)) for k, n in VISOR_ASSUNTOS] if visor else []
+    vis = [(n, v) for n, v in vis if v]
+    if not itens and not vis:
+        return ""
+    tot = sum(v for _n, v in vis)
+    bloco_vis = (f"""<p class="sub">No painel Visor do TCE-SP, {NOMES_ORGAO[orgao]} soma <b>{tot} alertas em {d['exercicio']}</b>:</p>
+<ul class="visor">{''.join(f'<li><span>{e(n)}</span><b>{v}</b></li>' for n, v in vis)}</ul>
+<p class="quando">O Visor mostra a quantidade; o detalhe de cada alerta fica com o órgão. <a href="{e(d['fonte_visor'])}" target="_blank" rel="noopener">Ver no Visor ↗</a></p>""" if vis else "")
+    bloco_com = (f"""<p class="sub">Alertas publicados pelo TCE-SP no Diário Oficial em {d['exercicio']}:</p><ul class="lista">{''.join(itens)}</ul>""" if itens else "")
+    return f"""<section class="alerta-tce" role="note" aria-label="Alertas do Tribunal de Contas do Estado">
+<h2><span aria-hidden="true">⚠</span> Alerta do Tribunal de Contas do Estado (TCE-SP)</h2>
+<p>O Tribunal de Contas emitiu alertas para {NOMES_ORGAO[orgao]} em {d['exercicio']}.</p>
+{bloco_com}{bloco_vis}
+<p class="nota">Alerta não é condenação: é um aviso do Tribunal para o órgão corrigir o problema a tempo. O TCE analisa cada caso no julgamento das contas do ano. Atualizado em {data_br(d['coletado_em'])}.</p>
+</section>"""
+
+def alertas_na_camara():
+    """A página da Câmara é escrita à mão: o quadro entra entre os marcadores <!--alertas-tce--> ... <!--/alertas-tce-->."""
+    p = os.path.join(RAIZ, "site", "camara", "index.html")
+    h = open(p, encoding="utf-8").read()
+    novo = re.sub(r"<!--alertas-tce-->.*?<!--/alertas-tce-->", lambda m: "<!--alertas-tce-->" + bloco_alertas("camara") + "<!--/alertas-tce-->", h, flags=re.S)
+    if novo != h:
+        open(p, "w", encoding="utf-8").write(novo)
+
 # ---------- Raio-X da Prefeitura ----------
 GRUPOS_PREF = [  # (chave, nome, grupos do coletor) na ordem fixa das cores
     ("pessoal", "Salários e encargos", ["pessoal"]),
@@ -438,6 +479,7 @@ def pagina_prefeitura():
 <div><b>{100*gasto_pessoal/total:.0f}%</b><span>vai para salários e encargos dos servidores</span></div>
 <div><b>{100*maior[1]['tot']/total:.0f}%</b><span>fica com {e(nome_unidade(maior[0]))}, a maior secretaria</span></div>
 </div>
+{bloco_alertas('prefeitura')}
 {bloco_compras()}
 {bloco_entidades()}
 <section class="graf"><h2>Quanto foi pago em cada mês</h2>
@@ -552,6 +594,7 @@ def pagina_itaprev():
     corpo = f"""<section class="cab-lista"><span class="eyebrow" style="color:var(--accent)">Raio-X da Previdência</span>
 <h1>Para onde vai o dinheiro da aposentadoria dos servidores</h1>
 <p>O <b>ITAPREV</b> (Itanhaém Prev) é o instituto que paga as aposentadorias e pensões dos servidores municipais. Ele recebe contribuições dos servidores e da Prefeitura e da Câmara. Dados oficiais do <a href="https://transparenciaonline.gcaspp.com/home" target="_blank" rel="noopener">Portal da Transparência do instituto</a> e do <a href="https://transparencia.tce.sp.gov.br" target="_blank" rel="noopener">Tribunal de Contas (TCE-SP)</a>.</p></section>
+{bloco_alertas('itaprev')}
 <div class="tiles-p">
 <div><b>{mi(d['total'])}</b><span>pagos pelo instituto em {ano}</span></div>
 <div><b>{100*ben/d['total']:.0f}%</b><span>foram para aposentadorias e pensões</span></div>
@@ -749,6 +792,7 @@ def main():
     comp = pagina_compras()
     if comp:
         gravar("prefeitura/compras/index.html", comp); caminhos.append("/prefeitura/compras/")
+    alertas_na_camara()
     ent = pagina_entidades()
     if ent:
         gravar("prefeitura/entidades/index.html", ent); caminhos.append("/prefeitura/entidades/")

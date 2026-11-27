@@ -1,0 +1,80 @@
+{
+ "exercicio": 2026,
+ "coletado_em": "2026-11-27",
+ "fonte_comunicados": "https://www.tce.sp.gov.br/comunicados",
+ "fonte_visor": "https://www.tce.sp.gov.br/visor",
+ "comunicados": [
+  {
+   "numero": "26/2026",
+   "data": "2026-06-01",
+   "relativo": "primeiro bimestre (RRO) do ano de 2026",
+   "pagina": "https://www.tce.sp.gov.br/legislacao/comunicado/alertas-trata-paragrafo-1o-artigo-59-lei-responsabilidade-fiscal-relativos-13",
+   "pdf": "https://www.tce.sp.gov.br/sites/default/files/legislacao/COMUNICADO-SDG-26-2026-%20Alertas%201%20Bimestre_disponibilizado%20no%20dia%2001%20de%20junho%20de%202026.pdf",
+   "alertas": [
+    {
+     "secao": "incisos",
+     "periodo": "1º BIMESTRE 2026",
+     "incisos": [
+      "I",
+      "V"
+     ],
+     "orgao": "prefeitura",
+     "texto": "A arrecadação pode não ser suficiente para cumprir as metas fiscais do ano (inciso I); há fatos que comprometem os custos ou resultados dos programas, ou indícios de irregularidade na gestão do orçamento (inciso V)"
+    }
+   ]
+  },
+  {
+   "numero": "36/2026",
+   "data": "2026-07-08",
+   "relativo": "segundo bimestre (RRO) e primeiro quadrimestre (RGF) do ano de 2026",
+   "pagina": "https://www.tce.sp.gov.br/legislacao/comunicado/alertas-trata-paragrafo-1o-artigo-59-lei-responsabilidade-fiscal-relativos-14",
+   "pdf": "https://www.tce.sp.gov.br/sites/default/files/legislacao/COMUNICADO-SDG-36-2026-%20Alertas%202%20Bimestre_disponibilizado%20no%20dia%2007%20de%20julho%20de%202026.pdf",
+   "alertas": [
+    {
+     "secao": "balancete_prefeitura",
+     "periodo": "2º BIMESTRE 2025",
+     "orgao": "prefeitura",
+     "texto": "Não tinha enviado ao TCE o balancete contábil (a prestação de contas do bimestre) quando o Tribunal fez a análise"
+    }
+   ]
+  },
+  {
+   "numero": "42/2026",
+   "data": "2026-08-19",
+   "relativo": "terceiro bimestre (RRO) do ano de 2026",
+   "pagina": "https://www.tce.sp.gov.br/legislacao/comunicado/alertas-trata-paragrafo-1o-artigo-59-lei-responsabilidade-fiscal-relativos-15",
+   "pdf": "https://www.tce.sp.gov.br/sites/default/files/legislacao/Comunicado%20SDG%2042-2026%20-%20Alertas%203-BIM_disponibilizado%20no%20dia%2018%20de%20agosto%20de%202026.pdf",
+   "alertas": [
+    {
+     "secao": "balancete_prefeitura",
+     "periodo": "3º BIMESTRE 2026",
+     "orgao": "prefeitura",
+     "texto": "Não tinha enviado ao TCE o balancete contábil (a prestação de contas do bimestre) quando o Tribunal fez a análise"
+    }
+   ]
+  },
+  {
+   "numero": "55/2026",
+   "data": "2026-10-28",
+   "relativo": "quarto bimestre (RRO) e segundo quadrimestre (RGF) do ano de 2026",
+   "pagina": "https://www.tce.sp.gov.br/legislacao/comunicado/alertas-trata-paragrafo-1o-artigo-59-lei-responsabilidade-fiscal-relativos-16",
+   "pdf": "https://www.tce.sp.gov.br/sites/default/files/legislacao/Comunicado%20SDG%2055-2026%20-%20Alertas%20-%204%20Bim_disponibilizado%20no%20dia%2027%20de%20outubro%20de%202026.pdf",
+   "alertas": [
+    {
+     "secao": "balancete_prefeitura",
+     "periodo": "4º BIMESTRE 2026",
+     "orgao": "prefeitura",
+     "texto": "Não tinha enviado ao TCE o balancete contábil (a prestação de contas do bimestre) quando o Tribunal fez a análise"
+    }
+   ]
+  }
+ ],
+ "a_conferir": [],
+ "visor_prefeitura": {
+  "LRF": 10,
+  "ENSINO": 14,
+  "SAÚDE": 2,
+  "CUMPRIMENTO DAS INSTRUÇÕES DO TCE": 9,
+  "PLANEJAMENTO ORÇAMENTÁRIO": 0
+ }
+}

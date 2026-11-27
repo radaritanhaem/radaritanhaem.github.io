@@ -9,6 +9,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
+.alerta-tce{border:2px solid var(--signal);border-left-width:8px;border-radius:14px;background:color-mix(in srgb,var(--signal) 7%,var(--card));padding:14px 16px;margin:14px 0;display:grid;gap:8px;min-width:0}
+.alerta-tce h2{margin:0;color:var(--signal);font-family:var(--f-display);font-size:1.15rem;line-height:1.25}
+.alerta-tce p{margin:0}
+.alerta-tce .sub{font-weight:700}
+.alerta-tce ul{margin:0;padding-left:18px;display:grid;gap:8px}
+.alerta-tce ul.visor{list-style:none;padding:0;gap:4px;font-size:.92rem}
+.alerta-tce ul.visor li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding-bottom:3px}
+.alerta-tce ul.visor b{color:var(--signal);font-variant-numeric:tabular-nums}
+.alerta-tce .quando{display:block;font-size:.85rem;color:var(--muted);overflow-wrap:anywhere}
+.alerta-tce .nota{font-size:.85rem;color:var(--muted)}
+
 /* Layout: página única de rolagem, coluna de até 1040px; seções numa ordem de leitura (salário → bairro → problemas → trabalho → crachás) */
 :root{
   --bg:#ffffff; --fg:#0e1a20; --muted:#5b6b72; --line:#e3e9ec; --soft:#f3f6f8; --card:#ffffff;
@@ -264,6 +275,7 @@ main section{scroll-margin-top:120px}
     </nav>
   </header>
 
+  <!--alertas-tce--><!--/alertas-tce-->
   <main id="app"><p class="loading">Carregando os dados da Câmara…</p></main>
 
   <footer>
