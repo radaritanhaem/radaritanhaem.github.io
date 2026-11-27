@@ -69,6 +69,17 @@ jobs:
         run: |
           python coletor/prefeitura.py secretarios /tmp/sec.json && mv /tmp/sec.json dados/prefeitura_secretarios.json
           python coletor/prefeitura.py conferir dados/prefeitura_despesas.json /tmp/conf.json && mv /tmp/conf.json dados/prefeitura_conferencia.json
+      - name: Previdência (ITAPREV) - entra e sai, mês a mês (TCE-SP)
+        continue-on-error: true
+        run: python coletor/itaprev.py tce /tmp/ita_tce.json && mv /tmp/ita_tce.json dados/itaprev_tce.json
+      - name: Previdência (ITAPREV) - pagamentos, compras e folha (portal do instituto)
+        continue-on-error: true
+        run: |
+          mkdir -p dados/registro
+          (python coletor/prefeitura.py despesas /tmp/ita_d.json --itaprev && python coletor/prefeitura.py aceitar /tmp/ita_d.json dados/itaprev_despesas.json --itaprev) > dados/registro/itaprev.txt 2>&1; a=$?
+          (python coletor/prefeitura.py compras /tmp/ita_c.json --itaprev && python coletor/prefeitura.py aceitar-compras /tmp/ita_c.json dados/itaprev_compras.json --itaprev) >> dados/registro/itaprev.txt 2>&1; b=$?
+          (python coletor/itaprev.py folha /tmp/ita_f.json && mv /tmp/ita_f.json dados/itaprev_folha.json) >> dados/registro/itaprev.txt 2>&1; c=$?
+          tail -40 dados/registro/itaprev.txt; [ $a -eq 0 ] && [ $b -eq 0 ] && [ $c -eq 0 ]
       - name: Montar os dados do site
         run: |
           python coletor/processar.py dados/dados.json site/camara/dados-site.json

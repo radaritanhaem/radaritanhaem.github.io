@@ -150,7 +150,7 @@ def carregar():
 # ---------- pedaços de página ----------
 def cabecalho(ativo=""):
     links = [("/", "Início"), ("/noticias", "Notícias"), ("/camara/", "Câmara"), ("/prefeitura/", "Prefeitura"),
-             ("/documentos", "Documentos"), ("/podcasts", "Podcasts"), ("/guia-comercial", "Guia")]
+             ("/itaprev/", "Previdência"), ("/documentos", "Documentos"), ("/podcasts", "Podcasts"), ("/guia-comercial", "Guia")]
     nav = "".join(f'<a href="{h}"{" aria-current=page" if h == ativo else ""}>{t}</a>' for h, t in links)
     return f"""<header class="topo-site"><div class="wrap topo-in">
   <a class="logo" href="/" aria-label="{NOME}, página inicial"><img src="/marca/transparencia-itanhaem.png" alt="{NOME}" width="500" height="140"></a>
@@ -384,6 +384,130 @@ def pagina_prefeitura():
     return pagina(f"Raio-X da Prefeitura | {NOME}", corpo, "/prefeitura/",
                   f"Quanto cada secretaria da Prefeitura de Itanhaém gastou em {ano} e quem comanda cada uma.", ativo="/prefeitura/")
 
+# ---------- Raio-X do ITAPREV (previdência dos servidores) ----------
+def _grupo_desp_ita(nat):
+    if nat.startswith("3.1.90.01"): return "Aposentadorias"
+    if nat.startswith("3.1.90.03"): return "Pensões"
+    if re.match(r"3\.1\.9[01]\.(11|13|16)|3\.3\.90\.36 - ESTAGI", nat): return "Salários da equipe do instituto"
+    if nat.startswith("3.3.90.86"): return "Compensação a outros regimes de previdência"
+    if nat.startswith("3.3.90.47"): return "Impostos (PIS/PASEP)"
+    return "Custos de funcionamento (aluguel, sistemas, consultorias…)"
+
+def _grupo_rec_ita(cat):
+    c = cat.upper()
+    if "PARCELAMENTO" in c: return "Parcelamento de dívidas antigas da Prefeitura"
+    if "PATRONAL" in c: return "Contribuição da Prefeitura e da Câmara (patronal)"
+    if "SERVIDOR" in c: return "Contribuição descontada dos servidores"
+    if "COMPENSA" in c: return "Compensação do INSS"
+    return "Outras receitas"
+
+def _colunas_duplas(meses, a, b, rot_a, rot_b):
+    mx = max([a.get(m, 0) for m in meses] + [b.get(m, 0) for m in meses] + [1])
+    cols = "".join(f"""<div class="col2" tabindex="0" data-tip="{MESES_C[int(m[5:])-1]}: {rot_a} {reais(a.get(m,0))} · {rot_b} {reais(b.get(m,0))}">
+<div class="par"><i class="g1" style="height:{max(1,100*a.get(m,0)/mx):.1f}%"></i><i class="g2" style="height:{max(1,100*b.get(m,0)/mx):.1f}%"></i></div><span class="m">{MESES_C[int(m[5:])-1]}</span></div>""" for m in meses)
+    return f'<div class="leg"><span><span class="dot g1"></span> {rot_a}</span><span><span class="dot g2"></span> {rot_b}</span></div><div class="colunas2">{cols}</div>'
+
+def pagina_itaprev():
+    pt, pd = os.path.join(RAIZ, "dados", "itaprev_tce.json"), os.path.join(RAIZ, "dados", "itaprev_despesas.json")
+    if not (os.path.exists(pt) and os.path.exists(pd)):
+        return None
+    t, d = json.load(open(pt, encoding="utf-8")), json.load(open(pd, encoding="utf-8"))
+    pf = os.path.join(RAIZ, "dados", "itaprev_folha.json")
+    folha = json.load(open(pf, encoding="utf-8")) if os.path.exists(pf) else None
+    pc = os.path.join(RAIZ, "dados", "itaprev_compras.json")
+    compras = json.load(open(pc, encoding="utf-8")) if os.path.exists(pc) else None
+    ano = d["exercicio"]
+    mt = sorted(t["meses"])
+    entrou = {m: t["meses"][m]["receita_total"] for m in mt}
+    saiu = {m: t["meses"][m]["pago"] for m in mt}
+    rep_pref = {m: t["meses"][m]["repasses"].get("Prefeitura", 0) for m in mt}
+    rep_cam = {m: t["meses"][m]["repasses"].get("Câmara", 0) for m in mt}
+    tot_e, tot_s = sum(entrou.values()), sum(saiu.values())
+    # receitas por grupo
+    rec = collections.Counter()
+    for m in mt:
+        for cat, v in t["meses"][m]["receitas"].items():
+            rec[_grupo_rec_ita(cat)] += v
+    # despesas por grupo (portal do instituto, ano inteiro)
+    desp = collections.Counter()
+    for nat, v in d["nat"]:
+        desp[_grupo_desp_ita(nat)] += v
+    # empresas (sem o próprio instituto e sem a Receita Federal)
+    emp = collections.Counter()
+    for k, v in d["forn"]:
+        nome, cnpj, nat = k.split("|", 2)
+        if cnpj in ("08.424.027/0001-13", "00.394.460/0058-87"):
+            continue
+        emp[(nome, cnpj, nat.split(" - ", 1)[-1].capitalize())] += v
+    def barras(cnt, total):
+        mx = max(cnt.values()) if cnt else 1
+        return "".join(f"""<li><span class="linha-r"><span class="nm">{e(k)}</span><span class="v">{mi(v)} <small>({100*v/total:.0f}%)</small></span></span>
+<div class="barra"><i style="width:{100*v/mx:.1f}%"></i></div></li>""" for k, v in cnt.most_common())
+    plano_fin = next((v for k, v in d.get("un", []) if "FINANCEIRO" in k), 0)
+    plano_prev = next((v for k, v in d.get("un", []) if "PREVIDENCI" in k), 0)
+    ben = desp["Aposentadorias"] + desp["Pensões"]
+    adm = desp["Salários da equipe do instituto"] + desp["Custos de funcionamento (aluguel, sistemas, consultorias…)"]
+    m_ini, m_fim = MESES[int(mt[0][5:]) - 1], MESES[int(mt[-1][5:]) - 1]
+    # quem recebe (folha do instituto)
+    bloco_folha = ""
+    if folha:
+        g = folha["grupos"]
+        cards = "".join(f"""<div><b>{x['pessoas']:,}</b><span>{e(x['nome'])}<br>média de {reais(x['media_bruto'])} por mês</span></div>""".replace(",", ".", 1)
+                        for x in g)
+        faixas = folha["faixas"]; mxf = max(f["n"] for f in faixas) or 1
+        fx = "".join(f"""<li><span class="linha-r"><span class="nm">{e(f['nome'])}</span><span class="v">{f['n']} pessoas</span></span><div class="barra"><i style="width:{100*f['n']/mxf:.1f}%"></i></div></li>""" for f in faixas)
+        maiores = "".join(f"<tr><td>{e(x['tipo'])}</td><td class='r'>{reais(x['bruto'])}</td></tr>" for x in folha["maiores"][:10])
+        equipe = "".join(f"<tr><td>{e(x['funcao'])}</td><td class='r'>{x['pessoas']}</td><td class='r'>{reais(x['media_bruto'])}</td></tr>" for x in folha["equipe"])
+        bloco_folha = f"""<section class="graf"><h2>Quem recebe do instituto</h2>
+<p class="muted" style="margin:0">Folha de {e(folha['mes'].lower())} de {folha['exercicio']}. Sem nomes: só o tipo de benefício ou o cargo.</p>
+<div class="tiles-p">{cards}</div>
+<div class="duas-col"><div><h3 class="sub3">Valor das aposentadorias e pensões</h3><ol class="ranking">{fx}</ol></div>
+<div><h3 class="sub3">Os 10 maiores benefícios do mês</h3><div class="tscroll"><table class="t"><thead><tr><th>Tipo</th><th class="r">Valor bruto</th></tr></thead><tbody>{maiores}</tbody></table></div></div></div>
+{f'<h3 class="sub3">A equipe do instituto</h3><div class="tscroll"><table class="t"><thead><tr><th>Cargo</th><th class="r">Pessoas</th><th class="r">Média por mês</th></tr></thead><tbody>{equipe}</tbody></table></div>' if equipe else ''}
+</section>"""
+    bloco_compras = ""
+    if compras and compras["lista"]:
+        L = sorted(compras["lista"], key=lambda c: c["data"], reverse=True)
+        itens = "".join(f"""<article class="card-compra"><div class="cc-topo"><b class="cc-valor">{reais(c['homologado'])}</b><span class="tag">{e(c['modalidade'])}</span></div>
+<p class="cc-obj">{e(c['objeto'])}{'…' if len(c['objeto']) >= 88 else ''}</p><p class="small muted" style="margin:0">{c['data'][8:10]}/{c['data'][5:7]}/{c['data'][:4]} · nº {e(c['numero'])} · processo {e(c['processo'])}</p>
+<p class="small" style="margin:0"><b>{reais(c['pago'])}</b> já pagos</p></article>""" for c in L)
+        bloco_compras = f"""<section class="graf"><h2>Compras e licitações do instituto</h2>
+<p class="muted" style="margin:0">{len(L)} compras homologadas em {compras['exercicio']}, somando {reais(sum(c['homologado'] for c in L))}.</p>
+<div class="grade-compras">{itens}</div></section>"""
+    elif compras is not None:
+        bloco_compras = f"""<section class="graf"><h2>Compras e licitações do instituto</h2><p class="muted">O portal do instituto não registra compras homologadas em {compras['exercicio']} até agora.</p></section>"""
+    tabela_emp = "".join(f"<tr><td>{e(n.title() if n.isupper() else n)}<div class='small muted'>{e(nat)}</div></td><td class='r'>{reais(v)}</td></tr>" for (n, c, nat), v in emp.most_common(12))
+    corpo = f"""<section class="cab-lista"><span class="eyebrow" style="color:var(--accent)">Raio-X da Previdência</span>
+<h1>Para onde vai o dinheiro da aposentadoria dos servidores</h1>
+<p>O <b>ITAPREV</b> (Itanhaém Prev) é o instituto que paga as aposentadorias e pensões dos servidores municipais. Ele recebe contribuições dos servidores e da Prefeitura e da Câmara. Dados oficiais do <a href="https://transparenciaonline.gcaspp.com/home" target="_blank" rel="noopener">Portal da Transparência do instituto</a> e do <a href="https://transparencia.tce.sp.gov.br" target="_blank" rel="noopener">Tribunal de Contas (TCE-SP)</a>.</p></section>
+<div class="tiles-p">
+<div><b>{mi(d['total'])}</b><span>pagos pelo instituto em {ano}</span></div>
+<div><b>{100*ben/d['total']:.0f}%</b><span>foram para aposentadorias e pensões</span></div>
+<div><b>{mi(adm)}</b><span>custo para o instituto funcionar (equipe, aluguel, sistemas, consultorias)</span></div>
+<div><b>{mi(tot_e - tot_s)}</b><span>sobrou de {m_ini} a {m_fim} (entrou {mi(tot_e)}, saiu {mi(tot_s)})</span></div>
+</div>
+<section class="graf"><h2>Entra x sai, mês a mês</h2>{_colunas_duplas(mt, entrou, saiu, "entrou", "saiu")}
+<p class="small muted">Dados do Tribunal de Contas, que publica com alguns meses de atraso. Em janeiro quase nada saiu porque a folha de dezembro de {ano-1} entra nas contas do ano anterior.</p></section>
+<div class="duas-col">
+<section class="graf"><h2>De onde vem o dinheiro</h2><ol class="ranking">{barras(rec, sum(rec.values()))}</ol>
+<p class="small muted">"Parcelamento de dívidas antigas" são prestações de contribuições que a Prefeitura deixou de pagar no passado e negociou para pagar em parcelas.</p></section>
+<section class="graf"><h2>Para onde vai</h2><ol class="ranking">{barras(desp, sum(desp.values()))}</ol></section>
+</div>
+<section class="graf"><h2>A Prefeitura está repassando em dia?</h2>
+{_colunas_duplas(mt, rep_pref, rep_cam, "Prefeitura pagou ao instituto", "Câmara pagou ao instituto")}
+<p class="small muted">Pagamentos feitos pela Prefeitura e pela Câmara ao instituto em cada mês (contribuição patronal e parcelamentos), segundo o Tribunal de Contas. Meses muito abaixo da média, seguidos de meses muito acima, costumam indicar pagamento atrasado e depois acertado. A contribuição descontada do salário dos servidores entra por outro caminho e não aparece neste gráfico.</p></section>
+{bloco_folha}
+<section class="graf"><h2>Com quem o instituto gasta</h2>
+<p class="muted" style="margin:0">Empresas que receberam do instituto em {ano} (sem contar as aposentadorias e pensões).</p>
+<div class="tscroll"><table class="t"><thead><tr><th>Empresa e serviço</th><th class="r">Pago em {ano}</th></tr></thead><tbody>{tabela_emp}</tbody></table></div></section>
+{bloco_compras}
+<section class="prose-p"><h2>Como ler</h2>
+<p>O instituto tem dois "caixas": o <b>plano financeiro</b>, dos servidores mais antigos, que paga {mi(plano_fin)} em {ano} e depende das contribuições do mês e de aportes da Prefeitura; e o <b>plano previdenciário</b>, dos mais novos, que paga {mi(plano_prev)} e deve guardar dinheiro aplicado para o futuro.</p>
+<p>Os valores vêm de duas fontes oficiais que conferimos entre si: o total pago em cada mês no portal do instituto é igual ao que ele informa ao Tribunal de Contas.</p>
+<p>O instituto é alvo da <a href="/noticia/mp-deflagra-operacao-buraco-negro">Operação Buraco Negro</a>, do Ministério Público, que investiga desvios de recursos da previdência. Esta página mostra só os números oficiais e não faz acusações.</p></section>"""
+    return pagina(f"Raio-X da Previdência (ITAPREV) | {NOME}", corpo, "/itaprev/",
+                  f"Quanto entra e sai do ITAPREV, o instituto de previdência dos servidores de Itanhaém, em {ano}.", ativo="/itaprev/")
+
 GRUPO_MOD = lambda m: "Concorrência" if m.startswith("Concorr") else m
 
 def norm_busca(s):
@@ -458,6 +582,22 @@ def pagina_compras():
     return pagina(f"O que a Prefeitura está comprando | {NOME}", corpo, "/prefeitura/compras/",
                   f"{len(L)} compras homologadas pela Prefeitura de Itanhaém em {d['exercicio']}, com valores e empresas que receberam.", ativo="/prefeitura/")
 
+def bloco_itaprev_home():
+    pd = os.path.join(RAIZ, "dados", "itaprev_despesas.json")
+    if not os.path.exists(pd):
+        return ""
+    d = json.load(open(pd, encoding="utf-8"))
+    pf = os.path.join(RAIZ, "dados", "itaprev_folha.json")
+    f = json.load(open(pf, encoding="utf-8")) if os.path.exists(pf) else None
+    ben = sum(g["pessoas"] for g in f["grupos"] if g["nome"] in ("Aposentados", "Pensionistas")) if f else None
+    nums = f"""<div class="numeros"><div><b>{mi(d['total'])}</b><span>pagos pelo instituto em {d['exercicio']}</span></div>
+  {f'<div><b>{ben:,}</b><span>aposentados e pensionistas</span></div>'.replace(",", ".") if ben else ''}
+  {f'<div><b>{reais(f["mediana"])}</b><span>metade recebe até esse valor</span></div>' if f else ''}</div>"""
+    return f"""<a class="bloco-fiscal itaprev" href="/itaprev/">
+  <span class="eyebrow">Raio-X da Previdência</span><h2>Para onde vai o dinheiro da aposentadoria dos servidores</h2>
+  {nums}
+  <span class="ir">Abrir o Raio-X da Previdência →</span></a>"""
+
 def home(itens):
     nots = [m for m in itens if m["pasta"] == "noticias"]
     destaque, lateral, resto = nots[0], nots[1:5], nots[5:17]
@@ -488,7 +628,7 @@ def home(itens):
     outros = [m for m in itens if m["pasta"] in ("edicoes", "podcasts", "videos")][:4]
     corpo = f"""<h1 class="sr">{NOME}: notícias e fiscalização de Itanhaém</h1>
 <section class="manchetes">{cartao(destaque, grande=True)}<div class="lateral">{''.join(cartao(m) for m in lateral)}</div></section>
-<section class="fiscal">{camara}{prefeitura}</section>
+<section class="fiscal">{camara}{prefeitura}{bloco_itaprev_home()}</section>
 <section><div class="cab-secao"><h2>Últimas notícias</h2><a href="/noticias">Ver todas →</a></div>
 <div class="chips">{chips}</div>
 <div class="grade">{''.join(cartao(m) for m in resto)}</div></section>
@@ -531,6 +671,9 @@ def main():
         lst = [m for m in itens if m["pasta"] == pasta]
         gravar(f"{pag}.html", pagina_lista(lista, "", lst, f"/{pag}", f"/{pag}")); caminhos.append(f"/{pag}")
     gravar("index.html", home(itens))
+    ita = pagina_itaprev()
+    if ita:
+        gravar("itaprev/index.html", ita); caminhos.append("/itaprev/")
     comp = pagina_compras()
     if comp:
         gravar("prefeitura/compras/index.html", comp); caminhos.append("/prefeitura/compras/")

@@ -17,6 +17,21 @@ import collections, csv, html, io, json, re, sys, time, unicodedata, urllib.requ
 
 UA = "RadarItanhaem/0.1 (projeto civico de transparencia; coleta lenta)"
 PORTAL = "https://dadosabertos.itanhaem.sp.gov.br"
+PORTAL_PREF = PORTAL
+ORGAO = "2"  # 2 = Prefeitura; 3 = ITAPREV (que fica em outro endereço do mesmo sistema)
+
+def usar_itaprev():
+    global PORTAL, ORGAO
+    PORTAL, ORGAO = "https://transparenciaonline.gcaspp.com", "3"
+
+def entrar(pg):
+    """O portal do ITAPREV só abre depois de escolher o órgão no portal da Prefeitura (ele redireciona)."""
+    if ORGAO == "2":
+        return
+    pg.goto(PORTAL_PREF + "/home?Inicio", wait_until="domcontentloaded", timeout=120000)
+    pg.wait_for_selector("#vORGAO_MPAGE", timeout=90000); time.sleep(2)
+    pg.select_option("#vORGAO_MPAGE", ORGAO)
+    pg.wait_for_url("**gcaspp.com/**", timeout=120000); time.sleep(3)
 SITE_PREF = "https://www.itanhaem.sp.gov.br"
 CNPJ_PREF = "46.578.498/0001-75"
 
@@ -52,6 +67,7 @@ def agregar(texto_csv):
     cab = [c.strip() for c in linhas[0]]
     i = {n: cab.index(n) for n in ("Unidade Orçamentária", "Data Pagamento", "CPF / CNPJ", "Fornecedor", "Natureza da Despesa", "Valor Pago")}
     U, meses, total, n = {}, collections.Counter(), 0, 0
+    nat_total, forn_nat = collections.Counter(), collections.Counter()
     for c in linhas[1:]:
         if len(c) != len(cab):
             raise RuntimeError(f"linha com {len(c)} colunas (esperado {len(cab)}): {';'.join(c)[:120]}")
@@ -64,12 +80,16 @@ def agregar(texto_csv):
         pj = re.fullmatch(r"\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}", doc)
         u["forn"][f"{c[i['Fornecedor']].strip()}|{doc}" if pj else "PF"] += v
         nat = c[i["Natureza da Despesa"]].strip()
-        u["nat"][nat] += v; u["grupo"][grupo(nat)] += v
+        u["nat"][nat] += v; u["grupo"][grupo(nat)] += v; nat_total[nat] += v
+        if pj:
+            forn_nat[f"{c[i['Fornecedor']].strip()}|{doc}|{nat}"] += v
         u["tot"] += v; u["n"] += 1; u["mes"][mes] += v; meses[mes] += v; total += v; n += 1
     top = lambda c, k: [[a, b] for a, b in c.most_common(k)]
     return {"linhas": n, "total": total, "meses": dict(meses),
             "unidades": {k: {"tot": u["tot"], "n": u["n"], "mes": dict(u["mes"]), "forn": top(u["forn"], 12), "nat": top(u["nat"], 8)} for k, u in U.items()},
-            "grupos": {k: dict(u["grupo"]) for k, u in U.items()}}
+            "grupos": {k: dict(u["grupo"]) for k, u in U.items()},
+            "nat": [[a, b] for a, b in nat_total.most_common()], "forn": [[a, b] for a, b in forn_nat.most_common(60)],
+            "mes": dict(meses), "un": [[k, u["tot"]] for k, u in sorted(U.items(), key=lambda kv: -kv[1]["tot"])]}
 
 def despesas(ano):
     """Abre o portal no navegador (Playwright), pede todos os pagamentos do ano e baixa o CSV oficial."""
@@ -97,9 +117,11 @@ def registrar_falha(pg, nome):
 
 def _despesas(pg, ctx, nav, ano, hoje):
     if True:
+        entrar(pg)
         pg.goto(PORTAL + "/filtros-despesasorcamentarias", wait_until="domcontentloaded", timeout=120000)
         pg.wait_for_selector("#vORGAO_MPAGE", timeout=90000); time.sleep(2)
-        pg.select_option("#vORGAO_MPAGE", "2"); time.sleep(4)
+        if pg.eval_on_selector("#vORGAO_MPAGE", "s => s.value") != ORGAO:
+            pg.select_option("#vORGAO_MPAGE", ORGAO); time.sleep(4)
         if pg.eval_on_selector("#vEXERCICIO_MPAGE", "s => s.value") != str(ano):
             pg.select_option("#vEXERCICIO_MPAGE", str(ano)); time.sleep(4)
         pg.evaluate("""async ([ini, fim]) => {
@@ -108,8 +130,9 @@ def _despesas(pg, ctx, nav, ano, hoje):
           for (const [id, v] of [['W0012vDATAINICIAL', ini], ['W0012vDATAFINAL', fim]]) {
             const i = document.getElementById(id); i.focus(); i.value = v;
             i.dispatchEvent(new Event('input', {bubbles: true})); i.dispatchEvent(new Event('change', {bubbles: true})); i.blur(); await sleep(400); }
-          const b = document.getElementById('W0012COMBO_UNIDADEORCAMENTARIAContainer_btnGroupDrop'); b.click(); await sleep(800);
-          [...b.parentElement.querySelectorAll('a')].find(a => a.innerText.trim() == 'GERAL').click(); await sleep(1200);
+          const b = document.getElementById('W0012COMBO_UNIDADEORCAMENTARIAContainer_btnGroupDrop');
+          if (b) { b.click(); await sleep(800);
+            const g = [...b.parentElement.querySelectorAll('a')].find(a => a.innerText.trim() == 'GERAL'); if (g) g.click(); await sleep(1200); }
           const s = document.getElementById('W0012vCONSIDERAR'); s.value = '4'; s.dispatchEvent(new Event('change', {bubbles: true})); await sleep(600);
           document.getElementById('W0012BTNENTER').click();
         }""", [f"01/01/{ano}", hoje])
@@ -208,10 +231,11 @@ def compras(ano):
                               locale="pt-BR", timezone_id="America/Sao_Paulo", viewport={"width": 1366, "height": 900})
         pg = ctx.new_page()
         try:
+            entrar(pg)
             pg.goto(PORTAL + "/filtros-compraselicitacoes", wait_until="domcontentloaded", timeout=120000)
             pg.wait_for_selector("#vORGAO_MPAGE", timeout=90000); time.sleep(2)
-            if pg.eval_on_selector("#vORGAO_MPAGE", "s => s.value") != "2":
-                pg.select_option("#vORGAO_MPAGE", "2"); time.sleep(4)
+            if pg.eval_on_selector("#vORGAO_MPAGE", "s => s.value") != ORGAO:
+                pg.select_option("#vORGAO_MPAGE", ORGAO); time.sleep(4)
             if pg.eval_on_selector("#vEXERCICIO_MPAGE", "s => s.value") != str(ano):
                 pg.select_option("#vEXERCICIO_MPAGE", str(ano)); time.sleep(4)
             pg.wait_for_selector("#W0012vDATAINICIAL", timeout=90000)
@@ -291,6 +315,8 @@ def conferir(d):
     return res
 
 def main():
+    if "--itaprev" in sys.argv:
+        sys.argv.remove("--itaprev"); usar_itaprev()
     cmd = sys.argv[1]
     if cmd == "despesas":
         d = despesas(int(sys.argv[3]) if len(sys.argv) > 3 else int(time.strftime("%Y")))
@@ -318,7 +344,7 @@ def main():
             velho = None
         if velho and velho["exercicio"] == novo["exercicio"] and (novo["total"] < velho["total"] or len(novo["meses"]) < len(velho["meses"])):
             raise SystemExit(f"NÃO ACEITO: total {novo['total']} < {velho['total']} ou menos meses")
-        if len(novo["unidades"]) < 10:
+        if len(novo["unidades"]) < (10 if ORGAO == "2" else 1):
             raise SystemExit("NÃO ACEITO: poucas secretarias")
         json.dump(novo, open(sys.argv[3], "w", encoding="utf-8"), ensure_ascii=False)
         print("aceito:", novo["linhas"], "pagamentos")

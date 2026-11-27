@@ -209,3 +209,28 @@ button.chip{cursor:pointer;background:var(--card);font:inherit;font-size:.85rem;
 .colunas .col i{grid-row:2;min-height:2px}
 .colunas .col .m{grid-row:3}
 @media (max-width:560px){.colunas .col .v{display:none}.colunas{gap:3px}.colunas .col{grid-template-rows:0 1fr auto}}
+
+/* ---------- Raio-X da Previdência ---------- */
+.colunas2{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;height:220px;align-items:end}
+.col2{display:grid;grid-template-rows:1fr auto;height:100%;gap:4px;min-width:0}
+.col2 .par{display:flex;align-items:flex-end;justify-content:center;gap:2px;height:100%}
+.col2 .par i{display:block;width:45%;max-width:22px;border-radius:3px 3px 0 0}
+.col2 .m{font-size:.72rem;color:var(--muted);text-align:center}
+.leg{display:flex;gap:6px 16px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.leg .dot{width:10px;height:10px;border-radius:3px;display:inline-block;vertical-align:-1px;margin-right:4px}
+.duas-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:800px){.duas-col{grid-template-columns:1fr}}
+.linha-r{display:flex;justify-content:space-between;gap:10px;font-weight:700;font-size:.92rem}
+.linha-r .v{white-space:nowrap;font-variant-numeric:tabular-nums}
+.linha-r small{color:var(--muted);font-weight:500}
+/* tabelas do portal */
+.tscroll{overflow-x:auto}
+table.t{border-collapse:collapse;width:100%;font-size:.9rem}
+table.t th,table.t td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.t thead th{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:800}
+table.t .r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+table.t tbody tr:hover{background:var(--soft)}
+.sub3{font-family:var(--f-display);font-size:1.2rem;font-weight:900;margin:6px 0 8px}
+.fiscal{grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))}
+.bloco-fiscal.itaprev{background:linear-gradient(135deg,#123d2e,#16855a)}
+.bloco-fiscal.itaprev .numeros span{color:#cde9dc}
