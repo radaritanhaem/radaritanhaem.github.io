@@ -31,7 +31,7 @@ def consultar(cnpj):
         try:
             with urllib.request.urlopen(urllib.request.Request(api + cnpj, headers={"User-Agent": UA}), timeout=60) as r:
                 j = json.load(r)
-            return [j.get("codigo_natureza_juridica"), j.get("natureza_juridica")]  # só a natureza; sócios e endereço não são guardados
+            return [j.get("codigo_natureza_juridica"), j.get("natureza_juridica"), j.get("razao_social") or ""]  # natureza e nome oficial; sócios e endereço não são guardados
         except urllib.error.HTTPError as e:
             if e.code in (400, 404):
                 return [0, "não encontrado"]
@@ -67,10 +67,10 @@ def montar(desp_path, out_path):
         t = nj and tipo(nj[0], nj[1])
         if not t:
             continue
-        g = G.setdefault(doc[:10], {"cnpj": doc, "nome": e["nome"], "tipo": t, "natureza_juridica": nj[1], "pago": 0, "n": 0,
+        g = G.setdefault(doc[:10], {"cnpj": doc, "nome": e["nome"], "nome_receita": nj[2] if len(nj) > 2 else "", "tipo": t, "natureza_juridica": nj[1], "pago": 0, "n": 0,
                                     "un": [], "nat": [], "mes": {}, "mod": [], "obj": [], "_maior": None})
         if g["_maior"] is None or e["tot"] > g["_maior"]:
-            g.update(cnpj=doc, nome=e["nome"], _maior=e["tot"])
+            g.update(cnpj=doc, nome=e["nome"], nome_receita=nj[2] if len(nj) > 2 else "", _maior=e["tot"])
         g["pago"] += e["tot"]; g["n"] += e["n"]
         for k in ("un", "nat", "mod", "obj"):
             g[k] = soma(g[k], e.get(k, []))

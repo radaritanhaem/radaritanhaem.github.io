@@ -309,6 +309,14 @@ def bloco_entidades():
 <p>{len(d['entidades'])} associações, fundações, institutos e organizações receberam {mi(d['total'])} em {d['exercicio']} (valor pago). Veja quem recebeu, quanto e de qual secretaria.</p>
 <span class="ir">Ver a lista →</span></a>"""
 
+def _nome_oficial(x):
+    """Mostra o nome da Receita quando ele é bem diferente do nome usado pela Prefeitura (ex.: Instituto Anglicano)."""
+    r = x.get("nome_receita") or ""
+    a, b = norm_busca(x["nome"]), norm_busca(r)
+    if not r or a[:18] == b[:18] or a in b or b in a:
+        return ""
+    return f'<p class="small muted" style="margin:0">Nome oficial na Receita Federal: <b>{e(re.sub(r" (De|Da|Do|Dos|Das|E) ", lambda m: " " + m.group(1).lower() + " ", r.title()))}</b></p>'
+
 def _como_pagou(nat):
     n = nat.split(" - ", 1)[-1].strip().capitalize() if " - " in nat else nat
     return re.sub(r"\s+", " ", n)
@@ -332,7 +340,7 @@ def pagina_entidades():
         per = f"{MESES_C[int(meses[0][5:])-1]} a {MESES_C[int(meses[-1][5:])-1]}" if len(meses) > 1 else MESES_C[int(meses[0][5:])-1]
         cards.append(f"""<article class="card-compra" id="e-{re.sub(r'\D', '', x['cnpj'])}">
 <div class="cc-topo"><span class="selo">{e(x['tipo'])}</span><span class="muted small">CNPJ {e(x['cnpj'])}</span></div>
-<p class="cc-obj">{e(nome)}</p>
+<p class="cc-obj">{e(nome)}</p>{_nome_oficial(x)}
 <div><span class="cc-valor">{reais(x['pago'])}</span><br><span class="small muted">pagos em {ano}: {x['n']} pagamento{'s' if x['n'] != 1 else ''}, {per}</span></div>
 <div class="subt">Secretaria que pagou</div><ol class="forn">{secs}</ol>
 <div class="subt">Tipo de despesa</div><ol class="forn">{como}</ol>
