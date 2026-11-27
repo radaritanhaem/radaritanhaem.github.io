@@ -102,7 +102,7 @@ def despesas(ano):
         try:
             return _despesas(pg, ctx, nav, ano, hoje)
         except Exception:
-            registrar_falha(pg, "prefeitura")
+            registrar_falha(pg, "prefeitura" if ORGAO == "2" else "itaprev-despesas")
             raise
 
 def registrar_falha(pg, nome):
@@ -112,6 +112,9 @@ def registrar_falha(pg, nome):
         pg.screenshot(path=f"dados/registro/{nome}.png", full_page=True)
         open(f"dados/registro/{nome}.html", "w", encoding="utf-8").write(pg.content()[:300000])
         print("  falha registrada:", nome, pg.url, file=sys.stderr)
+        if "verificação de segurança" in pg.content() or "challenge-platform" in pg.content():
+            print("  MOTIVO: o portal mostrou a verificação anti-robô (Cloudflare) e não liberou o acesso automático."
+                  " O site continua com os últimos dados bons; colete pelo navegador do app.", file=sys.stderr)
     except Exception as e:
         print("  não consegui registrar a falha:", e, file=sys.stderr)
 
@@ -259,7 +262,7 @@ def compras(ano):
                 if texto.count("\n") > 1:
                     break
         except Exception:
-            registrar_falha(pg, "compras")
+            registrar_falha(pg, "compras" if ORGAO == "2" else "itaprev-compras")
             raise
         nav.close()
     lista = ler_compras(texto)
