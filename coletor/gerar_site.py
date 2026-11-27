@@ -350,13 +350,17 @@ def bloco_entidades():
 <p>{len(d['entidades'])} associações, fundações, institutos e organizações receberam {mi(d['total'])} em {d['exercicio']} (valor pago). Veja quem recebeu, quanto e de qual secretaria.</p>
 <span class="ir">Ver a lista →</span></a>"""
 
+def nome_bonito(n):
+    t = n.title() if n.isupper() else n
+    return re.sub(r" (De|Da|Do|Dos|Das|E|Em|A|O|Para|Ao)(?= )", lambda m: " " + m.group(1).lower(), t)
+
 def _nome_oficial(x):
     """Mostra o nome da Receita quando ele é bem diferente do nome usado pela Prefeitura (ex.: Instituto Anglicano)."""
     r = x.get("nome_receita") or ""
     a, b = norm_busca(x["nome"]), norm_busca(r)
     if not r or a[:18] == b[:18] or a in b or b in a:
         return ""
-    return f'<p class="small muted" style="margin:0">Nome oficial na Receita Federal: <b>{e(re.sub(r" (De|Da|Do|Dos|Das|E) ", lambda m: " " + m.group(1).lower() + " ", r.title()))}</b></p>'
+    return f'<p class="small muted" style="margin:0">Nome oficial na Receita Federal: <b>{e(nome_bonito(r))}</b></p>'
 
 def _como_pagou(nat):
     n = nat.split(" - ", 1)[-1].strip().capitalize() if " - " in nat else nat
@@ -369,11 +373,11 @@ def pagina_entidades():
     ano, L = d["exercicio"], d["entidades"]
     mx = max([x["pago"] for x in L] or [1])
     tipos = collections.Counter(x["tipo"] for x in L)
-    rank = "".join(f"""<li><a href="#e-{re.sub(r'\D', '', x['cnpj'])}"><span class="nm">{e(x['nome'].title() if x['nome'].isupper() else x['nome'])}</span><span class="v">{mi(x['pago'])}</span></a>
+    rank = "".join(f"""<li><a href="#e-{re.sub(r'\D', '', x['cnpj'])}"><span class="nm">{e(nome_bonito(x['nome']))}</span><span class="v">{mi(x['pago'])}</span></a>
 <div class="barra" data-tip="{e(x['nome'])}: {reais(x['pago'])}"><i style="width:{100*x['pago']/mx:.1f}%"></i></div></li>""" for x in L[:10])
     cards = []
     for x in L:
-        nome = x["nome"].title() if x["nome"].isupper() else x["nome"]
+        nome = nome_bonito(x["nome"])
         secs = "".join(f"<li><span>{e(nome_unidade(u))}</span><b>{mi(v)}</b></li>" for u, v in x["un"])
         como = "".join(f"<li><span>{e(_como_pagou(n))}</span><b>{mi(v)}</b></li>" for n, v in x["nat"])
         obj = [o for o, _v in x.get("obj", []) if o]
