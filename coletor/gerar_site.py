@@ -296,6 +296,69 @@ def bloco_compras():
 <p>{len(L)} compras homologadas em {d['exercicio']}, somando {mi(tot)}. Veja o que foi comprado, quanto já foi pago e para quais empresas.</p>
 <span class="ir">Ver todas as compras →</span></a>"""
 
+def _ler_entidades():
+    p = os.path.join(RAIZ, "dados", "prefeitura_entidades.json")
+    return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else None
+
+def bloco_entidades():
+    d = _ler_entidades()
+    if not d or not d["entidades"]:
+        return ""
+    return f"""<a class="bloco-fiscal prefeitura" href="/prefeitura/entidades/" style="margin-top:12px">
+<span class="eyebrow">Associações e entidades</span><h2>Entidades sem fins lucrativos que receberam da Prefeitura</h2>
+<p>{len(d['entidades'])} associações, fundações, institutos e organizações receberam {mi(d['total'])} em {d['exercicio']} (valor pago). Veja quem recebeu, quanto e de qual secretaria.</p>
+<span class="ir">Ver a lista →</span></a>"""
+
+def _como_pagou(nat):
+    n = nat.split(" - ", 1)[-1].strip().capitalize() if " - " in nat else nat
+    return re.sub(r"\s+", " ", n)
+
+def pagina_entidades():
+    d = _ler_entidades()
+    if not d:
+        return None
+    ano, L = d["exercicio"], d["entidades"]
+    mx = max([x["pago"] for x in L] or [1])
+    tipos = collections.Counter(x["tipo"] for x in L)
+    rank = "".join(f"""<li><a href="#e-{re.sub(r'\D', '', x['cnpj'])}"><span class="nm">{e(x['nome'].title() if x['nome'].isupper() else x['nome'])}</span><span class="v">{mi(x['pago'])}</span></a>
+<div class="barra" data-tip="{e(x['nome'])}: {reais(x['pago'])}"><i style="width:{100*x['pago']/mx:.1f}%"></i></div></li>""" for x in L[:10])
+    cards = []
+    for x in L:
+        nome = x["nome"].title() if x["nome"].isupper() else x["nome"]
+        secs = "".join(f"<li><span>{e(nome_unidade(u))}</span><b>{mi(v)}</b></li>" for u, v in x["un"])
+        como = "".join(f"<li><span>{e(_como_pagou(n))}</span><b>{mi(v)}</b></li>" for n, v in x["nat"])
+        obj = [o for o, _v in x.get("obj", []) if o]
+        meses = sorted(x["mes"])
+        per = f"{MESES_C[int(meses[0][5:])-1]} a {MESES_C[int(meses[-1][5:])-1]}" if len(meses) > 1 else MESES_C[int(meses[0][5:])-1]
+        cards.append(f"""<article class="card-compra" id="e-{re.sub(r'\D', '', x['cnpj'])}">
+<div class="cc-topo"><span class="selo">{e(x['tipo'])}</span><span class="muted small">CNPJ {e(x['cnpj'])}</span></div>
+<p class="cc-obj">{e(nome)}</p>
+<div><span class="cc-valor">{reais(x['pago'])}</span><br><span class="small muted">pagos em {ano}: {x['n']} pagamento{'s' if x['n'] != 1 else ''}, {per}</span></div>
+<div class="subt">Secretaria que pagou</div><ol class="forn">{secs}</ol>
+<div class="subt">Tipo de despesa</div><ol class="forn">{como}</ol>
+{f'<details><summary>O que foi contratado / objeto</summary><ul class="small">{"".join(f"<li>{e(o)}</li>" for o in obj)}</ul></details>' if obj else ''}
+</article>""")
+    resumo_tipos = ", ".join(f"{n} {t.lower()}{'' if n == 1 else ''}" for t, n in tipos.most_common())
+    corpo = f"""<section class="cab-lista"><span class="eyebrow" style="color:var(--accent)">Raio-X da Prefeitura</span>
+<h1>Associações e entidades que receberam dinheiro público</h1>
+<p>Entidades sem fins lucrativos (associações, fundações, institutos, organizações religiosas e outras) que <b>receberam pagamentos</b> da Prefeitura de Itanhaém em {ano}. Só valor efetivamente pago, sem empenho. Dados do <a href="{e(d['fonte'])}" target="_blank" rel="noopener">Portal de Dados Abertos da Prefeitura</a>, atualizados em {data_br(d['coletado_em'])}.</p></section>
+<div class="tiles-p">
+<div><b>{len(L)}</b><span>entidades receberam em {ano}</span></div>
+<div><b>{mi(d['total'])}</b><span>pagos a elas no ano</span></div>
+<div><b>{d['cnpjs_conferidos']}</b><span>CNPJs que receberam da Prefeitura foram conferidos</span></div>
+</div>
+<section class="graf"><h2>As 10 que mais receberam</h2><ol class="ranking">{rank}</ol></section>
+<section class="graf"><h2>Todas as entidades</h2><p class="muted" style="margin:0 0 10px">{e(resumo_tipos)}. Da que mais recebeu para a que menos recebeu.</p>
+<div class="grade-compras">{''.join(cards)}</div></section>
+<section class="prose-p"><h2>Como achamos as entidades</h2>
+<p>Muitas entidades não têm "associação" no nome. Por isso não procuramos pelo nome: pegamos <b>todos os CNPJs</b> que receberam pagamento da Prefeitura em {ano} e conferimos, no cadastro público da Receita Federal, a <b>natureza jurídica</b> de cada um. Ficam na lista as do grupo "entidades sem fins lucrativos" (associação privada, fundação privada, organização religiosa, organização social, serviço social autônomo e outras). Cartórios e condomínios ficam de fora.</p>
+<p>Receber não quer dizer receber doação: a entidade pode ter recebido por <b>serviço prestado</b> (por exemplo, atendimento de saúde ou agente de estágio), por <b>convênio ou termo de parceria</b> ou como <b>subvenção</b>. O "tipo de despesa" de cada cartão mostra como a Prefeitura registrou o pagamento.</p>
+<p><b>Câmara Municipal:</b> conferimos os pagamentos da Câmara enviados ao TCE-SP (janeiro a setembro de 2026). A única entidade sem fins lucrativos que recebeu da Câmara nesse período foi o CIEE (agente de integração de estágio), por serviço de intermediação de estagiários. A Câmara não fez repasse a associações.</p>
+<p>Encontrou um erro? Avise pela <a href="https://github.com/radaritanhaem/radaritanhaem.github.io/issues" target="_blank" rel="noopener">aba Issues</a>.</p>
+</section>"""
+    return pagina(f"Associações que receberam da Prefeitura | {NOME}", corpo, "/prefeitura/entidades/",
+                  f"Associações e entidades sem fins lucrativos que receberam pagamentos da Prefeitura de Itanhaém em {ano}.", ativo="/prefeitura/")
+
 def pagina_prefeitura():
     pd = os.path.join(RAIZ, "dados", "prefeitura_despesas.json")
     if not os.path.exists(pd):
@@ -368,6 +431,7 @@ def pagina_prefeitura():
 <div><b>{100*maior[1]['tot']/total:.0f}%</b><span>fica com {e(nome_unidade(maior[0]))}, a maior secretaria</span></div>
 </div>
 {bloco_compras()}
+{bloco_entidades()}
 <section class="graf"><h2>Quanto foi pago em cada mês</h2>
 <div class="colunas" role="img" aria-label="Total pago por mês em {ano}">{barras_mes}</div>
 <p class="small muted">Pela data do pagamento. Janeiro é baixo porque os pagamentos de despesas do ano anterior não entram nesta conta.</p></section>
@@ -677,6 +741,9 @@ def main():
     comp = pagina_compras()
     if comp:
         gravar("prefeitura/compras/index.html", comp); caminhos.append("/prefeitura/compras/")
+    ent = pagina_entidades()
+    if ent:
+        gravar("prefeitura/entidades/index.html", ent); caminhos.append("/prefeitura/entidades/")
     pref = pagina_prefeitura()
     if pref:
         gravar("prefeitura/index.html", pref)

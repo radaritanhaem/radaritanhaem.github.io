@@ -69,6 +69,10 @@ jobs:
         run: |
           python coletor/prefeitura.py secretarios /tmp/sec.json && mv /tmp/sec.json dados/prefeitura_secretarios.json
           python coletor/prefeitura.py conferir dados/prefeitura_despesas.json /tmp/conf.json && mv /tmp/conf.json dados/prefeitura_conferencia.json
+      - name: Prefeitura - associações e entidades sem fins lucrativos que receberam
+        # confere a natureza jurídica de cada CNPJ que recebeu (cadastro da Receita); só consulta CNPJs novos
+        continue-on-error: true
+        run: python coletor/entidades.py dados/prefeitura_despesas.json /tmp/ent.json && mv /tmp/ent.json dados/prefeitura_entidades.json
       - name: Previdência (ITAPREV) - entra e sai, mês a mês (TCE-SP)
         continue-on-error: true
         run: python coletor/itaprev.py tce /tmp/ita_tce.json && mv /tmp/ita_tce.json dados/itaprev_tce.json

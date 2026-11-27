@@ -68,6 +68,7 @@ def agregar(texto_csv):
     i = {n: cab.index(n) for n in ("Unidade Orçamentária", "Data Pagamento", "CPF / CNPJ", "Fornecedor", "Natureza da Despesa", "Valor Pago")}
     U, meses, total, n = {}, collections.Counter(), 0, 0
     nat_total, forn_nat = collections.Counter(), collections.Counter()
+    PJ = {}  # todo CNPJ que recebeu: para achar entidades sem fins lucrativos pelo cadastro da Receita
     for c in linhas[1:]:
         if len(c) != len(cab):
             raise RuntimeError(f"linha com {len(c)} colunas (esperado {len(cab)}): {';'.join(c)[:120]}")
@@ -83,13 +84,21 @@ def agregar(texto_csv):
         u["nat"][nat] += v; u["grupo"][grupo(nat)] += v; nat_total[nat] += v
         if pj:
             forn_nat[f"{c[i['Fornecedor']].strip()}|{doc}|{nat}"] += v
+            e = PJ.setdefault(doc, {"nome": c[i["Fornecedor"]].strip(), "tot": 0, "n": 0, "un": collections.Counter(), "nat": collections.Counter(),
+                                    "mes": collections.Counter(), "mod": collections.Counter(), "obj": collections.Counter()})
+            e["tot"] += v; e["n"] += 1; e["un"][un] += v; e["nat"][nat] += v; e["mes"][mes] += v
+            if "Modalidade" in cab: e["mod"][c[cab.index("Modalidade")].strip()] += v
+            if "Obj. contratação" in cab and c[cab.index("Obj. contratação")].strip():
+                e["obj"][re.sub(r"\s+", " ", c[cab.index("Obj. contratação")].strip())[:200]] += v
         u["tot"] += v; u["n"] += 1; u["mes"][mes] += v; meses[mes] += v; total += v; n += 1
     top = lambda c, k: [[a, b] for a, b in c.most_common(k)]
     return {"linhas": n, "total": total, "meses": dict(meses),
             "unidades": {k: {"tot": u["tot"], "n": u["n"], "mes": dict(u["mes"]), "forn": top(u["forn"], 12), "nat": top(u["nat"], 8)} for k, u in U.items()},
             "grupos": {k: dict(u["grupo"]) for k, u in U.items()},
             "nat": [[a, b] for a, b in nat_total.most_common()], "forn": [[a, b] for a, b in forn_nat.most_common(60)],
-            "mes": dict(meses), "un": [[k, u["tot"]] for k, u in sorted(U.items(), key=lambda kv: -kv[1]["tot"])]}
+            "mes": dict(meses), "un": [[k, u["tot"]] for k, u in sorted(U.items(), key=lambda kv: -kv[1]["tot"])],
+            "pj": {k: {"nome": e["nome"], "tot": e["tot"], "n": e["n"], "un": top(e["un"], 5), "nat": top(e["nat"], 5), "mes": dict(e["mes"]),
+                         "mod": top(e["mod"], 3), "obj": top(e["obj"], 3)} for k, e in PJ.items()}}
 
 def despesas(ano):
     """Abre o portal no navegador (Playwright), pede todos os pagamentos do ano e baixa o CSV oficial."""
