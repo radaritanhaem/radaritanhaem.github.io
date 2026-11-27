@@ -79,7 +79,7 @@ def mesa_diretora(vers):
         for v in vers:
             if v["id"] == int(m.group(1)) and "cargo" not in v:
                 v["cargo"] = cargo + " da Câmara"
-    print("mesa:", {v["apelido"]: v.get("cargo") for v in vers if v.get("cargo")})
+    print("mesa:", {v.get("apelido") or apelido(v["nome"]): v.get("cargo") for v in vers if v.get("cargo")})
 
 def apelido(nome):
     m = re.findall(r"\(([^)]+)\)", nome)
@@ -141,7 +141,7 @@ def main():
         v["props"] = []
         for a in anos:
             v["props"] += proposituras(v["id"], a)
-        print(" ", v["apelido"], len(v["props"]), "proposituras")
+        print(" ", v.get("apelido") or apelido(v["nome"]), len(v["props"]), "proposituras")
     ses_out = []
     for a in anos:
         for s in sessoes(a):
