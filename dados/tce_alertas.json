@@ -1,6 +1,6 @@
 {
  "exercicio": 2026,
- "coletado_em": "2026-11-27",
+ "coletado_em": "2026-11-28",
  "fonte_comunicados": "https://www.tce.sp.gov.br/comunicados",
  "fonte_visor": "https://www.tce.sp.gov.br/visor",
  "comunicados": [
@@ -69,12 +69,5 @@
    ]
   }
  ],
- "a_conferir": [],
- "visor_prefeitura": {
-  "LRF": 10,
-  "ENSINO": 14,
-  "SAÚDE": 2,
-  "CUMPRIMENTO DAS INSTRUÇÕES DO TCE": 9,
-  "PLANEJAMENTO ORÇAMENTÁRIO": 0
- }
+ "a_conferir": []
 }

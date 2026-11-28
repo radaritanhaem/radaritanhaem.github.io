@@ -1,2 +1,2 @@
-despesas 2026: 15223 pagamentos, R$ 559,155,382.31 (bate com o portal)
-aceito: 15223 pagamentos
+despesas 2026: 15262 pagamentos, R$ 559,455,749.78 (bate com o portal)
+aceito: 15262 pagamentos
