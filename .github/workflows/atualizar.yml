@@ -73,6 +73,9 @@ jobs:
         # confere a natureza jurídica de cada CNPJ que recebeu (cadastro da Receita); só consulta CNPJs novos
         continue-on-error: true
         run: python coletor/entidades.py dados/prefeitura_despesas.json /tmp/ent.json && mv /tmp/ent.json dados/prefeitura_entidades.json
+      - name: Prefeitura na Justiça - precatórios na fila (Tesouro Nacional, RGF)
+        continue-on-error: true
+        run: python coletor/justica.py /tmp/prec.json && mv /tmp/prec.json dados/prefeitura_precatorios.json
       - name: Alertas do Tribunal de Contas (TCE-SP) para Prefeitura, Câmara e ITAPREV
         # comunicados oficiais de alerta (LRF art. 59) + painel Visor; se o TCE estiver fora do ar, fica a última versão
         continue-on-error: true

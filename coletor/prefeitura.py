@@ -62,12 +62,16 @@ def grupo(natureza):
     if re.match(r"3\.3\.90\.(39|36|37|33|35|40)", n): return "servicos"
     return "outros"
 
+def eh_justica(nat):
+    return bool(re.search(r"SENTEN[ÇC]|DECIS[ÃA]O JUDICIAL|SERVI[ÇC]OS JUDICI", nat or "", re.I))
+
 def agregar(texto_csv):
     linhas = list(csv.reader(io.StringIO(texto_csv), delimiter=";"))
     cab = [c.strip() for c in linhas[0]]
     i = {n: cab.index(n) for n in ("Unidade Orçamentária", "Data Pagamento", "CPF / CNPJ", "Fornecedor", "Natureza da Despesa", "Valor Pago")}
     U, meses, total, n = {}, collections.Counter(), 0, 0
     nat_total, forn_nat = collections.Counter(), collections.Counter()
+    JUD = {"tot": 0, "n": 0, "pf": 0, "pf_n": 0, "nat": collections.Counter(), "mes": collections.Counter(), "un": collections.Counter(), "pj": collections.Counter()}
     PJ = {}  # todo CNPJ que recebeu: para achar entidades sem fins lucrativos pelo cadastro da Receita
     for c in linhas[1:]:
         if len(c) != len(cab):
@@ -90,6 +94,12 @@ def agregar(texto_csv):
             if "Modalidade" in cab: e["mod"][c[cab.index("Modalidade")].strip()] += v
             if "Obj. contratação" in cab and c[cab.index("Obj. contratação")].strip():
                 e["obj"][re.sub(r"\s+", " ", c[cab.index("Obj. contratação")].strip())[:200]] += v
+        if eh_justica(nat):  # pagamentos por decisão da Justiça (precatórios, RPV, remédios por ordem judicial, custas)
+            JUD["tot"] += v; JUD["n"] += 1; JUD["nat"][nat] += v; JUD["mes"][mes] += v; JUD["un"][un] += v
+            if pj:
+                JUD["pj"][f"{c[i['Fornecedor']].strip()}|{doc}"] += v
+            else:
+                JUD["pf"] += v; JUD["pf_n"] += 1
         u["tot"] += v; u["n"] += 1; u["mes"][mes] += v; meses[mes] += v; total += v; n += 1
     top = lambda c, k: [[a, b] for a, b in c.most_common(k)]
     return {"linhas": n, "total": total, "meses": dict(meses),
@@ -97,6 +107,8 @@ def agregar(texto_csv):
             "grupos": {k: dict(u["grupo"]) for k, u in U.items()},
             "nat": [[a, b] for a, b in nat_total.most_common()], "forn": [[a, b] for a, b in forn_nat.most_common(60)],
             "mes": dict(meses), "un": [[k, u["tot"]] for k, u in sorted(U.items(), key=lambda kv: -kv[1]["tot"])],
+            "justica": {"tot": JUD["tot"], "n": JUD["n"], "pf": JUD["pf"], "pf_n": JUD["pf_n"], "nat": top(JUD["nat"], 20), "mes": dict(JUD["mes"]),
+                        "un": top(JUD["un"], 20), "pj": top(JUD["pj"], 20)},
             "pj": {k: {"nome": e["nome"], "tot": e["tot"], "n": e["n"], "un": top(e["un"], 5), "nat": top(e["nat"], 5), "mes": dict(e["mes"]),
                          "mod": top(e["mod"], 3), "obj": top(e["obj"], 3)} for k, e in PJ.items()}}
 

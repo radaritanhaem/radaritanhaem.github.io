@@ -1,0 +1,27 @@
+{
+ "exercicio": 2026,
+ "quadrimestre": 2,
+ "instituicao": "Prefeitura Municipal de Itanhaém - SP",
+ "serie": [
+  {
+   "quando": "SALDO DO EXERCÍCIO ANTERIOR",
+   "valor": 10576962105
+  },
+  {
+   "quando": "Até o 1º Quadrimestre",
+   "valor": 10266652385
+  },
+  {
+   "quando": "Até o 2º Quadrimestre",
+   "valor": 9723229286
+  }
+ ],
+ "divida_consolidada": {
+  "SALDO DO EXERCÍCIO ANTERIOR": 26717508045,
+  "Até o 1º Quadrimestre": 25337955910,
+  "Até o 2º Quadrimestre": 23831503715
+ },
+ "fonte": "https://siconfi.tesouro.gov.br",
+ "consulta": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2026&in_periodicidade=Q&nr_periodo=2&co_tipo_demonstrativo=RGF&no_anexo=RGF-Anexo%2002&co_esfera=M&co_poder=E&id_ente=3522109",
+ "coletado_em": "2026-11-28"
+}

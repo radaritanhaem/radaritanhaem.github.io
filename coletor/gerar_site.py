@@ -412,6 +412,96 @@ def pagina_entidades():
     return pagina(f"Associações que receberam da Prefeitura | {NOME}", corpo, "/prefeitura/entidades/",
                   f"Associações e entidades sem fins lucrativos que receberam pagamentos da Prefeitura de Itanhaém em {ano}.", ativo="/prefeitura/")
 
+# ---------- A Prefeitura na Justiça ----------
+TIPOS_JUSTICA = [  # (trecho da natureza, nome simples, explicação)
+    ("SENTENÇAS JUDICIAIS DE PEQUENO VALOR", "Dívidas judiciais de pequeno valor (RPV)", "condenações menores, pagas em até 60 dias"),
+    ("4.6.90.91", "Precatórios", "condenações maiores, pagas por fila no Tribunal de Justiça"),
+    ("DIVERSAS SENTENÇAS", "Outras sentenças", "outros pagamentos mandados pela Justiça"),
+    ("DECISÃO JUDICIAL", "Remédios comprados por ordem da Justiça", "quando um morador ganha na Justiça o direito a um remédio"),
+    ("SERVIÇOS JUDICIÁRIOS", "Custas, cartórios e serviços judiciais", "taxas de cartório, protesto e custas de processos"),
+]
+ORGAOS_JUSTICA = {"51.174.001/0001-93": "Tribunal de Justiça de SP (repassa aos credores dos precatórios)",
+                  "03.773.524/0001-03": "Justiça do Trabalho, TRT-15 (dívidas trabalhistas)"}
+
+def _tipo_justica(nat):
+    for k, n, x in TIPOS_JUSTICA:
+        if k in nat:
+            return n, x
+    return _como_pagou(nat), ""
+
+def _justica():
+    pd = os.path.join(RAIZ, "dados", "prefeitura_despesas.json")
+    pp = os.path.join(RAIZ, "dados", "prefeitura_precatorios.json")
+    d = json.load(open(pd, encoding="utf-8")) if os.path.exists(pd) else {}
+    return d, d.get("justica"), (json.load(open(pp, encoding="utf-8")) if os.path.exists(pp) else None)
+
+def bloco_justica():
+    d, j, p = _justica()
+    if not j:
+        return ""
+    fila = f" Ainda há {mi(p['serie'][-1]['valor'])} em precatórios vencidos na fila." if p else ""
+    return f"""<a class="bloco-fiscal prefeitura" href="/prefeitura/justica/" style="margin-top:12px">
+<span class="eyebrow">A Prefeitura na Justiça</span><h2>Quanto a Prefeitura pagou por decisões da Justiça</h2>
+<p>{mi(j['tot'])} pagos em {d['exercicio']} por ordem judicial (precatórios, dívidas pequenas, remédios e custas).{fila}</p>
+<span class="ir">Ver os detalhes →</span></a>"""
+
+def pagina_justica():
+    d, j, p = _justica()
+    if not j:
+        return None
+    ano = d["exercicio"]
+    tipos = collections.Counter()
+    expl = {}
+    for nat, v in j["nat"]:
+        n, x = _tipo_justica(nat); tipos[n] += v; expl[n] = x
+    mx = max(tipos.values())
+    rank_tipos = "".join(f"""<li><span class="linha-r"><span class="nm">{e(n)}<br><small class="muted">{e(expl[n])}</small></span><span class="v">{mi(v)}</span></span>
+<div class="barra" data-tip="{e(n)}: {reais(v)}"><i style="width:{100*v/mx:.1f}%"></i></div></li>""" for n, v in tipos.most_common())
+    meses = sorted(j["mes"]); mxm = max(j["mes"].values())
+    barras_mes = "".join(f"""<div class="col" data-tip="{MESES_C[int(m[5:])-1]}/{m[:4]}: {reais(j['mes'][m])}" tabindex="0">
+<span class="v">{mi(j['mes'][m]).replace('R$ ','')}</span><i style="height:{max(2,100*j['mes'][m]/mxm):.1f}%"></i><span class="m">{MESES_C[int(m[5:])-1]}</span></div>""" for m in meses)
+    quem = []
+    for f, v in j["pj"][:12]:
+        nm, doc = f.rsplit("|", 1)
+        quem.append(f"<li><span>{e(ORGAOS_JUSTICA.get(doc, nome_bonito(nm)))}</span><b>{mi(v)}</b></li>")
+    if j.get("pf"):
+        quem.append(f"<li><span>Pessoas físicas (nomes não exibidos)</span><b>{mi(j['pf'])}</b></li>")
+    secs = "".join(f"<li><span>{e(nome_unidade(u))}</span><b>{mi(v)}</b></li>" for u, v in j["un"])
+    bloco_prec = ""
+    if p:
+        s = p["serie"]; mxp = max(x["valor"] for x in s)
+        rot = lambda q: "Começo do ano" if "ANTERIOR" in q.upper() else re.sub(r"(?i)at[ée] o (\d)º quadrimestre", lambda m: {"1": "Até abril", "2": "Até agosto", "3": "Até dezembro"}[m.group(1)], q)
+        barras_p = "".join(f"""<li><span class="linha-r"><span class="nm">{e(rot(x['quando']))}</span><span class="v">{mi(x['valor'])}</span></span>
+<div class="barra"><i style="width:{100*x['valor']/mxp:.1f}%"></i></div></li>""" for x in s)
+        dif = s[0]["valor"] - s[-1]["valor"]
+        bloco_prec = f"""<section class="graf"><h2>Quanto ainda falta pagar em precatórios</h2>
+<p class="muted" style="margin:0 0 10px">Precatórios vencidos e ainda não pagos pela Prefeitura, segundo o relatório oficial de dívida (Relatório de Gestão Fiscal) entregue ao Tesouro Nacional.{f' A fila diminuiu {mi(dif)} em {ano}.' if dif > 0 else ''}</p>
+<ol class="ranking">{barras_p}</ol>
+<p class="small muted">Fonte: <a href="{e(p['consulta'])}" target="_blank" rel="noopener">SICONFI / Tesouro Nacional, RGF Anexo 2</a>. Para ver cada precatório da fila, consulte a <a href="https://www.tjsp.jus.br/cac/scp/webRelPublicLstPagPrecatPendentes.aspx" target="_blank" rel="noopener">lista do Tribunal de Justiça de SP ↗</a> (entidade: Prefeitura de Itanhaém).</p></section>"""
+    corpo = f"""<section class="cab-lista"><span class="eyebrow" style="color:var(--accent)">Raio-X da Prefeitura</span>
+<h1>A Prefeitura na Justiça</h1>
+<p>Quanto a Prefeitura de Itanhaém pagou em {ano} porque a <b>Justiça mandou</b>, e quanto ainda deve em precatórios. Só valor efetivamente pago. Dados do <a href="{e(d['fonte'])}" target="_blank" rel="noopener">Portal de Dados Abertos da Prefeitura</a> e do Tesouro Nacional, atualizados em {data_br(j.get('coletado_em') or d['coletado_em'])}.</p></section>
+<div class="tiles-p">
+<div><b>{mi(j['tot'])}</b><span>pagos em {ano} por decisão da Justiça</span></div>
+<div><b>{j['n']}</b><span>pagamentos</span></div>
+{f'<div><b>{mi(p["serie"][-1]["valor"])}</b><span>em precatórios vencidos ainda na fila</span></div>' if p else ''}
+</div>
+<section class="graf"><h2>Por que a Prefeitura pagou</h2><ol class="ranking">{rank_tipos}</ol></section>
+<section class="graf"><h2>Quanto foi pago em cada mês</h2>
+<div class="colunas" role="img" aria-label="Pago por decisão judicial em cada mês de {ano}">{barras_mes}</div></section>
+<section class="graf duas-col"><div><h2>Quem recebeu</h2><ol class="forn">{''.join(quem)}</ol>
+<p class="small muted">Os precatórios são depositados no Tribunal de Justiça, que paga cada credor. Por isso os nomes das pessoas não aparecem.</p></div>
+<div><h2>Secretaria que pagou</h2><ol class="forn">{secs}</ol></div></section>
+{bloco_prec}
+<section class="prose-p"><h2>Como ler</h2>
+<p><b>Precatório</b> é uma dívida que a Prefeitura perdeu na Justiça e não pode mais recorrer. Como o valor é alto, ela entra numa fila no Tribunal de Justiça e é paga aos poucos. <b>RPV</b> (requisição de pequeno valor) é uma condenação menor, que tem de ser paga em até 60 dias.</p>
+<p>Somamos os pagamentos de {ano} registrados como sentenças judiciais, precatórios, RPV, remédios fornecidos por decisão judicial e serviços judiciários. Pagamentos de anos anteriores ("restos a pagar") não entram.</p>
+<p><b>Por que não mostramos a lista de processos?</b> A consulta por nome no Tribunal de Justiça tem verificação contra robôs, e a maioria dos processos é de moradores e servidores. Mostrar essa lista exporia o nome de pessoas.</p>
+<p>Encontrou um erro? Avise pela <a href="https://github.com/radaritanhaem/radaritanhaem.github.io/issues" target="_blank" rel="noopener">aba Issues</a>.</p>
+</section>"""
+    return pagina(f"A Prefeitura na Justiça | {NOME}", corpo, "/prefeitura/justica/",
+                  f"Quanto a Prefeitura de Itanhaém pagou por decisões judiciais em {ano} e quanto deve em precatórios.", ativo="/prefeitura/")
+
 def pagina_prefeitura():
     pd = os.path.join(RAIZ, "dados", "prefeitura_despesas.json")
     if not os.path.exists(pd):
@@ -486,6 +576,7 @@ def pagina_prefeitura():
 {bloco_alertas('prefeitura')}
 {bloco_compras()}
 {bloco_entidades()}
+{bloco_justica()}
 <section class="graf"><h2>Quanto foi pago em cada mês</h2>
 <div class="colunas" role="img" aria-label="Total pago por mês em {ano}">{barras_mes}</div>
 <p class="small muted">Pela data do pagamento. Janeiro é baixo porque os pagamentos de despesas do ano anterior não entram nesta conta.</p></section>
@@ -797,6 +888,9 @@ def main():
     if comp:
         gravar("prefeitura/compras/index.html", comp); caminhos.append("/prefeitura/compras/")
     alertas_na_camara()
+    jus = pagina_justica()
+    if jus:
+        gravar("prefeitura/justica/index.html", jus); caminhos.append("/prefeitura/justica/")
     ent = pagina_entidades()
     if ent:
         gravar("prefeitura/entidades/index.html", ent); caminhos.append("/prefeitura/entidades/")
